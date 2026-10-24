@@ -1,0 +1,274 @@
+export const site = {
+  name: '11 PM Snacks',
+  tagline: 'Your Cravings. Our Calling.',
+  description:
+    '11 PM Snacks is an Indian masala-flavoured popcorn brand. Discover Peri Peri, Tangy Tomato, and Cheese in 30 g and 90 g packs — small-batch crafted, made without palm oil.',
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'https://11pmsnacks.com'),
+  phone: '+918510801655',
+  phoneDisplay: '+91 85108 01655',
+  gstin: '06JKWPK0688H1ZD',
+  city: 'Gurugram, Haryana',
+  addressLines: ['House No. 525/22A, Street 10', 'Shivji Park Colony', 'Gurugram, Haryana 122001'],
+  proprietor: 'Kunal Sengar',
+};
+
+export const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/flavours', label: 'Our Flavours', children: [
+    { href: '/flavours/peri-peri', label: 'Peri Peri' },
+    { href: '/flavours/tangy-tomato', label: 'Tangy Tomato' },
+    { href: '/flavours/cheese', label: 'Cheese' },
+  ]},
+  { href: '/healthy-snacking', label: 'Healthy Snacking' },
+  { href: '/why-11pm', label: 'Why 11 PM?' },
+  { href: '/ingredients-nutrition', label: 'Ingredients & Nutrition' },
+  { href: '/our-process', label: 'Our Process' },
+  { href: '/about', label: 'About Us' },
+  { href: '/contact', label: 'Contact' },
+] as const;
+
+export const packIcons = [
+  '12g Protein / 100g',
+  'High in Dietary Fibre',
+  'Rich in Antioxidants',
+  'Supports Heart Health',
+  '100% Gluten Free',
+  'Whole Wheat & Whole Grain',
+  'Plant-Based Snacking',
+  'Sunflower Oil · No Palm Oil',
+] as const;
+
+export const nutritionPillars = [
+  {
+    id: 'protein',
+    title: '12g Protein per 100g',
+    badge: '12g / 100g',
+    icon: '💪',
+    short: 'Clean plant-based protein punch',
+    description:
+      'Provides a substantial 12g of natural plant-based protein per 100g serving. Powers active lifestyles, aids muscle repair, and keeps you feeling satisfied long after snack time.',
+    highlight: '12g',
+    unit: 'per 100g',
+    image: '/brand/clusters.png',
+  },
+  {
+    id: 'fibre',
+    title: 'High in Dietary Fibre',
+    badge: 'Digestive Health',
+    icon: '🌾',
+    short: 'Promotes gut wellness & fullness',
+    description:
+      'Popped whole corn kernels are naturally loaded with dietary fibre. Fibre slows glucose absorption, sustains even energy levels, and nurtures a healthy digestive tract.',
+    highlight: 'High',
+    unit: 'Fibre',
+    image: '/brand/pop-explosion.png',
+  },
+  {
+    id: 'antioxidants',
+    title: 'Rich in Antioxidants',
+    badge: 'Polyphenol Power',
+    icon: '✨',
+    short: 'Fights oxidative cellular stress',
+    description:
+      'The outer hull of popped corn concentrates dense polyphenol antioxidants that actively combat oxidative damage, boost cellular defenses, and support radiant well-being.',
+    highlight: 'Rich',
+    unit: 'Polyphenols',
+    image: '/brand/celebration.png',
+  },
+  {
+    id: 'heart',
+    title: 'Supports Heart Health',
+    badge: 'Zero Palm Oil',
+    icon: '❤️',
+    short: 'Sunflower oil · 0g trans fat',
+    description:
+      'Popped exclusively using sunflower oil with zero cholesterol and 0g trans fats. Completely free from harmful palm oil to help maintain healthy cardiovascular circulation.',
+    highlight: 'Heart',
+    unit: 'Healthy',
+    image: '/brand/burst-hero.png',
+  },
+  {
+    id: 'gluten-free',
+    title: '100% Gluten Free',
+    badge: 'Celiac Safe',
+    icon: '🛡️',
+    short: 'Safe for gluten-sensitive diets',
+    description:
+      'Corn is a naturally gluten-free grain. Enjoy bold, fiery masala indulgence with complete peace of mind, free from wheat gluten, barley, or hidden gluten binders.',
+    highlight: '100%',
+    unit: 'Gluten Free',
+    image: '/brand/peri-burst.png',
+  },
+  {
+    id: 'whole-grain',
+    title: 'Whole Wheat & Whole Grain',
+    badge: 'Unrefined Wholesome',
+    icon: '🌽',
+    short: 'Unrefined complex carbohydrates',
+    description:
+      'Crafted from 100% unrefined whole grains containing all three parts: the bran, germ, and endosperm. Gives you steady, crash-free metabolic energy through the day.',
+    highlight: 'Whole',
+    unit: 'Grain Goodness',
+    image: '/brand/kernels-play.png',
+  },
+  {
+    id: 'plant-based',
+    title: 'Plant-Based Snacking',
+    badge: 'Pure Botanical',
+    icon: '🌿',
+    short: '100% vegan-friendly ingredients',
+    description:
+      'Rooted in clean, non-animal agricultural ingredients without animal fats, chemical shortenings, or synthetic binders. Wholesome munching that honors your body and the planet.',
+    highlight: 'Plant',
+    unit: 'Based Snack',
+    image: '/brand/lifestyle-joy.png',
+  },
+] as const;
+
+export const packSizes = [
+  {
+    id: 'everyday',
+    label: 'Everyday Crunch',
+    weight: '30 g',
+    price: '₹30',
+    kicker: 'A quick handful',
+    title: 'Your little break, packed with flavour.',
+    body: 'A convenient single-serving pack for work breaks, study sessions, travel, or whenever a craving strikes.',
+    image: '/brand/peri-peri-pouch.png',
+    alt: '11 PM Snacks 30 gram Everyday Crunch pack',
+    size: 'regular' as const,
+  },
+  {
+    id: 'jumbo',
+    label: 'Jumbo Crunch',
+    weight: '90 g',
+    price: '₹60',
+    kicker: 'For longer moments',
+    title: 'More popcorn for the moments that last longer.',
+    body: 'Perfect for sharing, movie nights, get-togethers, or when you simply want more of your favourite crunch.',
+    image: '/brand/cheese-pouch.png',
+    alt: '11 PM Snacks 90 gram Jumbo Crunch pack',
+    size: 'jumbo' as const,
+  },
+] as const;
+
+export const labelChecks = [
+  { title: 'Read the ingredient list', body: 'Oils, seasonings, and allergens sit in the ingredients, not in the flavour name on the front.' },
+  { title: 'Notice the oil', body: 'Different snacks use different oils. 11 PM Snacks pouches name sunflower oil and do not use palm oil. That is an ingredient choice, not a health ranking of every other oil.' },
+  { title: 'Compare the panel', body: 'Saturated fat, sodium, fibre, energy, and serving size are how packs can be compared — once those numbers are on the label you are holding.' },
+  { title: 'Portion size matters', body: 'A 30 g pack and a 90 g pack are different amounts of the same snack. How much you eat changes the nutrition you actually consume.' },
+  { title: 'Marketing is not the panel', body: 'Front-of-pack lines and icons are not a substitute for ingredients, allergens, and the nutrition information table.' },
+] as const;
+
+export const flavours = [
+  {
+    slug: 'peri-peri',
+    name: 'Peri Peri',
+    href: '/flavours/peri-peri',
+    kicker: '01 / The Firestarter',
+    headline: 'Bring on the Heat.',
+    subhead: 'Bold flavour. Fiery attitude. Serious crunch.',
+    preview: 'A fiery masala kick meets satisfying popcorn crunch. Made for the ones who like their snacks bold, punchy, and full of attitude.',
+    cta: 'Discover Peri Peri',
+    theme: 'peri' as const,
+    mood: ['Bold', 'Punchy', 'Spicy'],
+    pouch: '/brand/peri-peri-pouch.png',
+    burst: '/brand/peri-burst.png',
+    personality:
+      'Peri Peri is the flavour that walks in loud. It is built for people who want masala with heat, crunch with attitude, and a snack that does not fade into the background.',
+    taste: [
+      { title: 'Heat first', body: 'A peri peri masala kick leads the flavour, with warmth that builds across a handful rather than disappearing on the first crunch.' },
+      { title: 'Savoury spice', body: 'The seasoning is designed to taste like a snack you remember — spicy, seasoned, and unapologetically bold.' },
+      { title: 'Serious crunch', body: 'Under the heat is still popcorn: light, popped, and made to be eaten by the handful.' },
+    ],
+  },
+  {
+    slug: 'tangy-tomato',
+    name: 'Tangy Tomato',
+    href: '/flavours/tangy-tomato',
+    kicker: '02 / The Mood Lifter',
+    headline: 'Get Ready to Tang.',
+    subhead: 'A tangy twist. A satisfying crunch. A whole lot of flavour.',
+    preview: 'A delicious tomato twist brings a tangy burst of flavour to every handful. Bright, lively, and made for your next snack-time craving.',
+    cta: 'Discover Tangy Tomato',
+    theme: 'tomato' as const,
+    mood: ['Zesty', 'Bright', 'Lively'],
+    pouch: '/brand/tangy-tomato-pouch.png',
+    burst: '/brand/kernels-play.png',
+    personality:
+      'Tangy Tomato is the flavour that brightens the room. It is tomato-led, lively, and made for snack breaks that need a little spark rather than a slow burn.',
+    taste: [
+      { title: 'Tomato-led tang', body: 'The flavour leans into a tomato twist — bright, tangy, and immediately recognisable in a handful.' },
+      { title: 'A lively masala', body: 'This is still a masala popcorn, just with a different personality: punchy without chasing heat for heat’s sake.' },
+      { title: 'Snack-time energy', body: 'It is the flavour we imagine for afternoon cravings, study breaks, and any moment that needs a lift.' },
+    ],
+  },
+  {
+    slug: 'cheese',
+    name: 'Cheese',
+    href: '/flavours/cheese',
+    kicker: '03 / The Comfort One',
+    headline: 'Cheesy. Crunchy. Unforgettable.',
+    subhead: 'Your favourite savoury mood, now with a popcorn crunch.',
+    preview: 'Rich savoury cheese flavour meets the satisfying crunch of popcorn. A comforting favourite with a flavour worth coming back for.',
+    cta: 'Discover Cheese',
+    theme: 'cheese' as const,
+    mood: ['Savoury', 'Comforting', 'Golden'],
+    pouch: '/brand/cheese-pouch.png',
+    burst: '/brand/kernels-burst.png',
+    personality:
+      'Cheese is the flavour people reach for when they want something familiar and still a little special. Savoury, comforting, and built around a golden popcorn crunch.',
+    taste: [
+      { title: 'Savoury cheese', body: 'A rich cheddar cheese flavour leads, designed as a comforting masala-snack mood rather than a plain buttered popcorn.' },
+      { title: 'Warm and familiar', body: 'This is the crowd favourite energy: easy to share, easy to keep eating, and hard to confuse with the other two.' },
+      { title: 'Crunch that stays', body: 'The cheese seasoning sits on popcorn that is popped and packed to keep that light, satisfying snap.' },
+    ],
+  },
+] as const;
+
+export type Flavour = (typeof flavours)[number];
+
+export function flavourBySlug(slug: string) {
+  return flavours.find((item) => item.slug === slug);
+}
+
+export function otherFlavours(slug: string) {
+  return flavours.filter((item) => item.slug !== slug);
+}
+
+export const processSteps = [
+  {
+    n: '01',
+    title: 'Selecting the kernels',
+    body: 'Every batch starts with popcorn maize — a popping variety of corn, chosen for the snack we want to make. We work in small batches so the details stay visible from the first scoop of kernels.',
+  },
+  {
+    n: '02',
+    title: 'Popping',
+    body: 'Heat turns each kernel into popcorn. We pop in small batches so we can watch the process, rather than treating popcorn as an afterthought on a long production line.',
+  },
+  {
+    n: '03',
+    title: 'Cooling',
+    body: 'Freshly popped corn needs a pause. Cooling helps the crunch settle before seasoning goes on, so flavour has a better surface to hold.',
+  },
+  {
+    n: '04',
+    title: 'Seasoning',
+    body: 'This is where Peri Peri, Tangy Tomato, and Cheese become themselves. Flavour seasoning is applied after popping, in the batch, with attention to coverage and character.',
+  },
+  {
+    n: '05',
+    title: 'Quality checks',
+    body: 'We look at the batch before it is packed — the pop, the seasoning, the details that decide whether a handful feels like 11 PM Snacks.',
+  },
+  {
+    n: '06',
+    title: 'Packing and sealing',
+    body: 'Popcorn is packed and sealed so the crunch you meet at snack time is the crunch we packed. Pack copy is where verified ingredients, allergens, and nutrition belong.',
+  },
+] as const;
