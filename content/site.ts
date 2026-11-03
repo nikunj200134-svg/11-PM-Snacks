@@ -5,7 +5,7 @@
  * - Single source of truth for all copy. Zero copy hardcoded in JSX.
  * - Non-negotiable brand facts: 11 PM Snacks, "Your Cravings. Our Calling."
  * - Three flavours: Peri Peri (The Firestarter), Tangy Tomato (The Mood Lifter), Cheddar Cheese (The Comfort One).
- * - Packs: Everyday Crunch 30 g (₹30) & Jumbo Crunch 90 g (₹60).
+ * - Batches: Handcrafted in small batches, Batch 01 launching soon.
  * - Made in Gurugram, India with no palm oil, popped in sunflower oil.
  * - One idea, one home: nutrition detail on /nutrition, homepage shows one snapshot.
  * - "No palm oil" appears at most TWICE on the homepage.
@@ -38,14 +38,14 @@ export interface FlavourItem {
     thirdIcon: string;
   };
   nutritionSnapshot: {
-    caloriesPer30g: string;
+    caloriesPerServing: string;
     proteinPer100g: string;
     dietaryFibre: string;
     transFat: string;
   };
   nutritionTable: {
     nutrient: string;
-    per30g: string;
+    perServing: string;
     per100g: string;
   }[];
 }
@@ -53,10 +53,7 @@ export interface FlavourItem {
 export interface PackItem {
   id: string;
   name: string;
-  weight: string;
-  price: number;
-  currency: string;
-  formattedPrice: string;
+  weight?: string;
   badge?: string;
   highlight: string;
   servingDescription: string;

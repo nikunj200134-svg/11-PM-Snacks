@@ -183,8 +183,8 @@ export default function StyleguidePage() {
               items={[
                 'ZERO PALM OIL',
                 'POPPED IN SUNFLOWER OIL',
-                'EVERYDAY CRUNCH 30g ₹30',
-                'JUMBO CRUNCH 90g ₹60',
+                'BATCH 01 DROPPING SOON',
+                'CRAFTED IN SMALL BATCHES',
                 'GURUGRAM CRAFTED',
               ]}
               variant="gold"
@@ -243,7 +243,7 @@ export default function StyleguidePage() {
           <div className="flex items-center gap-2 border-b-2 border-[#14102B] pb-2">
             <span className="font-mono font-bold text-xs text-[#FF4B1F]">11. COMPONENT</span>
             <h3 className="font-display text-xl uppercase tracking-wider text-[#14102B]">
-              PackCard (Slot 5 · Verified ₹30 &amp; ₹60 Packs)
+              PackCard (Slot 5 · Batch 01 Showcase)
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto w-full">
@@ -265,8 +265,8 @@ export default function StyleguidePage() {
             <StatChip value="12g" label="Plant Protein / 100g" icon="⚡" variant="gold" />
             <StatChip value="0%" label="Palm Oil Used" icon="❤️" variant="peri" />
             <StatChip value="100%" label="Whole Grain Corn" icon="🌾" variant="leaf" />
-            <StatChip value="₹30" label="Everyday Crunch" icon="🍿" variant="cream" />
-            <StatChip value="₹60" label="Jumbo Crunch" icon="🍿" variant="pink" />
+            <StatChip value="Batch 01" label="Limited Drop" icon="🍿" variant="cream" />
+            <StatChip value="Sunflower" label="Kettle Popped" icon="🌻" variant="pink" />
             <StatChip value="0g" label="Trans Fat" icon="🛡️" variant="midnight" />
           </div>
         </section>
@@ -338,7 +338,7 @@ export default function StyleguidePage() {
               review={{
                 author: 'Aman K., Delhi',
                 quote:
-                  'Jumbo 90g pack is a lifesaver during weekend gaming sessions. Cheddar Cheese has an actual creamy crunch.',
+                  'This signature pack is a lifesaver during weekend gaming sessions. Cheddar Cheese has an actual creamy crunch.',
                 occasion: 'gaming night',
                 rating: 5,
               }}
