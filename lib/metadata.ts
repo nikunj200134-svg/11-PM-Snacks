@@ -5,10 +5,12 @@ export function pageMeta({
   title,
   description,
   path,
+  image = '/images/snack-trio.png',
 }: {
   title: string;
   description: string;
   path: string;
+  image?: string;
 }): Metadata {
   const url = `${site.url}${path}`;
   const fullTitle = path === '/' ? `${site.name} | ${title}` : `${title} | ${site.name}`;
@@ -22,12 +24,20 @@ export function pageMeta({
       title: fullTitle,
       description,
       siteName: site.name,
-      images: [{ url: '/brand/burst-hero.png', width: 1200, height: 1600, alt: '11 PM Snacks flavoured popcorn pouch' }],
+      images: [
+        {
+          url: image,
+          width: 1200,
+          height: 630,
+          alt: `${site.name} — Handcrafted Masala Popcorn`,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: fullTitle,
       description,
+      images: [image],
     },
   };
 }
