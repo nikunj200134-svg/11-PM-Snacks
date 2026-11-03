@@ -137,6 +137,9 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
             <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-wider text-[#14102B] m-0">
               Taste Breakdown
             </h2>
+            <p className="text-xs sm:text-sm font-mono text-[#14102B]/65 mt-2">
+              Sensory flavour characteristics & intensity levels · Not a customer review rating
+            </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">

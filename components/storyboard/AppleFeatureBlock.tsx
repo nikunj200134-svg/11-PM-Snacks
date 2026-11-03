@@ -233,16 +233,26 @@ export function AppleFeatureBlock() {
               </div>
             </div>
 
-            {/* Sensory Taste Meters Strip */}
-            <div className="grid grid-cols-3 gap-3 pt-6 mt-6 border-t-2 border-[#14102B]/10">
-              <Meter label="Heat" level={active.meters.heat} icon="🔥" tone={active.tone} />
-              <Meter label="Tang" level={active.meters.tang} icon="🍅" tone={active.tone} />
-              <Meter
-                label={active.meters.thirdLabel}
-                level={active.meters.crunchOrCheese}
-                icon={active.meters.thirdIcon}
-                tone={active.tone}
-              />
+            {/* Sensory Taste Profile Strip */}
+            <div className="pt-5 mt-6 border-t-2 border-[#14102B]/10">
+              <div className="flex items-center justify-between mb-2.5">
+                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#14102B]/75">
+                  Flavour Profile & Intensity
+                </span>
+                <span className="text-[10px] font-mono text-[#14102B]/50 hidden sm:inline">
+                  Sensory characteristics · Not a review rating
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <Meter label="Heat" level={active.meters.heat} icon="🔥" tone={active.tone} />
+                <Meter label="Tang" level={active.meters.tang} icon="🍅" tone={active.tone} />
+                <Meter
+                  label={active.meters.thirdLabel}
+                  level={active.meters.crunchOrCheese}
+                  icon={active.meters.thirdIcon}
+                  tone={active.tone}
+                />
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>

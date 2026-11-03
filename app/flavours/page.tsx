@@ -117,16 +117,26 @@ export default function FlavoursPage() {
                     </div>
                   </div>
 
-                  {/* Sensory Meters */}
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t-2 border-[#14102B]/10">
-                    <Meter label="Heat" level={flavour.meters.heat} icon="🔥" tone={flavour.tone} />
-                    <Meter label="Tang" level={flavour.meters.tang} icon="🍅" tone={flavour.tone} />
-                    <Meter
-                      label={flavour.meters.thirdLabel}
-                      level={flavour.meters.crunchOrCheese}
-                      icon={flavour.meters.thirdIcon}
-                      tone={flavour.tone}
-                    />
+                  {/* Sensory Taste Profile */}
+                  <div className="pt-4 border-t-2 border-[#14102B]/10">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#14102B]/75">
+                        Flavour Profile & Intensity
+                      </span>
+                      <span className="text-[10px] font-mono text-[#14102B]/50 hidden sm:inline">
+                        Sensory characteristics · Not a review rating
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <Meter label="Heat" level={flavour.meters.heat} icon="🔥" tone={flavour.tone} />
+                      <Meter label="Tang" level={flavour.meters.tang} icon="🍅" tone={flavour.tone} />
+                      <Meter
+                        label={flavour.meters.thirdLabel}
+                        level={flavour.meters.crunchOrCheese}
+                        icon={flavour.meters.thirdIcon}
+                        tone={flavour.tone}
+                      />
+                    </div>
                   </div>
 
                   {/* Explore & Buy Actions */}
