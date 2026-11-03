@@ -165,18 +165,13 @@ export function HoverHero() {
           </AnimatePresence>
         </div>
 
-        {/* Overlapping, Tilted Pouch Row */}
-        <div className="relative w-[min(1080px,94vw)] mx-auto flex items-end justify-center -mt-6 sm:-mt-12 lg:-mt-16 z-20">
+        {/* Aligned, Square Pouch Row with Curves & Spacing */}
+        <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center gap-3 sm:gap-6 md:gap-8 lg:gap-10 -mt-4 sm:-mt-8 lg:-mt-12 z-20 px-2 sm:px-4">
           {flavours.map((flavour, idx) => {
             const isHovered = hoveredIdx === idx;
             const isMobileActive = isMobile && mobileActiveIdx === idx;
             const isHighlighted = isHovered || isMobileActive;
             const isOtherHighlighted = (hoveredIdx !== null || isMobile) && !isHighlighted;
-
-            // Default tilts and overlap positions:
-            // Left (Peri Peri) tilts left (-4deg), Center (Tomato) straight (+1deg), Right (Cheese) tilts right (+5deg)
-            const defaultRotation = idx === 0 ? -4 : idx === 1 ? 1 : 5;
-            const defaultOverlap = idx === 0 ? 'translate-x-3 sm:translate-x-8' : idx === 2 ? '-translate-x-3 sm:-translate-x-8' : 'z-30';
 
             return (
               <div
@@ -194,55 +189,54 @@ export function HoverHero() {
                   }
                 }}
                 onClick={() => handlePouchClick(flavour.id)}
-                className={`relative flex flex-col items-center cursor-pointer transition-transform duration-300 ${defaultOverlap} ${
-                  isHighlighted ? 'z-40' : idx === 1 ? 'z-20' : 'z-10'
-                }`}
+                className="relative flex flex-col items-center cursor-pointer"
               >
                 {/* Flavour Subtitle Tag */}
                 <div
-                  className={`transition-all duration-300 mb-2 sm:mb-4 ${
-                    isHighlighted ? 'opacity-100 -translate-y-2' : 'opacity-0 sm:opacity-75'
+                  className={`transition-all duration-300 mb-2 sm:mb-3 ${
+                    isHighlighted ? 'opacity-100 -translate-y-1' : 'opacity-0 sm:opacity-75'
                   }`}
                 >
                   <span
                     style={{ backgroundColor: flavour.accentColor }}
-                    className="inline-block px-3 py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]"
+                    className="inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] border sm:border-2 border-[#14102B] shadow-[1.5px_1.5px_0px_#14102B]"
                   >
                     {flavour.subtitle}
                   </span>
                 </div>
 
-                {/* Pouch Mockup with Spring Lift & Scale to 1.06 */}
+                {/* Square Card with Curved Corners, Alignment, and Smooth Hover Lift */}
                 <motion.div
                   animate={
                     reducedMotion
                       ? {}
                       : {
-                          scale: isHighlighted ? 1.06 : isOtherHighlighted ? 0.94 : 1,
-                          y: isHighlighted ? -24 : 0,
-                          rotate: isHighlighted ? 0 : defaultRotation,
-                          opacity: isOtherHighlighted ? 0.7 : 1,
+                          scale: isHighlighted ? 1.05 : isOtherHighlighted ? 0.95 : 1,
+                          y: isHighlighted ? -12 : 0,
+                          opacity: isOtherHighlighted ? 0.75 : 1,
                         }
                   }
                   transition={{
                     type: 'spring',
-                    stiffness: 300,
-                    damping: 20,
+                    stiffness: 320,
+                    damping: 22,
                   }}
-                  className="relative w-36 sm:w-60 md:w-72 lg:w-80 aspect-[3/2] rounded-2xl sm:rounded-3xl overflow-hidden border-[2.5px] border-[#FFF4DC]/40 shadow-[0_16px_36px_rgba(0,0,0,0.5)] bg-[#14102B]"
+                  className={`relative w-[28vw] max-w-[108px] sm:max-w-none sm:w-48 md:w-56 lg:w-64 xl:w-72 aspect-square rounded-2xl sm:rounded-3xl overflow-hidden border-2 sm:border-[3px] transition-colors duration-300 shadow-[0_12px_32px_rgba(0,0,0,0.45)] bg-[#14102B] ${
+                    isHighlighted ? 'border-[#FFC21A] ring-2 ring-[#FFC21A]/30' : 'border-[#FFF4DC]/35'
+                  }`}
                 >
                   <Image
                     src={flavour.pouch}
                     alt={`${flavour.name} Masala Popcorn Pouch`}
                     fill
-                    sizes="(max-width: 640px) 33vw, 320px"
+                    sizes="(max-width: 640px) 30vw, (max-width: 1024px) 220px, 288px"
                     priority
                     className="object-cover"
                   />
                 </motion.div>
 
                 {/* Flavour Label Below */}
-                <span className="mt-3 text-xs sm:text-sm md:text-base font-display uppercase tracking-wider text-[#FFF4DC] font-bold">
+                <span className="mt-2.5 sm:mt-3 text-[11px] sm:text-sm md:text-base font-display uppercase tracking-wider text-[#FFF4DC] font-bold text-center">
                   {flavour.name}
                 </span>
               </div>

@@ -261,7 +261,7 @@ const CrowdCanvas = ({
       if (!canvas) return;
       stage.width = canvas.clientWidth;
       stage.height = canvas.clientHeight;
-      peepScale = stage.width < 768 ? 0.45 : 0.65;
+      peepScale = stage.width < 768 ? 0.35 : 0.46;
       
       canvas.width = stage.width * dpr;
       canvas.height = stage.height * dpr;
