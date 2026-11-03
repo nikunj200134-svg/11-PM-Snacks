@@ -760,7 +760,7 @@ export const siteContent = {
       onlinePlatforms: [
         {
           name: 'Direct Online Store',
-          eta: 'Dispatched fresh daily from Gurugram (Free above ₹199)',
+          eta: 'Dispatched fresh daily from Gurugram kitchen',
           badge: 'Best Freshness',
           ctaText: 'Shop Flavours Here',
           ctaHref: '/flavours',
