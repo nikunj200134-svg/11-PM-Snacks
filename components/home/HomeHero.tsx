@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/Button';
@@ -12,8 +13,15 @@ import { siteContent } from '@/content/site';
 export function HomeHero() {
   const { hero } = siteContent.homepage;
   const reducedMotion = useReducedMotion();
+  const [isTouch, setIsTouch] = useState(false);
 
-  // Scroll parallax for floating pouch (Recipe 2)
+  useEffect(() => {
+    setIsTouch(
+      window.matchMedia('(hover: none), (pointer: coarse), (max-width: 1023px)').matches
+    );
+  }, []);
+
+  // Scroll parallax for floating pouch (Recipe 2) - disabled on touch devices to prevent jank
   const { scrollY } = useScroll();
   const pouchParallax = useTransform(scrollY, [0, 600], [0, 75]);
 
@@ -131,9 +139,9 @@ export function HomeHero() {
 
           {/* Floating Pouch with ±10px vertical and ±2° rotation over 3s + Parallax (Recipe 2) */}
           <motion.div
-            style={reducedMotion ? {} : { y: pouchParallax }}
+            style={reducedMotion || isTouch ? {} : { y: pouchParallax }}
             animate={
-              reducedMotion
+              reducedMotion || isTouch
                 ? {}
                 : {
                     y: [-10, 10, -10],
@@ -141,7 +149,7 @@ export function HomeHero() {
                   }
             }
             transition={
-              reducedMotion
+              reducedMotion || isTouch
                 ? {}
                 : {
                     y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
