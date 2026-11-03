@@ -41,7 +41,7 @@ export function NutritionSnapshotSection() {
                 Nutrition Facts
               </h3>
               <p className="text-xs font-mono text-[#14102B]/70 mt-1">
-                Everyday Crunch (30 g) &amp; Jumbo Crunch (90 g)
+                Batch 01 Launch Editions
               </p>
             </div>
 

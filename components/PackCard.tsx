@@ -2,7 +2,6 @@
 
 import { Check } from 'lucide-react';
 import { Button } from '@/components/Button';
-import { CountUp } from '@/components/CountUp';
 import { Magnetic } from '@/components/Magnetic';
 import { BurstButtonWrapper } from '@/components/PopBurst';
 import type { PackItem } from '@/content/site';
@@ -33,23 +32,23 @@ export function PackCard({ pack, className = '' }: PackCardProps) {
       )}
 
       <div>
-        {/* Pack Title & Weight */}
+        {/* Pack Title & Launch Status */}
         <div className="flex items-baseline justify-between gap-2">
           <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-wider text-[#14102B]">
             {pack.name}
           </h3>
           <span className="text-sm font-mono font-bold px-2.5 py-1 rounded-lg bg-[#FFF4DC] border border-[#14102B] text-[#14102B]">
-            {pack.weight}
+            Batch 01
           </span>
         </div>
 
-        {/* Space Mono Pricing with Viewport Count-up (Recipe 7) */}
+        {/* Launch Status Badge */}
         <div className="mt-4 flex items-baseline gap-2">
-          <span className="text-4xl sm:text-5xl font-mono font-bold text-[#14102B] tracking-tight">
-            <CountUp value={pack.price} prefix="₹" durationSeconds={0.8} />
+          <span className="text-2xl sm:text-3xl font-display uppercase text-[#14102B] tracking-tight">
+            Coming Soon
           </span>
-          <span className="text-xs font-mono text-[#14102B]/60 uppercase">
-            / Pack MRP
+          <span className="text-xs font-mono font-bold text-[#FF4B1F] uppercase px-2 py-0.5 rounded bg-[#FF4B1F]/10">
+            Limited Drop
           </span>
         </div>
 

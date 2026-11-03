@@ -10,11 +10,11 @@ export function PacksSection() {
   const packs = siteContent.packs;
   const variety = siteContent.varietyBundle;
 
-  // Toggle state between Everyday Crunch (30g) and Jumbo Crunch (90g)
-  const [selectedPackId, setSelectedPackId] = useState<'all' | 'everyday-30g' | 'jumbo-90g'>('all');
+  // Toggle state between Everyday Crunch and Jumbo Crunch
+  const [selectedPackId, setSelectedPackId] = useState<'all' | 'everyday' | 'jumbo'>('all');
 
   const visiblePacks =
-    selectedPackId === 'all' ? packs : packs.filter((p) => p.id === selectedPackId);
+    selectedPackId === 'all' ? packs : packs.filter((p) => p.id.includes(selectedPackId));
 
   return (
     <section id="packs" className="relative bg-[#FFF4DC] py-20 border-b-2 border-[#14102B]">
@@ -22,7 +22,7 @@ export function PacksSection() {
         {/* Section Header: 1 H2 & 1 Short Paragraph */}
         <div className="text-center max-w-2xl mx-auto flex flex-col items-center">
           <span className="inline-block px-4 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] mb-3">
-            Real Packs · Real Value
+            Small Batch · Freshly Popped
           </span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-display uppercase tracking-wider text-[#14102B] m-0">
             {packsSection.title}
@@ -31,7 +31,7 @@ export function PacksSection() {
             {packsSection.description}
           </p>
 
-          {/* Interactive Size Toggle Filter with Count-up indicator */}
+          {/* Interactive Batch Toggle Filter */}
           <div className="mt-6 inline-flex p-1.5 bg-white border-2 border-[#14102B] rounded-full shadow-[4px_4px_0px_#14102B]">
             <button
               onClick={() => setSelectedPackId('all')}
@@ -41,27 +41,27 @@ export function PacksSection() {
                   : 'text-[#14102B] hover:bg-[#14102B]/10'
               }`}
             >
-              All Packs (₹30 &amp; ₹60)
+              All Batches
             </button>
             <button
-              onClick={() => setSelectedPackId('everyday-30g')}
+              onClick={() => setSelectedPackId('everyday')}
               className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase transition-all ${
-                selectedPackId === 'everyday-30g'
+                selectedPackId === 'everyday'
                   ? 'bg-[#14102B] text-[#FFF4DC]'
                   : 'text-[#14102B] hover:bg-[#14102B]/10'
               }`}
             >
-              30g Everyday (₹30)
+              Everyday Crunch
             </button>
             <button
-              onClick={() => setSelectedPackId('jumbo-90g')}
+              onClick={() => setSelectedPackId('jumbo')}
               className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase transition-all ${
-                selectedPackId === 'jumbo-90g'
+                selectedPackId === 'jumbo'
                   ? 'bg-[#14102B] text-[#FFF4DC]'
                   : 'text-[#14102B] hover:bg-[#14102B]/10'
               }`}
             >
-              90g Jumbo (₹60)
+              Jumbo Crunch
             </button>
           </div>
         </div>

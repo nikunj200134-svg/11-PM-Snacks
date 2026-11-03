@@ -10,7 +10,7 @@ export function AnnouncementBar() {
   return (
     <aside
       role="region"
-      aria-label="Delivery & Special Offers"
+      aria-label="Launch Announcements"
       className="relative z-50 overflow-hidden bg-[#14102B] text-[#FFF4DC] border-b-2 border-[#14102B] py-2 select-none"
     >
       <div className="flex w-full items-center">

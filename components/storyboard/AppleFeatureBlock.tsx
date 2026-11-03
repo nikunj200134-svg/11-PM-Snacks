@@ -16,7 +16,7 @@ import { siteContent, type FlavourItem } from '@/content/site';
  * - Four feature cards (Small Batch, No Palm Oil, Real Masala Flavour, Ready to Eat)
  *   that expand on click (aria-expanded) and lift on hover; swipeable on mobile
  * - Flavour panel with mood line, taste meters (heat, tang, cheesiness), description
- * - Strictly NO sizes and NO prices: "Coming soon" badge + "Notify me" CTA
+ * - Strictly unreleased format: "Coming soon" badge + "Notify me" CTA
  */
 
 interface FeatureCardData {
