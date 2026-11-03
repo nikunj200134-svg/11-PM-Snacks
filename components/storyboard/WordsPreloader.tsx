@@ -6,17 +6,31 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 /**
  * Words Preloader Sequence
- * 250–300 ms each, holding 400 ms on final brand name.
- * Hindi words (Baloo 2): कुरकुरा (Crispy/Crunchy), चटपटा (Tangy/Spicy), मसाला (Spiced/Masala).
+ * Paced at ~450ms per word and holding ~850ms on final brand name
+ * to allow all critical homepage imagery, fonts, and assets to eagerly cache & decode.
+ * Hindi words (Baloo 2): चटपटा (Tangy/Zesty), मसाला (Spiced/Masala).
+ * Note: 'कुरकुरा' has been deliberately removed.
  */
 const SEQUENCE_WORDS = [
   { text: 'Crave', isHindi: false },
   { text: 'Crunch', isHindi: false },
-  { text: 'कुरकुरा', isHindi: true },
   { text: 'चटपटा', isHindi: true },
   { text: 'मसाला', isHindi: true },
   { text: 'Pop', isHindi: false },
   { text: '11 PM SNACKS', isHindi: false },
+];
+
+const CRITICAL_HOMEPAGE_ASSETS = [
+  '/brand/logo-official.png',
+  '/images/peri-peri.webp',
+  '/images/tangy-tomato.webp',
+  '/images/cheddar-cheese.webp',
+  '/images/movie-night.webp',
+  '/brand/three-pack-flatlay.png',
+  '/brand/studio-model.png',
+  '/brand/tote-bag-model.png',
+  '/brand/siblings-sharing.png',
+  '/images/peeps/all-peeps - Copy.png',
 ];
 
 export function WordsPreloader() {
@@ -31,7 +45,7 @@ export function WordsPreloader() {
     setIsDone(true);
     document.body.style.overflow = '';
     try {
-      sessionStorage.setItem('11pm_preloader_v3', 'true');
+      sessionStorage.setItem('11pm_preloader_v4', 'true');
     } catch {
       // Ignore in restricted environments
     }
@@ -46,7 +60,7 @@ export function WordsPreloader() {
     // 1. Check if already played in this browser session or user prefers reduced motion
     try {
       const isReplay = window.location.search.includes('replay');
-      const hasLoaded = !isReplay && sessionStorage.getItem('11pm_preloader_v3');
+      const hasLoaded = !isReplay && sessionStorage.getItem('11pm_preloader_v4');
       if (hasLoaded || reducedMotion) {
         setIsDone(true);
         return;
@@ -65,16 +79,15 @@ export function WordsPreloader() {
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
-    // 3. Preload hero pouch images ahead of reveal
-    const heroAssets = [
-      '/images/peri-peri.webp',
-      '/images/tangy-tomato.webp',
-      '/images/cheddar-cheese.webp',
-      '/images/cascade.webp',
-    ];
-    heroAssets.forEach((src) => {
-      const img = new Image();
-      img.src = src;
+    // 3. Eagerly preload and decode all critical homepage images while preloader is active
+    CRITICAL_HOMEPAGE_ASSETS.forEach((src) => {
+      if (typeof window !== 'undefined') {
+        const img = new Image();
+        img.src = src;
+        if ('decode' in img) {
+          img.decode().catch(() => {});
+        }
+      }
     });
 
     setWindowDimensions({
@@ -100,19 +113,19 @@ export function WordsPreloader() {
     if (isDone || isExiting || reducedMotion) return;
 
     if (index < SEQUENCE_WORDS.length - 1) {
-      // Step through words every 270 ms
+      // Step through words every 450 ms (generous buffer for image loading)
       const timer = setTimeout(() => {
         setIndex((prev) => prev + 1);
-      }, 270);
+      }, 450);
       return () => clearTimeout(timer);
     } else {
-      // Hold final "11 PM SNACKS" for 400 ms, then trigger curved exit wipe
+      // Hold final "11 PM SNACKS" for 850 ms to ensure full image cache completion, then wipe
       const holdTimer = setTimeout(() => {
         setIsExiting(true);
         // Morph + slide up duration is 650 ms
         const exitTimer = setTimeout(handleFinish, 650);
         return () => clearTimeout(exitTimer);
-      }, 400);
+      }, 850);
       return () => clearTimeout(holdTimer);
     }
   }, [index, isDone, isExiting, reducedMotion, handleFinish]);
@@ -129,6 +142,7 @@ export function WordsPreloader() {
   const flatCurvePath = `M0 0 L${w} 0 L${w} ${h} Q${w / 2} ${h} 0 ${h} Z`;
 
   const currentItem = SEQUENCE_WORDS[index];
+  const progressPercent = Math.round(((index + 1) / SEQUENCE_WORDS.length) * 100);
 
   if (isDone) return null;
 
@@ -154,58 +168,75 @@ export function WordsPreloader() {
           </button>
 
           {/* Central Word Display + Ticking Clock Indicator */}
-          <div className="relative z-20 flex items-center justify-center gap-3 sm:gap-4 px-6 text-center">
-            {/* Ticking Clock Icon */}
-            <div
-              aria-hidden="true"
-              className="relative w-7 h-7 sm:w-9 sm:h-9 shrink-0 flex items-center justify-center"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="w-full h-full text-[#FFC21A]"
+          <div className="relative z-20 flex flex-col items-center justify-center gap-6 px-6 text-center">
+            <div className="flex items-center justify-center gap-3 sm:gap-4">
+              {/* Ticking Clock Icon */}
+              <div
+                aria-hidden="true"
+                className="relative w-8 h-8 sm:w-10 sm:h-10 shrink-0 flex items-center justify-center"
               >
-                <circle cx="12" cy="12" r="9" />
-                <line x1="12" y1="12" x2="12" y2="7" />
-                {/* Ticking second hand */}
-                <motion.line
-                  x1="12"
-                  y1="12"
-                  x2="16"
-                  y2="12"
-                  animate={{ rotate: 360 }}
-                  transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }}
-                  style={{ originX: '12px', originY: '12px' }}
-                  className="stroke-[#FF4B1F]"
-                />
-              </svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-full h-full text-[#FFC21A]"
+                >
+                  <circle cx="12" cy="12" r="9" />
+                  <line x1="12" y1="12" x2="12" y2="7" />
+                  {/* Ticking second hand */}
+                  <motion.line
+                    x1="12"
+                    y1="12"
+                    x2="16"
+                    y2="12"
+                    animate={{ rotate: 360 }}
+                    transition={{ repeat: Infinity, duration: 1.2, ease: 'linear' }}
+                    style={{ originX: '12px', originY: '12px' }}
+                    className="stroke-[#FF4B1F]"
+                  />
+                </svg>
+              </div>
+
+              {/* Dynamic Word Transition */}
+              <div className="min-w-[180px] sm:min-w-[280px] md:min-w-[420px] text-left">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentItem.text}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -15 }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className={`block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display uppercase tracking-wider text-[#FFC21A] ${
+                      currentItem.isHindi ? 'font-bold font-hindi' : ''
+                    }`}
+                  >
+                    {currentItem.text}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
             </div>
 
-            {/* Dynamic Word Transition */}
-            <div className="min-w-[180px] sm:min-w-[280px] md:min-w-[420px] text-left">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentItem.text}
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
-                  className={`block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display uppercase tracking-wider text-[#FFC21A] ${
-                    currentItem.isHindi ? 'font-bold font-hindi' : ''
-                  }`}
-                >
-                  {currentItem.text}
-                </motion.span>
-              </AnimatePresence>
+            {/* Loading & Image Buffer Progress Bar */}
+            <div className="flex flex-col items-center gap-2 w-full max-w-[260px] sm:max-w-xs mt-2">
+              <div className="w-full h-1.5 bg-[#FFF4DC]/15 rounded-full overflow-hidden border border-[#FFF4DC]/20">
+                <motion.div
+                  initial={{ width: '0%' }}
+                  animate={{ width: `${progressPercent}%` }}
+                  transition={{ duration: 0.38, ease: 'easeOut' }}
+                  className="h-full bg-gradient-to-r from-[#FF4B1F] via-[#FFC21A] to-[#2EC27E] rounded-full"
+                />
+              </div>
+              <span className="text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest text-[#FFF4DC]/50">
+                Kettle Warming Up · {progressPercent}%
+              </span>
             </div>
           </div>
 
           {/* Subtitle Brand Stamp */}
-          <div className="absolute bottom-12 z-20 text-center">
+          <div className="absolute bottom-10 z-20 text-center">
             <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-[#FFF4DC]/40">
               Late-Night Cravings · All-Day Crunch
             </span>
