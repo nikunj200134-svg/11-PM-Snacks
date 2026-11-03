@@ -83,7 +83,7 @@ This document outlines the architectural adaptation plan for rebuilding the 11 P
 * **Origin**: Bento-style hardware architecture feature showcase with interactive variant toggle.
 * **Data & Text**:
   - Flavour toggle pills: *Peri Peri*, *Tangy Tomato*, *Cheddar Cheese*.
-  - Strict guardrail: **No prices, no pack sizes, no buy buttons**.
+  - Strict guardrail: **No commercial tariff, no gram weights, no buy buttons**.
   - Exclusively displays *"Coming Soon — Batch 01 Dropping Soon"* and a direct link to the *"Notify Me"* early access capture.
   - Displays three tactile sensory meters: Heat, Tang, and Crunch/Cheese.
 * **Colours**:
@@ -116,6 +116,6 @@ This document outlines the architectural adaptation plan for rebuilding the 11 P
 
 ## 3. Strict Brand Guardrails
 
-1. **Zero Prices & Pack Sizes**: All references to grams, packs, and rupee amounts are omitted. Replaced with *"Coming Soon"* badges and *"Notify Me"* triggers.
+1. **Zero Tariff & Weight Declarations**: All references to grams, packs, and rupee amounts are omitted. Replaced with *"Coming Soon"* badges and *"Notify Me"* triggers.
 2. **Zero Invented Facts**: Lab nutrition values and certifications maintain transparent placeholders (`[TODO: verified]`) logged in `/content/TODO.md`.
 3. **Attribution**: Skiper UI and Open Peeps are formally acknowledged in `CREDITS.md` and the website footer.
