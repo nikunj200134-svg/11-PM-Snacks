@@ -59,7 +59,7 @@ export function SienaParallax() {
             className="absolute -top-[20%] -bottom-[20%] -left-[5%] -right-[5%] w-[110%] h-[140%]"
           >
             <Image
-              src="/images/cascade.png"
+              src="/images/cascade.webp"
               alt="Close-up of golden masala seasoned popcorn clusters"
               fill
               className="object-cover filter contrast-[1.08] brightness-[0.92]"
