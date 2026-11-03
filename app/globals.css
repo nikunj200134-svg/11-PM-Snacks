@@ -22,7 +22,7 @@
   --pop-pink: #FF7AB8;
   --pink: #FF7AB8;
   --night: #14102B;
-  --muted: oklch(0.97 0 0);
+  --muted: #4B4568;
   --stroke: rgba(20, 16, 43, 0.16);
 
   /* Fonts */
@@ -38,8 +38,8 @@
   --hard-shadow-lg: 8px 8px 0px var(--midnight-ink);
   --ink-border: 2.5px solid var(--midnight-ink);
   --radius-card: 28px;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: #FFF4DC;
+  --foreground: #14102B;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -72,7 +72,7 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-body);
   --font-display: var(--font-display);
   --font-scribble: var(--font-scribble);
   --font-mono: var(--font-mono);
