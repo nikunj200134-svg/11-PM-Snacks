@@ -118,18 +118,6 @@ export function CanvasCrowd() {
               </div>
             ))}
           </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-4 border-t-2 border-[#14102B]/10">
-            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white border border-[#14102B]">
-              🌻 100% Sunflower Oil
-            </span>
-            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white border border-[#14102B]">
-              🥣 Small Batch in Gurugram
-            </span>
-            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white border border-[#14102B]">
-              🚫 Zero Palm Oil
-            </span>
-          </div>
         </div>
       </section>
     );
@@ -165,8 +153,8 @@ export function CanvasCrowd() {
           </div>
         </div>
 
-        {/* Center Stage: Dynamic Copy Beat Over Walking Crowd */}
-        <div className="relative w-[min(960px,92vw)] mx-auto flex-1 flex flex-col justify-center items-center z-20 text-center px-4 pb-20 sm:pb-32">
+        {/* Center Stage: Dynamic Copy Beat Placed High Above Walking Crowd */}
+        <div className="relative w-[min(960px,92vw)] mx-auto flex-1 flex flex-col justify-start items-center z-20 text-center px-4 pt-8 sm:pt-14 md:pt-18 pb-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={beat.step}
@@ -200,7 +188,7 @@ export function CanvasCrowd() {
         </div>
 
         {/* Bottom Stage: Walking Crowd Canvas (Free Skiper #39 + Open Peeps Sprite Sheet) */}
-        <div className="absolute inset-x-0 bottom-0 w-full h-[32vh] sm:h-[38vh] pointer-events-none z-10 overflow-hidden">
+        <div className="absolute inset-x-0 bottom-0 w-full h-[24vh] sm:h-[28vh] max-h-[220px] pointer-events-none z-10 overflow-hidden">
           <CrowdCanvas
             src="/images/peeps/all-peeps.png"
             rows={15}
