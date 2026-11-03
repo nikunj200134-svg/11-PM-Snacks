@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { siteContent } from '@/content/site';
 
 export function Footer() {
@@ -12,6 +13,15 @@ export function Footer() {
         {/* Top Section: Brand Statement & Newsletter Mini Callout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-14 border-b border-[#FFF4DC]/15">
           <div className="lg:col-span-5 flex flex-col gap-4">
+            <Link href="/" aria-label="11 PM Snacks Home" className="inline-block transition-transform hover:scale-105 w-fit">
+              <Image
+                src="/brand/logo-official.png"
+                alt="11 PM Snacks"
+                width={120}
+                height={104}
+                className="h-12 w-auto object-contain bg-white rounded-xl p-1.5 border-2 border-[#FFF4DC]/30 shadow-[3px_3px_0px_#FFC21A]"
+              />
+            </Link>
             <span className="text-xs font-mono font-bold tracking-widest text-[#FFC21A] uppercase">
               Gurugram, India · Small-Batch Masala Popcorn
             </span>

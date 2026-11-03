@@ -61,8 +61,8 @@ export function Header() {
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           isScrolled
-            ? 'py-2 sm:py-2.5 bg-[#96D0D2]/95 backdrop-blur-md border-b-2 border-[#14102B] shadow-[0_4px_20px_rgba(20,16,43,0.12)]'
-            : 'py-2.5 sm:py-3.5 bg-[#96D0D2] border-b-2 border-[#14102B]'
+            ? 'py-2 sm:py-2.5 bg-[#D8A2A2]/95 backdrop-blur-md border-b-2 border-[#14102B] shadow-[0_4px_20px_rgba(20,16,43,0.12)]'
+            : 'py-2.5 sm:py-3.5 bg-[#D8A2A2] border-b-2 border-[#14102B]'
         }`}
       >
         <div className="w-[min(1240px,94vw)] mx-auto flex items-center justify-between gap-4">
@@ -75,11 +75,11 @@ export function Header() {
             <Image
               src="/brand/logo-official.png"
               alt="11 PM Snacks"
-              width={180}
-              height={75}
+              width={1000}
+              height={869}
               priority
-              className={`w-auto object-contain transition-all duration-300 drop-shadow-[0_0_2px_rgba(255,255,255,0.7)] ${
-                isScrolled ? 'h-9 sm:h-11 md:h-13' : 'h-11 sm:h-13 md:h-15'
+              className={`w-auto object-contain transition-all duration-300 ${
+                isScrolled ? 'h-8 sm:h-9 md:h-10' : 'h-10 sm:h-11 md:h-12 max-h-[48px]'
               }`}
             />
           </Link>
@@ -136,8 +136,8 @@ export function Header() {
                   href={item.href}
                   className={`px-3.5 py-2 font-black text-sm tracking-wide rounded-full transition-all ${
                     isActive
-                      ? 'bg-[#FFC21A] !text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]'
-                      : '!text-[#14102B] hover:!text-[#FF4B1F] hover:bg-black/5'
+                      ? 'bg-white hover:bg-white !text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]'
+                      : '!text-[#14102B] hover:!text-[#14102B] hover:bg-white/40'
                   }`}
                 >
                   {item.label}
@@ -146,18 +146,23 @@ export function Header() {
             })}
           </nav>
 
-          {/* Right Header Actions: Minimal Notify Me CTA */}
+          {/* Right Header Actions: Minimal Notify Me CTA with White Hover Reflection */}
           <div className="hidden md:flex items-center gap-3">
-            <Button href="/where-to-buy" variant="gold" size="sm">
+            <Button
+              href="/where-to-buy"
+              variant="gold"
+              size="sm"
+              className="hover:!bg-white hover:!text-[#14102B] transition-colors duration-200"
+            >
               Notify Me →
             </Button>
           </div>
 
-          {/* Mobile Hamburger Toggle (44x44px minimum tap target) */}
+          {/* Mobile Hamburger Toggle (Reflects White instead of Yellow on hover/cursor) */}
           <button
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Mobile Menu"
-            className="md:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-[#14102B] bg-[#FFC21A] text-[#14102B] shadow-[3px_3px_0px_#14102B] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+            className="md:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-[#14102B] bg-[#FFC21A] hover:bg-white active:bg-white text-[#14102B] shadow-[3px_3px_0px_#14102B] hover:shadow-[4px_4px_0px_#14102B] hover:-translate-y-0.5 active:translate-x-[1px] active:translate-y-[1px] transition-all duration-200 cursor-pointer"
           >
             <Menu className="w-5 h-5 stroke-[2.5]" />
           </button>
@@ -177,9 +182,18 @@ export function Header() {
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-2xl font-display uppercase tracking-wider text-[#FFC21A]"
+              className="flex items-center gap-2.5"
             >
-              11 PM SNACKS
+              <Image
+                src="/brand/logo-official.png"
+                alt="11 PM Snacks"
+                width={100}
+                height={87}
+                className="h-9 w-auto object-contain bg-white rounded-lg p-1 border border-[#FFF4DC]/20"
+              />
+              <span className="text-xl font-display uppercase tracking-wider text-[#FFC21A]">
+                11 PM SNACKS
+              </span>
             </Link>
             <button
               onClick={() => setMobileMenuOpen(false)}

@@ -15,11 +15,11 @@ export function Logo({
       aria-label="11 PM Snacks home"
     >
       <Image
-        className="logo-art"
+        className="logo-art object-contain max-h-[48px] w-auto"
         src="/brand/logo-official.png"
         alt="11 PM Snacks"
-        width={1024}
-        height={512}
+        width={1000}
+        height={869}
         priority
       />
     </Link>

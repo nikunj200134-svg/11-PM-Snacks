@@ -51,6 +51,34 @@ const STORY_BEATS = [
   },
 ];
 
+const BEAT_THEMES = [
+  {
+    bg: '#FFF4DC', // Beat 1: Warm Buttercream
+    tag: 'Chapter 01 · Midnight Crave',
+    pill: 'bg-[#FF4B1F] text-white',
+  },
+  {
+    bg: '#D8A2A2', // Beat 2: Dusty Rose / Soft Mauve
+    tag: 'Chapter 02 · Unspoken Ingredients',
+    pill: 'bg-[#14102B] text-white',
+  },
+  {
+    bg: '#FFC21A', // Beat 3: Cheddar Gold
+    tag: 'Chapter 03 · Crave Without Guilt',
+    pill: 'bg-[#FF4B1F] text-white',
+  },
+  {
+    bg: '#96D0D2', // Beat 4: Fresh Gurugram Kitchen Mint
+    tag: 'Chapter 04 · Motherly Care & Clean Oil',
+    pill: 'bg-[#14102B] text-white',
+  },
+  {
+    bg: '#FDA5CC', // Beat 5: Warm Popcorn Rose
+    tag: 'Chapter 05 · A Little Magic In Every Kernel',
+    pill: 'bg-[#FF4B1F] text-white',
+  },
+];
+
 export function CanvasCrowd() {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
@@ -76,10 +104,8 @@ export function CanvasCrowd() {
     });
   }, [scrollYProgress, reducedMotion]);
 
-  // Background color transitions:
-  // Beats 1 & 2 (0 - 0.4): Desaturated cream-grey (#E5E1D8)
-  // Beat 3 onwards (0.4 - 1.0): Warms to vibrant Cheddar Gold (#FFC21A)
-  const bgStyle = currentBeat >= 2 ? '#FFC21A' : '#E5E1D8';
+  // Distinct, smooth background color transitions for EVERY scroll beat
+  const bgStyle = BEAT_THEMES[currentBeat]?.bg || '#FFF4DC';
 
   // Reduced motion: static stacked copy beats with stationary background
   if (reducedMotion) {
@@ -130,22 +156,22 @@ export function CanvasCrowd() {
       ref={containerRef}
       style={{
         backgroundColor: bgStyle,
-        transition: 'background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+        transition: 'background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
       }}
       className="relative h-[300vh] text-[#14102B]"
     >
       {/* Sticky Pinned Viewport Container */}
-      <div className="sticky top-0 h-[100dvh] min-h-[100dvh] w-full flex flex-col overflow-hidden pt-24 sm:pt-28">
+      <div className="sticky top-0 h-[100dvh] min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden pt-20 sm:pt-24 pb-2">
         {/* Top Progress Strip */}
         <div className="w-[min(1240px,94vw)] mx-auto px-4 flex items-center justify-between z-20 shrink-0">
           <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
-            The 11 PM Story · Beat 0{currentBeat + 1} of 05
+            The 11 PM Story · Chapter 0{currentBeat + 1} of 05
           </span>
           <div className="flex items-center gap-1.5">
             {STORY_BEATS.map((_, i) => (
               <span
                 key={i}
-                className={`h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 border border-[#14102B] ${
                   currentBeat === i ? 'w-6 bg-[#14102B]' : 'w-2 bg-[#14102B]/30'
                 }`}
               />
@@ -153,42 +179,84 @@ export function CanvasCrowd() {
           </div>
         </div>
 
-        {/* Center Stage: Dynamic Copy Beat Placed High Above Walking Crowd */}
-        <div className="relative w-[min(960px,92vw)] mx-auto flex-1 flex flex-col justify-start items-center z-20 text-center px-4 pt-6 sm:pt-10 md:pt-12 pb-4">
+        {/* Center Stage: Framed White Story Card (100% Readable on Mobile & Desktop) */}
+        <div className="relative w-[min(920px,92vw)] mx-auto flex-1 flex flex-col justify-center items-center z-20 text-center px-2 py-3 my-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={beat.step}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
+              initial={{ opacity: 0, y: 18, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -18, scale: 0.98 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center max-w-3xl"
+              className="w-full bg-white/95 backdrop-blur-md border-[3px] border-[#14102B] rounded-[24px] sm:rounded-[36px] p-5 sm:p-8 md:p-10 shadow-[6px_6px_0px_#14102B] sm:shadow-[8px_8px_0px_#14102B] flex flex-col items-center max-w-2xl mx-auto"
             >
-              <h3 className="text-xl sm:text-3xl md:text-5xl font-display uppercase tracking-wide text-[#14102B] leading-tight m-0 drop-shadow-[0_2px_12px_rgba(255,255,255,0.4)]">
+              {/* Badge */}
+              <div className="flex items-center gap-2 mb-2 sm:mb-3">
+                <span className={`px-3 py-1 rounded-full text-[11px] sm:text-xs font-mono font-black uppercase tracking-wider ${BEAT_THEMES[currentBeat].pill} shadow-[2px_2px_0px_#14102B]`}>
+                  {BEAT_THEMES[currentBeat].tag}
+                </span>
+              </div>
+
+              {/* Headline */}
+              <h3 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-display uppercase tracking-wide text-[#14102B] leading-[1.12] m-0">
                 {beat.headline}
               </h3>
 
-              {/* Optional Hinglish Tagline under Beat 3 */}
+              {/* Hinglish Tagline under Beat 3 */}
               {beat.hinglish && (
-                <motion.p
+                <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.15 }}
-                  className="mt-2.5 sm:mt-3 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-base font-hindi font-bold bg-[#14102B] text-[#FFF4DC] shadow-[3px_3px_0px_#FF4B1F]"
+                  transition={{ delay: 0.12 }}
+                  className="mt-2.5 sm:mt-3 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-hindi font-bold bg-[#FF4B1F] text-white border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]"
                 >
                   “{beat.hinglish}”
-                </motion.p>
+                </motion.div>
               )}
 
-              <p className="mt-3 sm:mt-4 text-xs sm:text-base md:text-lg text-[#14102B]/85 font-medium max-w-xl mx-auto leading-relaxed">
+              {/* Subtext */}
+              <p className="mt-2.5 sm:mt-4 text-xs sm:text-base md:text-lg text-[#14102B]/85 font-medium max-w-lg mx-auto leading-relaxed">
                 {beat.subtext}
               </p>
+
+              {/* Stepper Dots (>= 44px tap target for seamless mobile and desktop transitions) */}
+              <div className="mt-4 sm:mt-6 flex items-center justify-center gap-1 sm:gap-2 pt-3 border-t-2 border-[#14102B]/10 w-full">
+                <span className="text-[10px] sm:text-xs font-mono font-bold text-[#14102B]/60 mr-1 sm:mr-2 uppercase tracking-wider">
+                  Scroll or Tap:
+                </span>
+                {STORY_BEATS.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => {
+                      if (containerRef.current) {
+                        const top = containerRef.current.offsetTop;
+                        const totalHeight = containerRef.current.offsetHeight - window.innerHeight;
+                        window.scrollTo({
+                          top: top + (i / (STORY_BEATS.length - 1)) * totalHeight,
+                          behavior: 'smooth',
+                        });
+                      }
+                    }}
+                    aria-label={`Jump to story chapter ${i + 1}`}
+                    className="min-h-[44px] min-w-[32px] sm:min-w-[44px] flex items-center justify-center cursor-pointer"
+                  >
+                    <span
+                      className={`h-2.5 rounded-full transition-all duration-300 border border-[#14102B] ${
+                        currentBeat === i
+                          ? 'w-7 bg-[#14102B] shadow-[1px_1px_0px_#14102B]'
+                          : 'w-2.5 bg-[#14102B]/20 hover:bg-[#14102B]/50'
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
         {/* Bottom Stage: Walking Crowd Canvas (Free Skiper #39 + Open Peeps Sprite Sheet) */}
-        <div className="absolute inset-x-0 bottom-0 w-full h-[26vh] sm:h-[30vh] md:h-[34vh] max-h-[250px] pointer-events-none z-10 overflow-hidden">
+        <div className="relative w-full h-[18vh] sm:h-[22vh] md:h-[26vh] max-h-[170px] pointer-events-none z-10 overflow-hidden shrink-0">
           <CrowdCanvas
             src="/images/peeps/all-peeps - Copy.png"
             rows={15}
