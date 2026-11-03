@@ -75,11 +75,18 @@ export function Header() {
             <Image
               src="/brand/logo-official.png"
               alt="11 PM Snacks"
-              width={1000}
-              height={869}
+              width={120}
+              height={104}
               priority
+              style={{
+                height: isScrolled ? '38px' : '46px',
+                width: 'auto',
+                maxHeight: isScrolled ? '38px' : '48px',
+              }}
               className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? 'h-8 sm:h-9 md:h-10' : 'h-10 sm:h-11 md:h-12 max-h-[48px]'
+                isScrolled
+                  ? 'h-[36px] sm:h-[38px] max-h-[38px]'
+                  : 'h-[44px] sm:h-[46px] max-h-[48px]'
               }`}
             />
           </Link>
