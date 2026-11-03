@@ -358,48 +358,27 @@ export const siteContent = {
     },
   ] satisfies FlavourItem[],
 
-  packs: [
-    {
-      id: 'everyday-30g',
-      name: 'Everyday Crunch',
-      weight: '30 g',
-      price: 30,
-      currency: '₹',
-      formattedPrice: '₹30',
-      badge: 'Single Munch',
-      highlight: 'Work break & commute staple',
-      servingDescription: 'Pocket-sized single serve designed for quick snacking sessions.',
-      isPopular: false,
-    },
-    {
-      id: 'jumbo-90g',
-      name: 'Jumbo Crunch',
-      weight: '90 g',
-      price: 60,
-      currency: '₹',
-      formattedPrice: '₹60',
-      badge: 'Best Value · 3× Crunch',
-      highlight: 'Movie night & group sharing',
-      servingDescription: 'Triple the popcorn for twice the price. Perfect for sharing or long binge watches.',
-      isPopular: true,
-    },
-  ] satisfies PackItem[],
+  packsStatus: {
+    status: 'coming-soon',
+    badge: 'Coming Soon',
+    notice: 'Batch 01 dropping soon. No pack sizes or prices before official launch.',
+  },
+
+  packs: [] as PackItem[],
 
   varietyBundle: {
     name: '3-Flavour Variety Crate',
-    weight: '3 × 90 g Jumbo Packs',
-    pricePlaceholder: '[TODO: variety bundle pricing]',
-    badge: 'Taste All 3 Moods',
+    badge: 'Coming Soon',
     highlight: 'Peri Peri + Tangy Tomato + Cheddar Cheese',
-    description: 'One bag of each signature personality so you never have to pick just one.',
+    description: 'One bag of each signature personality so you never have to pick just one [TODO: variety bundle details].',
   },
 
   homepage: {
     // 1. Announcement Bar (offers or delivery only)
     announcement: [
-      'FREE DELIVERY ON ORDERS ABOVE ₹199',
-      'DISPATCHED FRESH DAILY FROM GURUGRAM',
-      'FLAT 10% OFF YOUR FIRST ORDER WITH CODE: FIRSTCRUNCH',
+      'BATCH 01 DROPPING SOON FROM GURUGRAM',
+      'ZERO PALM OIL · 100% SUNFLOWER OIL',
+      'JOIN THE NOTIFY ME DROP LIST FOR EARLY ACCESS',
     ],
 
     // 2. Hero (Slot 1)
@@ -855,12 +834,12 @@ export const siteContent = {
           ],
         },
         {
-          name: 'Packs, Pricing & Freshness',
+          name: 'Launch, Freshness & Availability',
           items: [
             {
-              question: 'What pack sizes are available and what is the MRP?',
+              question: 'When can I buy 11 PM Snacks?',
               answer:
-                'We offer Everyday Crunch (30 g) at ₹30 for single munching, and Jumbo Crunch (90 g) at ₹60 for movie nights and sharing.',
+                'Coming soon! Batch 01 is currently in preparation in our Gurugram kitchen [TODO: launch date]. Join our Notify Me drop list to get first access the moment we launch.',
             },
             {
               question: 'How do you keep popcorn crispy without chemical preservatives?',
@@ -885,7 +864,7 @@ export const siteContent = {
             {
               question: 'What is your shipping policy and delivery timeline?',
               answer:
-                'Orders placed before 2 PM dispatch same day. Delivery takes 1–2 days within Delhi NCR and 3–5 days across major Indian metros. Orders above ₹199 ship free.',
+                'Batch 01 will dispatch directly from our kitchen in Gurugram [TODO: launch date]. Deliveries will take 1–2 days within Delhi NCR and 3–5 days across major metros.',
             },
             {
               question: 'Do you offer bulk wholesale for corporate pantries or retail stores?',
@@ -939,10 +918,10 @@ For any privacy questions or data deletion requests, contact us at hello@11pmsna
         lastUpdated: 'November 2026',
         content: `Welcome to 11 PM Snacks. By accessing our website or placing an order, you agree to comply with and be bound by the following Terms of Service.
 
-1. Products & Pricing:
-- We sell ready-to-eat small-batch masala popcorn in Everyday Crunch (30 g) at ₹30 and Jumbo Crunch (90 g) at ₹60.
-- All prices displayed are in Indian Rupees (₹) and include applicable GST unless expressly stated otherwise.
-- We reserve the right to modify prices or discontinue recipes with prior notice.
+1. Products & Availability:
+- We produce ready-to-eat small-batch masala popcorn. Products and batch offerings are subject to availability.
+- All official pricing and ordering will be announced upon official batch launch [TODO: launch date].
+- We reserve the right to modify recipes or discontinue flavours with prior notice.
 
 2. Orders & Cancellations:
 - Orders can be cancelled prior to warehouse dispatch. Once dispatched via our courier partners, orders cannot be recalled.
@@ -963,7 +942,7 @@ These terms are governed by the laws of India. Any disputes arising shall be sub
 - Delhi NCR: 24 to 48 hours.
 - Major Indian Metros: 2 to 4 business days.
 - Rest of India: 4 to 6 business days.
-- Orders above ₹199 qualify for Free Standard Delivery. For orders below ₹199, a flat shipping fee of ₹40 applies.
+- Batch 01 orders qualify for launch priority shipping. Detailed delivery rates and partner logistics will be confirmed upon checkout launch.
 
 2. Freshness Guarantee & Damaged Goods:
 Because our popcorn is a perishable food product, we do not accept general returns once delivered. However, if your order arrives damaged, leaking, unsealed, or past expiration, we will send a replacement pack or process a 100% refund immediately.
