@@ -28,8 +28,8 @@ export function MomentsSection() {
           </Button>
         </div>
 
-        {/* Horizontally Scrolling Cards Track (Mobile & Desktop Snap) */}
-        <div className="flex gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory no-scrollbar">
+        {/* Horizontally Scrolling Cards Track (Proximity snap so fast flicks never skip items) */}
+        <div className="flex gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-proximity [scroll-snap-stop:normal] no-scrollbar">
           {cards.map((card, idx) => {
             const tilts = ['rotate-[-1.5deg]', 'rotate-[1.5deg]', 'rotate-[-2deg]', 'rotate-[1deg]', 'rotate-[-1deg]'];
             const tilt = tilts[idx % tilts.length];
@@ -37,7 +37,7 @@ export function MomentsSection() {
             return (
               <article
                 key={card.id}
-                className={`min-w-[280px] sm:min-w-[320px] max-w-[340px] shrink-0 snap-start bg-white border-[2.5px] border-[#14102B] rounded-[28px] p-6 shadow-[6px_6px_0px_#14102B] hover:shadow-[8px_8px_0px_#14102B] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between ${tilt}`}
+                className={`min-w-[280px] sm:min-w-[320px] max-w-[340px] shrink-0 snap-start [scroll-snap-stop:normal] bg-white border-[2.5px] border-[#14102B] rounded-[28px] p-6 shadow-[6px_6px_0px_#14102B] hover:shadow-[8px_8px_0px_#14102B] hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between ${tilt}`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
