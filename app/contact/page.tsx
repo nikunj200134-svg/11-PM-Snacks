@@ -186,7 +186,7 @@ export default function ContactPage() {
                       href={`https://wa.me/${WHATSAPP_NUMBER}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#25D366] text-white text-xs font-bold uppercase shadow-[1px_1px_0px_#14102B] hover:opacity-90 transition-opacity"
+                      className="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-[44px] rounded-full bg-[#25D366] text-white text-xs font-bold uppercase shadow-[1px_1px_0px_#14102B] hover:opacity-90 transition-opacity"
                     >
                       <span>💬</span> Chat on WhatsApp →
                     </a>
@@ -200,7 +200,7 @@ export default function ContactPage() {
                   </span>
                   <a
                     href={`mailto:${OWNER_EMAIL}`}
-                    className="text-base font-bold text-white hover:text-[#FFC21A] transition-colors break-all"
+                    className="text-base font-bold text-white hover:text-[#FFC21A] transition-colors break-all min-h-[44px] inline-flex items-center"
                   >
                     {OWNER_EMAIL}
                   </a>

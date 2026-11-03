@@ -62,7 +62,7 @@ export function HomeHero() {
 
           {/* Staggered Bounce-in Headline (Recipe 1) */}
           {reducedMotion ? (
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display uppercase tracking-wider text-[#14102B] leading-[0.98] m-0">
+            <h1 className="text-[clamp(2.2rem,8vw,3.5rem)] sm:text-6xl md:text-7xl lg:text-8xl font-display uppercase tracking-wider text-[#14102B] leading-[0.98] m-0">
               {hero.headlinePrefix}
               <br />
               <span className="text-[#FF4B1F] underline decoration-[#FFC21A] decoration-wavy decoration-2">
@@ -74,7 +74,7 @@ export function HomeHero() {
               variants={containerVariants}
               initial="hidden"
               animate="visible"
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display uppercase tracking-wider text-[#14102B] leading-[0.98] m-0"
+              className="text-[clamp(2.2rem,8vw,3.5rem)] sm:text-6xl md:text-7xl lg:text-8xl font-display uppercase tracking-wider text-[#14102B] leading-[0.98] m-0"
             >
               <span className="inline-block">
                 {prefixWords.map((word, i) => (
@@ -108,16 +108,16 @@ export function HomeHero() {
           </p>
 
           {/* CTA Buttons Cluster with Magnetic Pull (Recipe 8) & Burst on Buy button (Recipe 3) */}
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-8 flex flex-wrap items-center gap-4 max-sm:w-full max-sm:flex-col">
             <Magnetic>
-              <BurstButtonWrapper>
-                <Button href={hero.primaryButtonHref} variant="gold" size="lg">
+              <BurstButtonWrapper className="max-sm:w-full">
+                <Button href={hero.primaryButtonHref} variant="gold" size="lg" className="max-sm:w-full text-center">
                   {hero.primaryButtonText}
                 </Button>
               </BurstButtonWrapper>
             </Magnetic>
             <Magnetic>
-              <Button href={hero.secondaryButtonHref} variant="outline" size="lg">
+              <Button href={hero.secondaryButtonHref} variant="outline" size="lg" className="max-sm:w-full text-center">
                 {hero.secondaryButtonText}
               </Button>
             </Magnetic>
@@ -156,6 +156,7 @@ export function HomeHero() {
               width={460}
               height={580}
               priority
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 460px, 480px"
               className="w-auto h-[320px] sm:h-[420px] md:h-[480px] object-contain filter drop-shadow-[0_24px_32px_rgba(20,16,43,0.28)]"
             />
           </motion.div>

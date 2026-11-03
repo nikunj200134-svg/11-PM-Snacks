@@ -221,7 +221,7 @@ export function CanvasCrowd() {
 
               {/* Stepper Dots (>= 44px tap target for seamless mobile and desktop transitions) */}
               <div className="mt-4 sm:mt-6 flex items-center justify-center gap-1 sm:gap-2 pt-3 border-t-2 border-[#14102B]/10 w-full">
-                <span className="text-[10px] sm:text-xs font-mono font-bold text-[#14102B]/60 mr-1 sm:mr-2 uppercase tracking-wider">
+                <span className="text-xs font-mono font-bold text-[#14102B]/60 mr-1 sm:mr-2 uppercase tracking-wider">
                   Scroll or Tap:
                 </span>
                 {STORY_BEATS.map((_, i) => (

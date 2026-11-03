@@ -111,7 +111,7 @@ export function HoverHero() {
 
         {/* Coming soon notice badge */}
         <div className="inline-flex items-center gap-2.5 mt-2 px-4 py-1.5 rounded-full bg-[#14102B] border-2 border-[#FFC21A]/60 shadow-[3px_3px_0px_#14102B]">
-          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B]">
+          <span className="px-2.5 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B]">
             Batch 01
           </span>
           <span className="text-xs font-mono font-bold text-[#FFF4DC]">
@@ -196,7 +196,7 @@ export function HoverHero() {
                 >
                   <span
                     style={{ backgroundColor: flavour.accentColor }}
-                    className="inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[9px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] border sm:border-2 border-[#14102B] shadow-[1.5px_1.5px_0px_#14102B]"
+                    className="inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] border sm:border-2 border-[#14102B] shadow-[1.5px_1.5px_0px_#14102B]"
                   >
                     {flavour.subtitle}
                   </span>

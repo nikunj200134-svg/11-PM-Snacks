@@ -102,7 +102,7 @@ export function Header() {
                       aria-haspopup="true"
                     >
                       <span>{item.label}</span>
-                      <span className="text-[10px] font-mono font-black px-1.5 py-0.5 rounded-full bg-[#FFC21A] !text-[#14102B] border border-[#14102B]/30 shadow-[1px_1px_0px_#14102B]">
+                      <span className="text-xs font-mono font-black px-1.5 py-0.5 rounded-full bg-[#FFC21A] !text-[#14102B] border border-[#14102B]/30 shadow-[1px_1px_0px_#14102B]">
                         3 Moods
                       </span>
                       <ChevronDown className="w-3.5 h-3.5 !text-[#14102B] group-hover:rotate-180 transition-transform duration-200" />
@@ -125,7 +125,7 @@ export function Header() {
                             className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-bold text-[#14102B] hover:bg-[#FFF4DC] hover:text-[#FF4B1F] transition-colors"
                           >
                             <span>{child.label}</span>
-                            <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-[#14102B]/10 text-[#14102B]">
+                            <span className="text-xs font-mono font-bold px-1.5 py-0.5 rounded-full bg-[#14102B]/10 text-[#14102B]">
                               {child.badge}
                             </span>
                           </Link>
@@ -169,6 +169,8 @@ export function Header() {
           <button
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Mobile Menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav-drawer"
             className="md:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-[#14102B] bg-[#FFC21A] hover:bg-white active:bg-white text-[#14102B] shadow-[3px_3px_0px_#14102B] hover:shadow-[4px_4px_0px_#14102B] hover:-translate-y-0.5 active:translate-x-[1px] active:translate-y-[1px] transition-all duration-200 cursor-pointer"
           >
             <Menu className="w-5 h-5 stroke-[2.5]" />
@@ -179,6 +181,7 @@ export function Header() {
       {/* Full-Screen Mobile Drawer (Slot 8) */}
       {mobileMenuOpen && (
         <div
+          id="mobile-nav-drawer"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation"
@@ -189,7 +192,7 @@ export function Header() {
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center gap-2.5"
+              className="flex items-center gap-2.5 min-h-[44px]"
             >
               <Image
                 src="/brand/logo-official.png"
@@ -212,11 +215,11 @@ export function Header() {
           </div>
 
           {/* Links Hierarchy with Bagel Fat One Typography */}
-          <nav className="flex flex-col gap-4 py-8">
+          <nav className="flex flex-col gap-3 py-6">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-4xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors"
+              className="text-4xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors min-h-[44px] flex items-center"
             >
               Home
             </Link>
@@ -225,11 +228,11 @@ export function Header() {
               <span className="text-xs font-mono font-bold tracking-widest text-[#FFC21A] uppercase">
                 The 3 Moods
               </span>
-              <div className="grid grid-cols-1 gap-2 pl-2 border-l-2 border-[#FFC21A]/30">
+              <div className="grid grid-cols-1 gap-1.5 pl-2 border-l-2 border-[#FFC21A]/30">
                 <Link
                   href="/flavours/peri-peri"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-bold hover:text-[#FF4B1F] transition-colors flex items-center justify-between"
+                  className="text-xl font-bold hover:text-[#FF4B1F] transition-colors flex items-center justify-between min-h-[44px] py-1"
                 >
                   <span>Peri Peri</span>
                   <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-[#FF4B1F] text-[#14102B]">
@@ -239,7 +242,7 @@ export function Header() {
                 <Link
                   href="/flavours/tangy-tomato"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-bold hover:text-[#E5262F] transition-colors flex items-center justify-between"
+                  className="text-xl font-bold hover:text-[#E5262F] transition-colors flex items-center justify-between min-h-[44px] py-1"
                 >
                   <span>Tangy Tomato</span>
                   <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-[#E5262F] text-white">
@@ -249,7 +252,7 @@ export function Header() {
                 <Link
                   href="/flavours/cheddar-cheese"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-bold hover:text-[#FFC21A] transition-colors flex items-center justify-between"
+                  className="text-xl font-bold hover:text-[#FFC21A] transition-colors flex items-center justify-between min-h-[44px] py-1"
                 >
                   <span>Cheddar Cheese</span>
                   <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-[#FFC21A] text-[#14102B]">
@@ -262,35 +265,35 @@ export function Header() {
             <Link
               href="/nutrition"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors"
+              className="text-2xl sm:text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors min-h-[44px] flex items-center"
             >
               Nutrition &amp; Ingredients
             </Link>
             <Link
               href="/our-story"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors"
+              className="text-2xl sm:text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors min-h-[44px] flex items-center"
             >
               Our Story
             </Link>
             <Link
               href="/where-to-buy"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors"
+              className="text-2xl sm:text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors min-h-[44px] flex items-center"
             >
               Where to Buy
             </Link>
             <Link
               href="/faq"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors"
+              className="text-2xl sm:text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors min-h-[44px] flex items-center"
             >
               FAQ
             </Link>
             <Link
               href="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors"
+              className="text-2xl sm:text-3xl font-display uppercase tracking-wider hover:text-[#FFC21A] transition-colors min-h-[44px] flex items-center"
             >
               Contact
             </Link>

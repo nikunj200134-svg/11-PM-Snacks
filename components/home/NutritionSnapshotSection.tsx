@@ -25,7 +25,7 @@ export function NutritionSnapshotSection() {
           </div>
 
           {/* At most one CTA: link to /nutrition */}
-          <Button href={ctaHref} variant="midnight" size="sm">
+          <Button href={ctaHref} variant="midnight" size="sm" className="max-md:w-full text-center max-md:min-h-[44px]">
             {ctaText}
           </Button>
         </div>

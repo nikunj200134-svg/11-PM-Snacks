@@ -42,6 +42,8 @@ export function NutritionHighlights({
                     alt={pillar.title}
                     width={500}
                     height={380}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 500px"
                     className="nutrition-thumb-img"
                   />
                   <div className="nutrition-stat-pill">

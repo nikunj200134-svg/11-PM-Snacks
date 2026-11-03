@@ -60,7 +60,7 @@ export function FlavourSwitcherSection() {
                 <button
                   key={f.id}
                   onClick={() => setSelectedIndex(idx)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-mono font-bold tracking-wider uppercase border-[2.5px] border-[#14102B] cursor-pointer whitespace-nowrap transition-all duration-200 ${
+                  className={`min-h-[44px] inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-mono font-bold tracking-wider uppercase border-[2.5px] border-[#14102B] cursor-pointer whitespace-nowrap transition-all duration-200 ${
                     isSelected
                       ? 'bg-[#14102B] text-[#FFF4DC] shadow-[4px_4px_0px_#14102B] -translate-y-1'
                       : 'bg-white text-[#14102B] shadow-[2px_2px_0px_#14102B] hover:-translate-y-0.5'
@@ -85,6 +85,8 @@ export function FlavourSwitcherSection() {
                     alt={`${active.name} Masala Popcorn Pouch`}
                     width={360}
                     height={460}
+                    loading="lazy"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 360px, 400px"
                     className="w-auto h-64 sm:h-80 md:h-96 object-contain filter drop-shadow-[0_20px_24px_rgba(20,16,43,0.25)]"
                   />
                 </div>
@@ -105,6 +107,8 @@ export function FlavourSwitcherSection() {
                     alt={`${active.name} Masala Popcorn Pouch`}
                     width={360}
                     height={460}
+                    loading="lazy"
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 360px, 400px"
                     className="w-auto h-64 sm:h-80 md:h-96 object-contain filter drop-shadow-[0_20px_24px_rgba(20,16,43,0.25)]"
                   />
                 </motion.div>
@@ -170,8 +174,8 @@ export function FlavourSwitcherSection() {
             {/* At most One CTA Button with Magnetic Pull & Particle Burst */}
             <div className="pt-2">
               <Magnetic>
-                <BurstButtonWrapper>
-                  <Button href={active.href} variant="midnight" size="md">
+                <BurstButtonWrapper className="max-sm:w-full">
+                  <Button href={active.href} variant="midnight" size="md" className="max-sm:w-full text-center">
                     {siteContent.homepage.flavourSwitcher.ctaText} ({active.name}) →
                   </Button>
                 </BurstButtonWrapper>

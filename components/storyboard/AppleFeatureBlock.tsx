@@ -372,7 +372,7 @@ export function AppleFeatureBlock() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#14102B]/90 via-[#14102B]/25 to-transparent" />
                 <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border border-[#14102B] shadow-[1.5px_1.5px_0px_#14102B]">
+                  <span className="px-2.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border border-[#14102B] shadow-[1.5px_1.5px_0px_#14102B]">
                     {photo.tag}
                   </span>
                 </div>

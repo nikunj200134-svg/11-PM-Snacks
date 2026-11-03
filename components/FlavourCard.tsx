@@ -48,7 +48,8 @@ export function FlavourCard({ flavour, className = '' }: FlavourCardProps) {
             src={flavour.pouch}
             alt={`${flavour.name} Popcorn Pouch`}
             fill
-            sizes="(max-width: 640px) 100vw, 380px"
+            loading="lazy"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
@@ -80,7 +81,7 @@ export function FlavourCard({ flavour, className = '' }: FlavourCardProps) {
       <div className="mt-6 pt-4 border-t-2 border-[#14102B]/10 flex items-center justify-between gap-3">
         <Link
           href={flavour.href}
-          className="text-xs font-mono font-bold text-[#14102B] hover:underline"
+          className="text-xs font-mono font-bold text-[#14102B] hover:underline min-h-[44px] inline-flex items-center"
         >
           View Flavour Story →
         </Link>

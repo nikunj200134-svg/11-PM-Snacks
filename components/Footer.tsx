@@ -52,10 +52,13 @@ export function Footer() {
               <span className="text-xs font-mono font-bold tracking-widest text-[#FFC21A] uppercase">
                 The 3 Moods
               </span>
-              <ul className="flex flex-col gap-2 list-none text-sm text-[#FFF4DC]/80 font-medium">
+              <ul className="flex flex-col gap-1 sm:gap-2 list-none text-sm text-[#FFF4DC]/80 font-medium">
                 {footerNavigation.flavours.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="hover:text-[#FFC21A] transition-colors">
+                    <Link
+                      href={item.href}
+                      className="hover:text-[#FFC21A] transition-colors max-md:py-2.5 max-md:inline-flex max-md:items-center max-md:min-h-[44px]"
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -68,10 +71,13 @@ export function Footer() {
               <span className="text-xs font-mono font-bold tracking-widest text-[#FFC21A] uppercase">
                 Explore
               </span>
-              <ul className="flex flex-col gap-2 list-none text-sm text-[#FFF4DC]/80 font-medium">
+              <ul className="flex flex-col gap-1 sm:gap-2 list-none text-sm text-[#FFF4DC]/80 font-medium">
                 {footerNavigation.learn.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="hover:text-[#FFC21A] transition-colors">
+                    <Link
+                      href={item.href}
+                      className="hover:text-[#FFC21A] transition-colors max-md:py-2.5 max-md:inline-flex max-md:items-center max-md:min-h-[44px]"
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -84,10 +90,13 @@ export function Footer() {
               <span className="text-xs font-mono font-bold tracking-widest text-[#FFC21A] uppercase">
                 Trust &amp; Legal
               </span>
-              <ul className="flex flex-col gap-2 list-none text-sm text-[#FFF4DC]/80 font-medium">
+              <ul className="flex flex-col gap-1 sm:gap-2 list-none text-sm text-[#FFF4DC]/80 font-medium">
                 {footerNavigation.legal.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="hover:text-[#FFC21A] transition-colors">
+                    <Link
+                      href={item.href}
+                      className="hover:text-[#FFC21A] transition-colors max-md:py-2.5 max-md:inline-flex max-md:items-center max-md:min-h-[44px]"
+                    >
                       {item.label}
                     </Link>
                   </li>
@@ -95,7 +104,7 @@ export function Footer() {
                 <li>
                   <a
                     href="mailto:11pmsnacks@gmail.com"
-                    className="hover:text-[#FFC21A] transition-colors flex items-center gap-1.5"
+                    className="hover:text-[#FFC21A] transition-colors inline-flex items-center gap-1.5 max-md:py-2.5 max-md:min-h-[44px]"
                   >
                     <span>✉</span> 11pmsnacks@gmail.com
                   </a>
@@ -105,7 +114,7 @@ export function Footer() {
                     href="https://instagram.com/11pmsnacks"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#FFC21A] transition-colors flex items-center gap-1.5"
+                    className="hover:text-[#FFC21A] transition-colors inline-flex items-center gap-1.5 max-md:py-2.5 max-md:min-h-[44px]"
                   >
                     <span>📸</span> @11pmsnacks
                   </a>

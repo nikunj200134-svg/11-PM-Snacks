@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Bagel_Fat_One, Caveat_Brush, DM_Sans, Space_Mono, Baloo_2, Geist } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
@@ -47,6 +47,13 @@ const baloo2 = Baloo_2({
   variable: '--font-devanagari',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: 'cover',
+};
 
 export const metadata: Metadata = {
   ...pageMeta({

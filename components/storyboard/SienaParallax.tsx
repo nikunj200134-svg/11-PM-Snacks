@@ -95,7 +95,7 @@ export function SienaParallax() {
           className="relative z-30 flex flex-col items-center text-center px-4 shrink-0 pointer-events-none"
         >
           {/* Refined Pill Tag */}
-          <span className="inline-block px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest bg-[#14102B] text-[#FFC21A] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] mb-2">
+          <span className="inline-block px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-full text-xs font-mono font-bold uppercase tracking-widest bg-[#14102B] text-[#FFC21A] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] mb-2">
             Late-Night Calling · Small-Batch Pop
           </span>
 
@@ -104,7 +104,7 @@ export function SienaParallax() {
             <span className="text-[#FFC21A] drop-shadow-[0_2px_4px_rgba(20,16,43,0.4)]">CRAVE</span> <span className="text-[#14102B]/60">·</span> <span className="text-[#FF4B1F] drop-shadow-[0_2px_4px_rgba(20,16,43,0.3)]">CRUNCH</span>
           </h2>
 
-          <p className="mt-2 text-[11px] sm:text-xs md:text-sm font-body text-[#14102B] font-bold max-w-md tracking-wide">
+          <p className="mt-2 text-xs sm:text-sm font-body text-[#14102B] font-bold max-w-md tracking-wide">
             Popped exclusively in pure sunflower oil. No shortcuts, zero palm oil.
           </p>
         </motion.div>
@@ -140,7 +140,7 @@ export function SienaParallax() {
             style={{ opacity: revealOpacity, y: revealY }}
             className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 z-30 max-w-xl pointer-events-auto text-left"
           >
-            <span className="inline-block px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] mb-2">
+            <span className="inline-block px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] mb-2">
               100% Sunflower Oil · Gurugram
             </span>
             <h3 className="text-xl sm:text-3xl md:text-4xl font-display uppercase tracking-wider text-white m-0 leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">

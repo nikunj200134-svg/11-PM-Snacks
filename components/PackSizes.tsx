@@ -36,7 +36,14 @@ export function PackSizes({
                   <span className="pack-badge">Coming Soon</span>
                 </div>
                 <p className="pack-batch">Limited Release</p>
-                <Image src={pack.image} alt={pack.alt} width={900} height={1350} />
+                <Image
+                  src={pack.image}
+                  alt={pack.alt}
+                  width={900}
+                  height={1350}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 450px"
+                />
                 <h3>{pack.title}</h3>
                 <p>{pack.body}</p>
                 <Link className="btn btn-dark" href="/flavours">Explore the Flavours</Link>

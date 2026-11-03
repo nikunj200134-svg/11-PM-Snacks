@@ -170,7 +170,7 @@ export function NotifyMeSection() {
             </button>
           </div>
 
-          <p className="mt-4 text-[11px] font-mono text-[#14102B]/60 text-center m-0">
+          <p className="mt-4 text-xs font-mono text-[#14102B]/60 text-center m-0">
             Strictly zero spam. Directly reaches our kitchen desk ({OWNER_EMAIL}).
           </p>
         </div>
@@ -182,14 +182,14 @@ export function NotifyMeSection() {
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#25D366] font-bold hover:underline inline-flex items-center gap-1"
+            className="text-[#25D366] font-bold hover:underline inline-flex items-center gap-1 min-h-[44px]"
           >
             <span>💬</span> Chat on WhatsApp →
           </a>
           <span>·</span>
           <a
             href={`mailto:${OWNER_EMAIL}`}
-            className="text-[#FFC21A] font-bold hover:underline inline-flex items-center gap-1"
+            className="text-[#FFC21A] font-bold hover:underline inline-flex items-center gap-1 min-h-[44px]"
           >
             <span>✉️</span> {OWNER_EMAIL}
           </a>
