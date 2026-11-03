@@ -18,8 +18,8 @@ export function KernelToCrunchSection() {
   const stepImages = [
     '/brand/kernels-close.png',
     '/brand/pop-explosion.png',
-    '/brand/kernels-burst.png',
-    '/brand/three-pack-flatlay.png',
+    '/brand/clusters.png',
+    '/brand/burst-hero.png',
   ];
 
   // GSAP ScrollTrigger Lazy Loading & Pinned Scrubbing (Recipe 6)

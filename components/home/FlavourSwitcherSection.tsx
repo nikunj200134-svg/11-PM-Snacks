@@ -145,36 +145,26 @@ export function FlavourSwitcherSection() {
               </div>
             </div>
 
-            {/* Three Sensory Taste Profiles (Heat, Tang, Crunch/Cheesiness) */}
-            <div className="pt-4 border-t-2 border-[#14102B]/10">
-              <div className="flex items-center justify-between mb-2.5">
-                <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#14102B]/75">
-                  Flavour Profile & Intensity
-                </span>
-                <span className="text-[10px] font-mono text-[#14102B]/50 hidden sm:inline">
-                  Sensory characteristics · Not a review rating
-                </span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <Meter
-                  label="Heat"
-                  level={active.meters.heat}
-                  icon="🔥"
-                  tone={active.tone}
-                />
-                <Meter
-                  label="Tang"
-                  level={active.meters.tang}
-                  icon="🍅"
-                  tone={active.tone}
-                />
-                <Meter
-                  label={active.meters.thirdLabel}
-                  level={active.meters.crunchOrCheese}
-                  icon={active.meters.thirdIcon}
-                  tone={active.tone}
-                />
-              </div>
+            {/* Three Sensory Meters (Heat, Tang, Crunch/Cheesiness) */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t-2 border-[#14102B]/10">
+              <Meter
+                label="Heat"
+                level={active.meters.heat}
+                icon="🔥"
+                tone={active.tone}
+              />
+              <Meter
+                label="Tang"
+                level={active.meters.tang}
+                icon="🍅"
+                tone={active.tone}
+              />
+              <Meter
+                label={active.meters.thirdLabel}
+                level={active.meters.crunchOrCheese}
+                icon={active.meters.thirdIcon}
+                tone={active.tone}
+              />
             </div>
 
             {/* At most One CTA Button with Magnetic Pull & Particle Burst */}

@@ -65,7 +65,7 @@ export function NutritionHighlights({
             <div className="nutrition-banner-text">
               <span className="kicker">Honest &amp; Wholesome</span>
               <p>
-                <strong>12g Protein / 100g</strong> · <strong>High in Dietary Fibre</strong> · <strong>Contains Natural Polyphenols</strong> · <strong>Cholesterol-Free · Sunflower Oil</strong> · <strong>Naturally Gluten-Free Ingredients</strong> · <strong>100% Whole Grain Corn</strong> · <strong>No Palm Oil</strong>
+                <strong>12g Protein / 100g</strong> · <strong>High in Dietary Fibre</strong> · <strong>Rich in Antioxidants</strong> · <strong>Supports Heart Health</strong> · <strong>100% Gluten Free</strong> · <strong>Whole Wheat &amp; Grain</strong> · <strong>Plant-Based Snacking</strong>
               </p>
             </div>
             <Link className="btn btn-gold" href="/ingredients-nutrition">

@@ -212,7 +212,7 @@ export default function StyleguidePage() {
           <div className="flex items-center gap-2 border-b-2 border-[#14102B] pb-2">
             <span className="font-mono font-bold text-xs text-[#FF4B1F]">10 &amp; 17. COMPONENTS</span>
             <h3 className="font-display text-xl uppercase tracking-wider text-[#14102B]">
-              FlavourCard (Slot 2) &amp; Meter (Sensory Flavour Profile)
+              FlavourCard (Slot 2) &amp; Meter (Sensory Rating)
             </h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

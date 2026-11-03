@@ -35,30 +35,6 @@ export default function FlavoursPage() {
         </div>
       </section>
 
-      {/* Flavour Range Banner: Three-Pack Flatlay */}
-      <section className="py-8 bg-white border-b-2 border-[#14102B]">
-        <div className="w-[min(1240px,94vw)] mx-auto">
-          <div className="relative aspect-[21/9] sm:aspect-[2.4/1] w-full rounded-[28px] overflow-hidden border-[2.5px] border-[#14102B] shadow-[6px_6px_0px_#14102B] bg-[#14102B]">
-            <Image
-              src="/brand/three-pack-flatlay.png"
-              alt="11 PM Snacks three-pack flatlay featuring Peri Peri, Tangy Tomato, and Cheddar Cheese"
-              fill
-              sizes="(max-width: 1240px) 100vw, 1240px"
-              priority
-              className="object-cover"
-            />
-            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 px-4 py-2 bg-white/95 backdrop-blur-sm border-2 border-[#14102B] rounded-2xl shadow-[3px_3px_0px_#14102B]">
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4B1F] block">
-                The Batch 01 Trio
-              </span>
-              <p className="text-sm font-bold text-[#14102B] m-0">
-                Peri Peri · Tangy Tomato · Cheddar Cheese
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Three Large Flavour Cards */}
       <section className="py-16 border-b-2 border-[#14102B]">
         <div className="w-[min(1240px,94vw)] mx-auto flex flex-col gap-14">
@@ -141,26 +117,16 @@ export default function FlavoursPage() {
                     </div>
                   </div>
 
-                  {/* Sensory Taste Profile */}
-                  <div className="pt-4 border-t-2 border-[#14102B]/10">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#14102B]/75">
-                        Flavour Profile & Intensity
-                      </span>
-                      <span className="text-[10px] font-mono text-[#14102B]/50 hidden sm:inline">
-                        Sensory characteristics · Not a review rating
-                      </span>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                      <Meter label="Heat" level={flavour.meters.heat} icon="🔥" tone={flavour.tone} />
-                      <Meter label="Tang" level={flavour.meters.tang} icon="🍅" tone={flavour.tone} />
-                      <Meter
-                        label={flavour.meters.thirdLabel}
-                        level={flavour.meters.crunchOrCheese}
-                        icon={flavour.meters.thirdIcon}
-                        tone={flavour.tone}
-                      />
-                    </div>
+                  {/* Sensory Meters */}
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t-2 border-[#14102B]/10">
+                    <Meter label="Heat" level={flavour.meters.heat} icon="🔥" tone={flavour.tone} />
+                    <Meter label="Tang" level={flavour.meters.tang} icon="🍅" tone={flavour.tone} />
+                    <Meter
+                      label={flavour.meters.thirdLabel}
+                      level={flavour.meters.crunchOrCheese}
+                      icon={flavour.meters.thirdIcon}
+                      tone={flavour.tone}
+                    />
                   </div>
 
                   {/* Explore & Buy Actions */}

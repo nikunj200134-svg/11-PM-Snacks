@@ -72,7 +72,7 @@ export const siteContent = {
     logoText: '11 PM SNACKS',
     tagline: 'Your Cravings. Our Calling.',
     origin: 'Gurugram, India',
-    oilStatement: 'Popped in refined sunflower oil with zero cholesterol.',
+    oilStatement: 'Popped in heart-smart sunflower oil.',
     shortBio:
       'Ready-to-eat, small-batch masala popcorn crafted in Gurugram, India. Real crunch, loud flavor, and thoughtful ingredients for the snack cravings that hit day or night.',
     url:
@@ -172,7 +172,7 @@ export const siteContent = {
         {
           question: 'How spicy is Peri Peri on a real scale?',
           answer:
-            'It sits at our highest Fiery Kick spice profile. It delivers a lively bird’s eye chili kick with lemon zest, warm and tongue-tingling rather than throat-burning.',
+            'It rates 5/5 on our heat meter. It delivers a lively bird’s eye chili kick with lemon zest, warm and tongue-tingling rather than throat-burning.',
         },
         {
           question: 'Is Peri Peri 100% vegetarian?',
@@ -247,7 +247,7 @@ export const siteContent = {
         {
           question: 'Is Tangy Tomato sweet or chatpata sour?',
           answer:
-            'It is distinctly chatpata with a vibrant Chatpata Burst tang profile! The sweetness comes naturally from ripe tomato powder, balanced with dry mango amchur and black salt.',
+            'It is distinctly chatpata with a 5/5 tang rating! The sweetness comes naturally from ripe tomato powder, balanced with dry mango amchur and black salt.',
         },
         {
           question: 'Does it contain artificial food colors?',
@@ -299,7 +299,7 @@ export const siteContent = {
         'Refined Sunflower Oil',
         'Cheddar Cheese Seasoning (Cheddar Cheese Powder, Whey Powder, Salt, Onion Powder, Paprika Extract)',
       ],
-      allergens: 'Contains Milk (Dairy Cheddar Powder & Whey). Vegetarian friendly. Made in a facility that also processes soy.',
+      allergens: 'Contains Milk / Dairy derivatives. Made in a facility that also processes soy.',
       pairings: [
         {
           title: 'Iced Peach Iced Tea',
@@ -434,7 +434,7 @@ export const siteContent = {
           id: 'zero-palm-oil',
           title: 'Zero Palm Oil',
           note: 'clean sunflower oil',
-          body: 'Prepared exclusively in refined sunflower oil with 0g trans fat. Zero palm oil, never heavy, greasy, or recycled.',
+          body: 'Prepared exclusively in heart-friendly sunflower oil with 0g trans fat. Never heavy, greasy, or recycled.',
         },
         {
           id: 'bold-masala',
@@ -712,9 +712,9 @@ export const siteContent = {
         },
         {
           claim: '0g Trans Fat · 0mg Cholesterol',
-          tag: 'Zero Palm Oil',
+          tag: 'Heart Smart',
           footnote: '[TODO: verified gas chromatography fatty acid profile]',
-          details: 'Crafted in refined sunflower oil with clean unsaturated fatty acids, no palm oil, and zero cholesterol.',
+          details: 'Crafted in heart-friendly sunflower oil with clean unsaturated fatty acids.',
         },
       ],
     },
