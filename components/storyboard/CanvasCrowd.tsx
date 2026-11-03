@@ -152,14 +152,81 @@ export function CanvasCrowd() {
   const beat = STORY_BEATS[currentBeat];
 
   return (
-    <section
-      ref={containerRef}
-      style={{
-        backgroundColor: bgStyle,
-        transition: 'background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
-      }}
-      className="relative h-[300vh] text-[#14102B]"
-    >
+    <>
+      {/* Mobile Flow (lg:hidden): Normal document flow so scrolling never skips chapters on phones */}
+      <div className="lg:hidden flex flex-col w-full text-[#14102B]">
+        {STORY_BEATS.map((item, idx) => {
+          const theme = BEAT_THEMES[idx];
+          return (
+            <div
+              key={item.step}
+              style={{ backgroundColor: theme.bg }}
+              className="w-full py-12 px-4 border-b-2 border-[#14102B] flex flex-col items-center justify-center text-center transition-colors duration-300"
+            >
+              <div className="w-[min(920px,94vw)] mx-auto bg-white/95 border-[3px] border-[#14102B] rounded-[24px] p-6 shadow-[6px_6px_0px_#14102B] flex flex-col items-center max-w-xl">
+                {/* Badge */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className={`px-3 py-1 rounded-full text-xs font-mono font-black uppercase tracking-wider ${theme.pill} shadow-[2px_2px_0px_#14102B]`}>
+                    {theme.tag}
+                  </span>
+                </div>
+
+                {/* Headline */}
+                <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-wide text-[#14102B] leading-tight m-0">
+                  {item.headline}
+                </h3>
+
+                {/* Hinglish Tagline */}
+                {item.hinglish && (
+                  <div className="mt-3 px-3.5 py-1 rounded-full text-xs font-hindi font-bold bg-[#FF4B1F] text-white border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                    “{item.hinglish}”
+                  </div>
+                )}
+
+                {/* Subtext */}
+                <p className="mt-3 text-sm sm:text-base text-[#14102B]/85 font-medium max-w-md mx-auto leading-relaxed">
+                  {item.subtext}
+                </p>
+
+                {/* Progress Indicators */}
+                <div className="mt-5 flex items-center justify-center gap-2 pt-3 border-t-2 border-[#14102B]/10 w-full">
+                  <span className="text-xs font-mono font-bold text-[#14102B]/60 mr-1 uppercase">
+                    Chapter {item.step} of 5
+                  </span>
+                  {STORY_BEATS.map((_, dotIdx) => (
+                    <span
+                      key={dotIdx}
+                      className={`h-2.5 rounded-full border border-[#14102B] ${
+                        dotIdx === idx ? 'w-6 bg-[#14102B]' : 'w-2 bg-[#14102B]/20'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+
+        {/* Bottom Walking Crowd Canvas on Mobile */}
+        <div className="w-full bg-[#FDA5CC] py-3 border-b-2 border-[#14102B] h-[130px] overflow-hidden">
+          <CrowdCanvas
+            src="/images/peeps/all-peeps - Copy.png"
+            rows={15}
+            cols={7}
+            className="w-full h-full"
+          />
+        </div>
+      </div>
+
+      {/* Desktop Track (hidden lg:block): Pinned 300vh scroll with crossfading background */}
+      <section
+        ref={containerRef}
+        style={{
+          backgroundColor: bgStyle,
+          transition: 'background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
+        }}
+        className="hidden lg:block relative h-[300vh] text-[#14102B]"
+      >
       {/* Sticky Pinned Viewport Container */}
       <div className="sticky top-0 h-[100dvh] min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden pt-20 sm:pt-24 pb-2">
         {/* Top Progress Strip */}
@@ -266,5 +333,6 @@ export function CanvasCrowd() {
         </div>
       </div>
     </section>
-  );
+  </>
+);
 }
