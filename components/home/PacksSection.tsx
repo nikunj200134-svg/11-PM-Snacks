@@ -85,14 +85,14 @@ export function PacksSection() {
                 <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-wider text-[#FFC21A]">
                   {variety.name}
                 </h3>
-                <span className="text-xs font-mono font-bold px-2 py-1 rounded-lg bg-[#FFF4DC]/20 text-[#FFF4DC]">
-                  {variety.weight}
+                <span className="text-xs font-mono font-bold px-2 py-1 rounded-lg bg-[#FFC21A] text-[#14102B]">
+                  Coming Soon
                 </span>
               </div>
 
               <div className="mt-4 flex items-baseline gap-2">
-                <span className="text-2xl sm:text-3xl font-mono font-bold text-[#FFC21A] tracking-tight">
-                  {variety.pricePlaceholder}
+                <span className="text-2xl sm:text-3xl font-display uppercase text-[#FFC21A] tracking-tight">
+                  Batch 01 Launch
                 </span>
               </div>
 
