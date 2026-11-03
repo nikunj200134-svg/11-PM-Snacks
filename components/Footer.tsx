@@ -97,12 +97,15 @@ export function Footer() {
           </p>
         </div>
 
-        {/* Bottom Bar: Address, Copyright & Disclaimers */}
-        <div className="pt-6 border-t border-[#FFF4DC]/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#FFF4DC]/60">
-          <p className="m-0 text-center sm:text-left">
+        {/* Bottom Bar: Address, Copyright & Skiper UI Credit */}
+        <div className="pt-6 border-t border-[#FFF4DC]/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[#FFF4DC]/60">
+          <p className="m-0 text-center md:text-left">
             Manufactured in {brand.origin} · Shivji Park Colony, Gurugram 122001
           </p>
-          <p className="m-0 text-center sm:text-right">
+          <p className="m-0 text-center text-[#FFC21A]/80">
+            Motion &amp; storyboard patterns inspired by <a href="https://skiper-ui.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">Skiper UI</a>
+          </p>
+          <p className="m-0 text-center md:text-right">
             &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>
         </div>

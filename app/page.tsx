@@ -1,15 +1,11 @@
 import type { Metadata } from 'next';
-import { HomeHero } from '@/components/home/HomeHero';
-import { RibbonsSection } from '@/components/home/RibbonsSection';
-import { FlavourSwitcherSection } from '@/components/home/FlavourSwitcherSection';
-import { Why11PMSection } from '@/components/home/Why11PMSection';
-import { KernelToCrunchSection } from '@/components/home/KernelToCrunchSection';
-import { PacksSection } from '@/components/home/PacksSection';
-import { NutritionSnapshotSection } from '@/components/home/NutritionSnapshotSection';
-import { MomentsSection } from '@/components/home/MomentsSection';
-import { SocialProofSection } from '@/components/home/SocialProofSection';
+import { WordsPreloader } from '@/components/storyboard/WordsPreloader';
+import { HoverHero } from '@/components/storyboard/HoverHero';
+import { SienaParallax } from '@/components/storyboard/SienaParallax';
+import { AppleFeatureBlock } from '@/components/storyboard/AppleFeatureBlock';
+import { CanvasCrowd } from '@/components/storyboard/CanvasCrowd';
+import { NotifyMeSection } from '@/components/storyboard/NotifyMeSection';
 import { FAQSection } from '@/components/home/FAQSection';
-import { NewsletterSection } from '@/components/home/NewsletterSection';
 import { pageMeta } from '@/lib/metadata';
 import { siteContent } from '@/content/site';
 
@@ -20,58 +16,36 @@ export const metadata: Metadata = pageMeta({
 });
 
 /**
- * 11 PM SNACKS — HOMEPAGE (Prompt 5 Implementation)
+ * 11 PM SNACKS — THE STORYBOARD
  * 
- * Order of Sections:
- * 1. Announcement Bar (offers or delivery only — top of layout)
- * 2. Hero (Slot 1: H1, floating pouch, particles, rotating badge, buttons)
- * 3. Marquee Ribbons (Slot 4: dual tilted ribbons, brand phrases only)
- * 4. Flavour Switcher (Slot 2: full-bleed morph, spring pouch, 3 meters, buy button)
- * 5. Why 11 PM (Midnight background, 3 sticker cards, 1 StatChip, /nutrition link)
- * 6. Kernel to Crunch (Slot 3: 4-step pinned story / mobile stack, /our-story link)
- * 7. Packs (Slot 5: 30g vs 90g toggle, variety bundle [TODO], buy buttons)
- * 8. Nutrition Snapshot (1 compact label card with [TODO: lab data], /nutrition link)
- * 9. Moments (Horizontally scrolling cards, no health claims)
- * 10. Social Proof (Slot 6: [TODO] rating, review cards, [TODO] customer photo grid)
- * 11. FAQ (Slot 7: 6 questions in accordion, /faq link)
- * 12. Newsletter / WhatsApp Sign-up (confetti pop on submit)
- * 13. Footer (Slot 7: giant wordmark, [TODO] FSSAI, socials, legal links — bottom of layout)
+ * 1. Preloader (Words preloader style) - Typography-only intro with cycling words & curved reveal
+ * 2. Home hero (Hover members style) - Giant "11 PM SNACKS", hovering a pouch swaps big text to flavour name
+ * 3. Parallax scroll (Siena parallax style) - A masked image scales up as you scroll, with smooth scrolling
+ * 4. Product block (Apple Feature Block style) - Pick a flavour, see feature cards expand. No pack sizes, no prices: "Coming soon" only
+ * 5. Crowd story (Canvas crowd) - A crowd of people walking while scroll copy tells the 11 PM promise
+ * 6. Notify me, FAQ, and footer with Skiper UI credit
  */
 export default function HomePage() {
   return (
     <>
-      {/* 2. Hero (Slot 1) */}
-      <HomeHero />
+      {/* 1. Words Preloader (curved SVG reveal) */}
+      <WordsPreloader />
 
-      {/* 3. Marquee Ribbons (Slot 4) */}
-      <RibbonsSection />
+      {/* 2. Home Hero (Hover Members Style: Giant 11 PM SNACKS -> Flavour Swapping) */}
+      <HoverHero />
 
-      {/* 4. Flavour Switcher (Slot 2) */}
-      <FlavourSwitcherSection />
+      {/* 3. Parallax Scroll (Siena Parallax Style: Masked Image Scales Up on Scroll) */}
+      <SienaParallax />
 
-      {/* 5. Why 11 PM (Midnight Background) */}
-      <Why11PMSection />
+      {/* 4. Product Block (Apple Feature Block Style: Pick Flavour, Expand Features, Coming Soon Only) */}
+      <AppleFeatureBlock />
 
-      {/* 6. Kernel to Crunch (Slot 3) */}
-      <KernelToCrunchSection />
+      {/* 5. Crowd Story (HTML5 Canvas Crowd with The 11 PM Promise Scroll Track) */}
+      <CanvasCrowd />
 
-      {/* 7. Packs (Slot 5) */}
-      <PacksSection />
-
-      {/* 8. Nutrition Snapshot */}
-      <NutritionSnapshotSection />
-
-      {/* 9. Moments */}
-      <MomentsSection />
-
-      {/* 10. Social Proof (Slot 6) */}
-      <SocialProofSection />
-
-      {/* 11. FAQ (Slot 7) */}
+      {/* 6. Notify Me Early Access & FAQ (Footer with Skiper UI credit is in RootLayout) */}
+      <NotifyMeSection />
       <FAQSection />
-
-      {/* 12. Newsletter or WhatsApp Sign-up */}
-      <NewsletterSection />
     </>
   );
 }
