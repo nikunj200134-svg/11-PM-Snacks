@@ -2,6 +2,9 @@
 
 import { Check } from 'lucide-react';
 import { Button } from '@/components/Button';
+import { CountUp } from '@/components/CountUp';
+import { Magnetic } from '@/components/Magnetic';
+import { BurstButtonWrapper } from '@/components/PopBurst';
 import type { PackItem } from '@/content/site';
 
 export interface PackCardProps {
@@ -40,10 +43,10 @@ export function PackCard({ pack, className = '' }: PackCardProps) {
           </span>
         </div>
 
-        {/* Space Mono Pricing */}
+        {/* Space Mono Pricing with Viewport Count-up (Recipe 7) */}
         <div className="mt-4 flex items-baseline gap-2">
           <span className="text-4xl sm:text-5xl font-mono font-bold text-[#14102B] tracking-tight">
-            {pack.formattedPrice}
+            <CountUp value={pack.price} prefix="₹" durationSeconds={0.8} />
           </span>
           <span className="text-xs font-mono text-[#14102B]/60 uppercase">
             / Pack MRP
@@ -81,16 +84,20 @@ export function PackCard({ pack, className = '' }: PackCardProps) {
         </ul>
       </div>
 
-      {/* Buy Button with Arcade Physics */}
+      {/* Buy Button with Arcade Physics & Magnetic Pull */}
       <div className="mt-8 pt-6 border-t-2 border-[#14102B]/10">
-        <Button
-          href="/flavours"
-          variant={isJumbo ? 'gold' : 'midnight'}
-          size="md"
-          className="w-full text-center"
-        >
-          Select Flavours →
-        </Button>
+        <Magnetic className="w-full">
+          <BurstButtonWrapper className="w-full">
+            <Button
+              href="/flavours"
+              variant={isJumbo ? 'gold' : 'midnight'}
+              size="md"
+              className="w-full text-center"
+            >
+              Select Flavours →
+            </Button>
+          </BurstButtonWrapper>
+        </Magnetic>
       </div>
     </article>
   );

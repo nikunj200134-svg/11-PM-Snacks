@@ -2,21 +2,25 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/Button';
 import { Meter } from '@/components/Meter';
-import { PopBurst } from '@/components/PopBurst';
+import { PopBurst, BurstButtonWrapper } from '@/components/PopBurst';
+import { Magnetic } from '@/components/Magnetic';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { siteContent, type FlavourItem } from '@/content/site';
 
 export function FlavourSwitcherSection() {
   const flavours = siteContent.flavours;
   const [selectedIndex, setSelectedIndex] = useState(0);
   const active: FlavourItem = flavours[selectedIndex];
+  const reducedMotion = useReducedMotion();
 
   // Full-bleed background color based on active flavour
-  const toneBg = {
-    peri: 'bg-[#FF4B1F]',
-    tomato: 'bg-[#E5262F]',
-    cheddar: 'bg-[#FFC21A]',
+  const toneBgHex = {
+    peri: '#FF4B1F',
+    tomato: '#E5262F',
+    cheddar: '#FFC21A',
   }[active.tone];
 
   // Contrast Guard: Text on yellow (#FFC21A) or orange (#FF4B1F) is strictly Midnight Ink (#14102B)
@@ -26,7 +30,11 @@ export function FlavourSwitcherSection() {
   return (
     <section
       id="flavours"
-      className={`relative overflow-hidden py-20 border-b-2 border-[#14102B] transition-colors duration-500 ease-in-out ${toneBg}`}
+      style={{
+        backgroundColor: toneBgHex,
+        transition: 'background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
+      }}
+      className="relative overflow-hidden py-20 border-b-2 border-[#14102B]"
     >
       {/* Flavor Particles (Slot 2) */}
       <PopBurst density="medium" className="opacity-40" />
@@ -67,17 +75,41 @@ export function FlavourSwitcherSection() {
 
         {/* Main Stage: Spring Pouch on Left, Mood Line & 3 Meters on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border-[2.5px] border-[#14102B] rounded-[32px] p-6 sm:p-10 shadow-[8px_8px_0px_#14102B]">
-          {/* Pouch Visual with Spring Key */}
-          <div className="lg:col-span-5 flex items-center justify-center p-4 min-h-[300px]">
-            <div key={active.id} className="animate-in zoom-in-95 duration-300">
-              <Image
-                src={active.pouch}
-                alt={`${active.name} Masala Popcorn Pouch`}
-                width={360}
-                height={460}
-                className="w-auto h-64 sm:h-80 md:h-96 object-contain filter drop-shadow-[0_20px_24px_rgba(20,16,43,0.25)]"
-              />
-            </div>
+          {/* Pouch Visual with AnimatePresence Spring Swap (Recipe 5) */}
+          <div className="lg:col-span-5 flex items-center justify-center p-4 min-h-[300px] overflow-hidden">
+            <AnimatePresence mode="wait">
+              {reducedMotion ? (
+                <div key={active.id}>
+                  <Image
+                    src={active.pouch}
+                    alt={`${active.name} Masala Popcorn Pouch`}
+                    width={360}
+                    height={460}
+                    className="w-auto h-64 sm:h-80 md:h-96 object-contain filter drop-shadow-[0_20px_24px_rgba(20,16,43,0.25)]"
+                  />
+                </div>
+              ) : (
+                <motion.div
+                  key={active.id}
+                  initial={{ opacity: 0, scale: 0.9, x: 25 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, x: -25 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 300,
+                    damping: 20,
+                  }}
+                >
+                  <Image
+                    src={active.pouch}
+                    alt={`${active.name} Masala Popcorn Pouch`}
+                    width={360}
+                    height={460}
+                    className="w-auto h-64 sm:h-80 md:h-96 object-contain filter drop-shadow-[0_20px_24px_rgba(20,16,43,0.25)]"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
 
           {/* Details: Mood Line, Description, 3 Meters & Buy CTA */}
@@ -135,11 +167,15 @@ export function FlavourSwitcherSection() {
               />
             </div>
 
-            {/* At most One CTA Button */}
+            {/* At most One CTA Button with Magnetic Pull & Particle Burst */}
             <div className="pt-2">
-              <Button href={active.href} variant="midnight" size="md">
-                {siteContent.homepage.flavourSwitcher.ctaText} ({active.name}) →
-              </Button>
+              <Magnetic>
+                <BurstButtonWrapper>
+                  <Button href={active.href} variant="midnight" size="md">
+                    {siteContent.homepage.flavourSwitcher.ctaText} ({active.name}) →
+                  </Button>
+                </BurstButtonWrapper>
+              </Magnetic>
             </div>
           </div>
         </div>
