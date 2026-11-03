@@ -142,11 +142,11 @@ export function WordsPreloader() {
           transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#14102B] text-[#FFF4DC] select-none pointer-events-auto overflow-hidden"
         >
-          {/* Accessible Skip Button (Tab + Enter) */}
+          {/* Accessible Skip Button (Tab + Enter, >= 44px touch target) */}
           <button
             type="button"
             onClick={handleSkip}
-            className="absolute top-6 right-6 z-30 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-[#FFF4DC]/70 border border-[#FFF4DC]/25 bg-white/5 hover:text-[#FFF4DC] hover:border-[#FFC21A] hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#FFC21A] transition-colors cursor-pointer"
+            className="absolute top-6 right-6 z-30 min-h-[44px] min-w-[72px] inline-flex items-center justify-center px-4 py-2.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-[#FFF4DC] border border-[#FFF4DC]/40 bg-white/10 hover:text-[#FFF4DC] hover:border-[#FFC21A] hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-[#FFC21A] transition-colors cursor-pointer"
           >
             Skip ↵
           </button>

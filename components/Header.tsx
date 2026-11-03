@@ -145,13 +145,13 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger Toggle (>= 44px tap target) */}
           <button
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Mobile Menu"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-xl border-2 border-[#14102B] bg-[#FFC21A] text-[#14102B] shadow-[3px_3px_0px_#14102B] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+            className="md:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-[#14102B] bg-[#FFC21A] text-[#14102B] shadow-[3px_3px_0px_#14102B] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
           >
-            <Menu className="w-5 h-5 stroke-[2.5]" />
+            <Menu className="w-6 h-6 stroke-[2.5]" />
           </button>
         </div>
       </header>
@@ -176,7 +176,7 @@ export function Header() {
             <button
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Close Mobile Menu"
-              className="p-2 rounded-full border-2 border-[#FFF4DC] bg-[#FFF4DC] text-[#14102B] shadow-[3px_3px_0px_#FFC21A] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+              className="w-11 h-11 min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-full border-2 border-[#FFF4DC] bg-[#FFF4DC] text-[#14102B] shadow-[3px_3px_0px_#FFC21A] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
             >
               <X className="w-6 h-6 stroke-[2.5]" />
             </button>
