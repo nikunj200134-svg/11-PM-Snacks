@@ -113,15 +113,14 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
 
           {/* Floating Pouch Visual */}
           <div className="lg:col-span-5 flex items-center justify-center p-4">
-            <div className="relative group transition-transform duration-300 hover:scale-105">
-              <div className="w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-white/20 blur-xl absolute -z-10" />
+            <div className="relative group transition-transform duration-300 hover:scale-105 w-full max-w-lg aspect-[3/2] rounded-3xl overflow-hidden border-[3px] border-[#14102B] shadow-[8px_8px_0px_#14102B]">
               <Image
                 src={flavour.pouch}
                 alt={`${flavour.name} Masala Popcorn Pouch`}
-                width={420}
-                height={560}
+                fill
+                sizes="(max-width: 1024px) 90vw, 500px"
                 priority
-                className="w-auto h-80 sm:h-96 md:h-[460px] object-contain filter drop-shadow-[0_24px_36px_rgba(20,16,43,0.3)]"
+                className="object-cover"
               />
             </div>
           </div>

@@ -42,14 +42,14 @@ export function FlavourCard({ flavour, className = '' }: FlavourCardProps) {
 
         {/* Pouch Visual with Tone Ambient Glow */}
         <div
-          className={`relative w-full h-64 rounded-2xl flex items-center justify-center p-4 border-2 border-[#14102B] overflow-hidden ${toneBg}`}
+          className={`relative w-full aspect-[3/2] rounded-2xl overflow-hidden border-2 border-[#14102B] ${toneBg}`}
         >
           <Image
             src={flavour.pouch}
             alt={`${flavour.name} Popcorn Pouch`}
-            width={280}
-            height={360}
-            className="w-auto h-52 object-contain filter drop-shadow-[0_12px_16px_rgba(20,16,43,0.22)] group-hover:scale-105 group-hover:rotate-1 transition-transform duration-300"
+            fill
+            sizes="(max-width: 640px) 100vw, 380px"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
 

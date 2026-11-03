@@ -109,15 +109,15 @@ export function HoverHero() {
                     stiffness: 300,
                     damping: 20,
                   }}
-                  className="relative"
+                  className="relative w-full aspect-[3/2] rounded-2xl sm:rounded-3xl overflow-hidden border-[2.5px] border-[#14102B] shadow-[5px_5px_0px_#14102B] bg-[#14102B]/5"
                 >
                   <Image
                     src={flavour.pouch}
                     alt={`${flavour.name} Masala Popcorn Pouch`}
-                    width={360}
-                    height={480}
+                    fill
+                    sizes="(max-width: 640px) 33vw, (max-width: 1024px) 30vw, 380px"
                     priority
-                    className="w-auto h-48 sm:h-72 md:h-96 lg:h-[420px] object-contain filter drop-shadow-[0_20px_28px_rgba(20,16,43,0.28)]"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </motion.div>
 

@@ -98,13 +98,15 @@ export function AppleFeatureBlock() {
                 </div>
 
                 <div className="sm:col-span-5 flex items-center justify-center p-2">
-                  <Image
-                    src={active.pouch}
-                    alt={`${active.name} Masala Popcorn Pouch`}
-                    width={320}
-                    height={420}
-                    className="w-auto h-56 sm:h-72 object-contain filter drop-shadow-[0_16px_24px_rgba(20,16,43,0.22)]"
-                  />
+                  <div className="relative w-full max-w-[320px] aspect-[3/2] rounded-2xl overflow-hidden border-2 border-[#14102B] shadow-[4px_4px_0px_#14102B]">
+                    <Image
+                      src={active.pouch}
+                      alt={`${active.name} Masala Popcorn Pouch`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 320px"
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
               </div>
 
