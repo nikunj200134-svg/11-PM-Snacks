@@ -985,14 +985,14 @@ ul { margin: 0; padding: 0; }
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-.pack-price {
+.pack-badge {
   background: var(--gold);
   color: var(--ink);
   padding: 6px 12px;
   border-radius: 999px;
   font-size: 1.3rem;
 }
-.pack-weight {
+.pack-batch {
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.16em;
