@@ -12,7 +12,7 @@ export const site = {
   phoneDisplay: '+91 85108 01655',
   gstin: '06JKWPK0688H1ZD',
   city: 'Gurugram, Haryana',
-  addressLines: ['House No. 525/22A, Street 10', 'Shivji Park Colony', 'Gurugram, Haryana 122001'],
+  addressLines: ['Gurgaon, Haryana 122001'],
   proprietor: 'Kunal Sengar',
 };
 

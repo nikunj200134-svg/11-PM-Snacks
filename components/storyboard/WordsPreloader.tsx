@@ -51,11 +51,6 @@ export function WordsPreloader() {
     }
   }, []);
 
-  const handleSkip = useCallback(() => {
-    setIsExiting(true);
-    setTimeout(handleFinish, 400);
-  }, [handleFinish]);
-
   useEffect(() => {
     // 1. Check if already played in this browser session or user prefers reduced motion
     try {
@@ -166,15 +161,6 @@ export function WordsPreloader() {
             imgClass="w-28 h-28 sm:w-36 sm:h-36"
             className="h-screen w-full flex flex-col items-center justify-center cursor-default"
           >
-            {/* Accessible Skip Button (Tab + Enter, >= 44px tap target) */}
-            <button
-              type="button"
-              onClick={handleSkip}
-              className="absolute top-6 right-6 z-40 min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-[#FFF4DC] border border-[#FFF4DC]/30 bg-white/10 hover:border-[#FFC21A] hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-[#FFC21A] transition-colors cursor-pointer pointer-events-auto shadow-md"
-            >
-              Skip ↵
-            </button>
-
             {/* Central Word Display + Ticking Clock Indicator */}
             <div className="relative z-30 flex flex-col items-center justify-center gap-6 px-6 text-center pointer-events-none">
               <div className="flex items-center justify-center gap-3 sm:gap-4">

@@ -69,7 +69,7 @@ export default function OurStoryPage() {
                 className="w-full h-auto rounded-2xl object-cover"
               />
               <span className="block mt-3 text-center text-xs font-mono font-bold text-[#14102B]/70">
-                Shivji Park Colony Kitchen, Gurugram
+                Gurgaon, Haryana 122001
               </span>
             </div>
           </div>

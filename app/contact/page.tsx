@@ -12,65 +12,29 @@ import {
 } from '@/lib/contact';
 
 export default function ContactPage() {
-  const [isWholesale, setIsWholesale] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    phone: '',
     message: '',
   });
 
-  const [errors, setErrors] = useState<Partial<Record<keyof ContactForm, string>>>({});
   const [submittedMethod, setSubmittedMethod] = useState<'whatsapp' | 'email' | null>(null);
   const [copied, setCopied] = useState(false);
 
-  // Input refs for auto-focusing on first invalid field
-  const nameRef = useRef<HTMLInputElement>(null);
-  const emailRef = useRef<HTMLInputElement>(null);
-  const phoneRef = useRef<HTMLInputElement>(null);
-  const messageRef = useRef<HTMLTextAreaElement>(null);
-
   const getContactPayload = (): ContactForm => ({
-    type: isWholesale ? 'Wholesale B2B' : 'Personal',
+    type: 'General',
     name: formData.name,
-    email: formData.email,
-    phone: formData.phone,
+    email: '',
+    phone: '',
     message: formData.message,
   });
 
   const handleWhatsAppClick = () => {
-    const payload = getContactPayload();
-    const validationErrors = validate(payload);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      if (validationErrors.name) nameRef.current?.focus();
-      else if (validationErrors.email) emailRef.current?.focus();
-      else if (validationErrors.phone) phoneRef.current?.focus();
-      else if (validationErrors.message) messageRef.current?.focus();
-      return;
-    }
-
-    setErrors({});
-    // Call directly inside user gesture
-    openWhatsApp(payload);
+    openWhatsApp(getContactPayload());
     setSubmittedMethod('whatsapp');
   };
 
   const handleEmailClick = () => {
-    const payload = getContactPayload();
-    const validationErrors = validate(payload);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      if (validationErrors.name) nameRef.current?.focus();
-      else if (validationErrors.email) emailRef.current?.focus();
-      else if (validationErrors.phone) phoneRef.current?.focus();
-      else if (validationErrors.message) messageRef.current?.focus();
-      return;
-    }
-
-    setErrors({});
-    // Call directly inside user gesture
-    openEmail(payload);
+    openEmail(getContactPayload());
     setSubmittedMethod('email');
   };
 
@@ -125,7 +89,7 @@ export default function ContactPage() {
                         </button>
                         <a
                           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                            `Hi 11 PM Snacks! 👋\n\nInquiry: ${isWholesale ? 'Wholesale B2B' : 'Personal'}\nName: ${formData.name || 'Friend'}\n\nMessage:\n${formData.message}`
+                            `Hi 11 PM Snacks! 👋\n\nName: ${formData.name || 'Friend'}\n\nMessage:\n${formData.message || "I'd love to connect with your team!"}`
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -140,157 +104,44 @@ export default function ContactPage() {
               )}
 
               <form noValidate onSubmit={(e) => e.preventDefault()} className="space-y-6">
-                {/* Inquiry Type Toggle Switch (Personal vs Wholesale B2B) */}
-                <div className="p-4 rounded-2xl bg-[#FFF4DC] border-2 border-[#14102B] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                  <div>
-                    <label id="inquiry-type-label" className="text-sm font-display uppercase tracking-wide block text-[#14102B]">
-                      Inquiry Type
-                    </label>
-                    <span className="text-xs font-sans text-[#14102B]/75">
-                      {isWholesale
-                        ? 'Commercial wholesale, office pantry, college fest or retail stockist'
-                        : 'Personal snacking, flavor feedback or general question'}
-                    </span>
-                  </div>
-
-                  <div
-                    role="radiogroup"
-                    aria-labelledby="inquiry-type-label"
-                    className="inline-flex p-1 bg-white border-2 border-[#14102B] rounded-full shrink-0 shadow-[2px_2px_0px_#14102B]"
-                  >
-                    <button
-                      type="button"
-                      role="radio"
-                      aria-checked={!isWholesale}
-                      onClick={() => setIsWholesale(false)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') setIsWholesale(true);
-                      }}
-                      className={`px-4 py-2 rounded-full text-xs font-mono font-black uppercase cursor-pointer transition-all ${
-                        !isWholesale
-                          ? 'bg-[#14102B] !text-white shadow-[1px_1px_0px_#14102B]'
-                          : '!text-[#14102B] hover:bg-[#14102B]/10'
-                      }`}
-                    >
-                      Personal
-                    </button>
-                    <button
-                      type="button"
-                      role="radio"
-                      aria-checked={isWholesale}
-                      onClick={() => setIsWholesale(true)}
-                      onKeyDown={(e) => {
-                        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') setIsWholesale(false);
-                      }}
-                      className={`px-4 py-2 rounded-full text-xs font-mono font-black uppercase cursor-pointer transition-all ${
-                        isWholesale
-                          ? 'bg-[#14102B] !text-white shadow-[1px_1px_0px_#14102B]'
-                          : '!text-[#14102B] hover:bg-[#14102B]/10'
-                      }`}
-                    >
-                      Wholesale B2B
-                    </button>
-                  </div>
+                {/* Welcoming Note: Zero Barrier */}
+                <div className="p-4 rounded-2xl bg-[#FFF4DC] border-2 border-[#14102B]">
+                  <p className="text-sm font-sans font-medium text-[#14102B] m-0 leading-relaxed">
+                    For any type of query, wholesale bulk order, flavour feedback, or late-night craving — <strong>we&apos;re just a text away!</strong> You can simply click on WhatsApp or Email below to reach us directly.
+                  </p>
                 </div>
 
-                {/* Name & Email Fields */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name-input" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] mb-1">
-                      Your Name *
-                    </label>
-                    <input
-                      id="name-input"
-                      ref={nameRef}
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="e.g. Kunal Sharma"
-                      className={`w-full min-h-[48px] px-4 py-3 rounded-xl border-2 border-[#14102B] font-mono text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] ${
-                        errors.name ? 'border-red-500 bg-red-50' : 'bg-[#FFFDF7]'
-                      }`}
-                    />
-                    {errors.name && (
-                      <span role="alert" aria-live="polite" className="text-xs font-mono text-red-600 mt-1 block font-bold">
-                        {errors.name}
-                      </span>
-                    )}
-                  </div>
-
-                  <div>
-                    <label htmlFor="email-input" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] mb-1">
-                      Email Address *
-                    </label>
-                    <input
-                      id="email-input"
-                      ref={emailRef}
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="you@domain.com"
-                      className={`w-full min-h-[48px] px-4 py-3 rounded-xl border-2 border-[#14102B] font-mono text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] ${
-                        errors.email ? 'border-red-500 bg-red-50' : 'bg-[#FFFDF7]'
-                      }`}
-                    />
-                    {errors.email && (
-                      <span role="alert" aria-live="polite" className="text-xs font-mono text-red-600 mt-1 block font-bold">
-                        {errors.email}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Phone Number (WhatsApp) */}
+                {/* Optional Name Field */}
                 <div>
-                  <label htmlFor="phone-input" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] mb-1">
-                    Phone Number (WhatsApp)
+                  <label htmlFor="name-input" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] mb-1">
+                    Your Name (Optional)
                   </label>
                   <input
-                    id="phone-input"
-                    ref={phoneRef}
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+91 85108 01655"
-                    className={`w-full min-h-[48px] px-4 py-3 rounded-xl border-2 border-[#14102B] font-mono text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] ${
-                      errors.phone ? 'border-red-500 bg-red-50' : 'bg-[#FFFDF7]'
-                    }`}
+                    id="name-input"
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Kunal Sharma"
+                    className="w-full min-h-[48px] px-4 py-3 rounded-xl border-2 border-[#14102B] font-mono text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] bg-[#FFFDF7]"
                   />
-                  {errors.phone && (
-                    <span role="alert" aria-live="polite" className="text-xs font-mono text-red-600 mt-1 block font-bold">
-                      {errors.phone}
-                    </span>
-                  )}
                 </div>
 
-                {/* Message Field */}
+                {/* Optional Message Field */}
                 <div>
                   <label htmlFor="message-input" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] mb-1">
-                    Your Message *
+                    Your Message (Optional)
                   </label>
                   <textarea
                     id="message-input"
-                    ref={messageRef}
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder={
-                      isWholesale
-                        ? 'Tell us about your retail location, office pantry order, or wholesale carton requirements...'
-                        : 'Share your flavour cravings, feedback, or midnight snacking thoughts...'
-                    }
-                    className={`w-full px-4 py-3 rounded-xl border-2 border-[#14102B] font-sans text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] ${
-                      errors.message ? 'border-red-500 bg-red-50' : 'bg-[#FFFDF7]'
-                    }`}
+                    placeholder="Share your flavour cravings, wholesale requirements, or midnight snacking thoughts (or leave blank to just say hi)..."
+                    className="w-full px-4 py-3 rounded-xl border-2 border-[#14102B] font-sans text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] bg-[#FFFDF7]"
                   />
-                  {errors.message && (
-                    <span role="alert" aria-live="polite" className="text-xs font-mono text-red-600 mt-1 block font-bold">
-                      {errors.message}
-                    </span>
-                  )}
                 </div>
 
-                {/* Dual Pre-filled Action Buttons: Send on WhatsApp + Send via Email */}
+                {/* Dual Direct Buttons: Send on WhatsApp + Send via Email */}
                 <div className="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
                   <button
                     type="button"
@@ -325,25 +176,19 @@ export default function ContactPage() {
               </h2>
 
               <div className="mt-6 space-y-4 font-mono text-sm">
-                {/* Phone Call / Direct WhatsApp */}
+                {/* Direct WhatsApp (Phone number hidden, direct chat link) */}
                 <div className="p-3.5 rounded-xl bg-[#1F193E] border border-[#FFF4DC]/20">
                   <span className="text-xs text-[#FFC21A] block uppercase font-bold mb-1">
-                    Call / WhatsApp:
+                    Direct WhatsApp:
                   </span>
                   <div className="flex flex-wrap items-center gap-3">
-                    <a
-                      href="tel:+918510801655"
-                      className="text-base font-bold text-white hover:text-[#FFC21A] transition-colors"
-                    >
-                      +91 85108 01655
-                    </a>
                     <a
                       href={`https://wa.me/${WHATSAPP_NUMBER}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#25D366] text-white text-xs font-bold uppercase shadow-[1px_1px_0px_#14102B] hover:opacity-90"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#25D366] text-white text-xs font-bold uppercase shadow-[1px_1px_0px_#14102B] hover:opacity-90 transition-opacity"
                     >
-                      Chat on WhatsApp →
+                      <span>💬</span> Chat on WhatsApp →
                     </a>
                   </div>
                 </div>
@@ -361,13 +206,13 @@ export default function ContactPage() {
                   </a>
                 </div>
 
-                {/* Kitchen Address */}
+                {/* Kitchen Address (Shivji Park Colony removed) */}
                 <div className="p-3.5 rounded-xl bg-[#1F193E] border border-[#FFF4DC]/20">
                   <span className="text-xs text-[#FFC21A] block uppercase font-bold mb-1">
                     Kitchen Address:
                   </span>
                   <p className="text-sm text-[#FFF4DC]/90 m-0 leading-relaxed font-sans font-medium">
-                    Shivji Park Colony, Gurugram, Haryana 122001, India
+                    Gurgaon, Haryana 122001, India
                   </p>
                 </div>
 

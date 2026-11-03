@@ -11,32 +11,9 @@ import {
 
 export function NotifyMeSection() {
   const [contactInput, setContactInput] = useState('');
-  const [inquiryType, setInquiryType] = useState<'Personal' | 'Wholesale B2B'>('Personal');
-  const [error, setError] = useState('');
   const [submittedMethod, setSubmittedMethod] = useState<'whatsapp' | 'email' | null>(null);
   const [copied, setCopied] = useState(false);
   const [confettiActive, setConfettiActive] = useState(false);
-
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const validateInput = () => {
-    const val = contactInput.trim();
-    if (!val) {
-      setError('Please enter your email address or 10-digit WhatsApp number');
-      inputRef.current?.focus();
-      return false;
-    }
-    // Check if looks somewhat like email or phone
-    const isEmail = /^\S+@\S+\.\S+$/.test(val);
-    const isPhone = /^(\+91)?[\s-]?[6-9]\d{9}$/.test(val.replace(/\s/g, ''));
-    if (!isEmail && !isPhone && val.length < 5) {
-      setError('Please enter a valid email or 10-digit Indian WhatsApp number');
-      inputRef.current?.focus();
-      return false;
-    }
-    setError('');
-    return true;
-  };
 
   const fireConfetti = () => {
     setConfettiActive(true);
@@ -46,22 +23,18 @@ export function NotifyMeSection() {
   };
 
   const handleWhatsAppClick = () => {
-    if (!validateInput()) return;
-
-    openDropAlertWhatsApp(`${contactInput.trim()} (${inquiryType})`);
+    openDropAlertWhatsApp(contactInput.trim());
     setSubmittedMethod('whatsapp');
     fireConfetti();
   };
 
   const handleEmailClick = () => {
-    if (!validateInput()) return;
-
-    openDropAlertEmail(`${contactInput.trim()} (${inquiryType})`);
+    openDropAlertEmail(contactInput.trim());
     setSubmittedMethod('email');
     fireConfetti();
   };
 
-  const dropMessage = buildDropAlertMessage(`${contactInput.trim()} (${inquiryType})`, submittedMethod === 'whatsapp' ? 'WhatsApp' : 'Email');
+  const dropMessage = buildDropAlertMessage(contactInput.trim(), submittedMethod === 'whatsapp' ? 'WhatsApp' : 'Email');
 
   const handleCopy = async () => {
     if (navigator?.clipboard) {
@@ -154,80 +127,29 @@ export function NotifyMeSection() {
             </div>
           )}
 
-          {/* Inquiry / Interest Type Toggle (Identical to Contact Page) */}
-          <div className="mb-5 p-4 rounded-2xl bg-[#FFFDF7] border-2 border-[#14102B] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] block">
-                Inquiry Type
-              </span>
-              <span className="text-[11px] font-sans text-[#14102B]/70 block mt-0.5">
-                {inquiryType === 'Personal'
-                  ? 'Personal snacking & flavour updates'
-                  : 'Cafe, office pantry, or bulk carton orders'}
-              </span>
-            </div>
-
-            <div
-              role="radiogroup"
-              aria-label="Inquiry Type"
-              className="flex items-center p-1 bg-[#14102B]/5 rounded-xl border border-[#14102B]/30 self-start sm:self-auto shrink-0"
-            >
-              <button
-                type="button"
-                role="radio"
-                aria-checked={inquiryType === 'Personal'}
-                onClick={() => setInquiryType('Personal')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  inquiryType === 'Personal'
-                    ? 'bg-[#14102B] !text-white shadow-[1px_1px_0px_#14102B]'
-                    : '!text-[#14102B] hover:bg-black/5'
-                }`}
-              >
-                Personal
-              </button>
-              <button
-                type="button"
-                role="radio"
-                aria-checked={inquiryType === 'Wholesale B2B'}
-                onClick={() => setInquiryType('Wholesale B2B')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-mono font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  inquiryType === 'Wholesale B2B'
-                    ? 'bg-[#14102B] !text-white shadow-[1px_1px_0px_#14102B]'
-                    : '!text-[#14102B] hover:bg-black/5'
-                }`}
-              >
-                Wholesale B2B
-              </button>
-            </div>
+          {/* Friendly Prompt: Zero Form Barriers */}
+          <div className="mb-6 p-4 rounded-2xl bg-[#FFFDF7] border-2 border-[#14102B]">
+            <p className="text-sm font-sans font-medium text-[#14102B] m-0 leading-relaxed">
+              For any type of query, bulk orders, or early access drop alerts — <strong>we&apos;re just a text away!</strong> Simply tap below to reach our Gurugram kitchen team directly on WhatsApp or Email.
+            </p>
           </div>
 
-          {/* Input Field with Validation */}
+          {/* Optional Message / Contact note */}
           <div className="mb-5">
             <label htmlFor="drop-contact-input" className="block text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] mb-1.5">
-              Email or WhatsApp Number *
+              Your Message or Contact (Optional)
             </label>
             <input
               id="drop-contact-input"
-              ref={inputRef}
               type="text"
               value={contactInput}
-              onChange={(e) => {
-                setContactInput(e.target.value);
-                if (error) setError('');
-              }}
-              placeholder="e.g. kunal@gmail.com or 8510801655"
-              className={`w-full min-h-[48px] px-4 py-3 rounded-xl border-2 border-[#14102B] font-mono text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] transition-colors ${
-                error ? 'border-red-500 bg-red-50' : 'bg-[#FFFDF7]'
-              }`}
+              onChange={(e) => setContactInput(e.target.value)}
+              placeholder="e.g. Save a Batch 01 crate for me! (or leave blank to just say hi)"
+              className="w-full min-h-[48px] px-4 py-3 rounded-xl border-2 border-[#14102B] font-mono text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] transition-colors bg-[#FFFDF7]"
             />
-            {error && (
-              <span role="alert" aria-live="polite" className="text-xs font-mono text-red-600 mt-1.5 block font-bold">
-                ⚠️ {error}
-              </span>
-            )}
           </div>
 
-          {/* Dual Action Buttons (Same as Image 1) */}
+          {/* Dual Action Buttons (Direct 1-Click Launch) */}
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
             <button
               type="button"
@@ -249,20 +171,20 @@ export function NotifyMeSection() {
           </div>
 
           <p className="mt-4 text-[11px] font-mono text-[#14102B]/60 text-center m-0">
-            Strictly zero spam. Directly reaches our Gurugram kitchen desk ({OWNER_EMAIL}).
+            Strictly zero spam. Directly reaches our kitchen desk ({OWNER_EMAIL}).
           </p>
         </div>
 
-        {/* Direct Contact Trust Bar */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-[#FFF4DC]/70">
-          <span>Gurugram Kitchen Hotline:</span>
+        {/* Direct Contact Trust Bar (Phone number hidden, WhatsApp link & Gmail shown) */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-[#FFF4DC]/80 font-medium">
+          <span>Kitchen Desk:</span>
           <a
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#25D366] font-bold hover:underline inline-flex items-center gap-1"
           >
-            <span>💬</span> +91 85108 01655
+            <span>💬</span> Chat on WhatsApp →
           </a>
           <span>·</span>
           <a

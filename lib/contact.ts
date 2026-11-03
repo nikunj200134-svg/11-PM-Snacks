@@ -9,16 +9,25 @@ export type ContactForm = {
   message: string;
 };
 
-export const buildMessage = (d: ContactForm) =>
-  `Hi 11 PM Snacks! 👋\n\nInquiry: ${d.type}\nName: ${d.name}\nEmail: ${d.email}\nPhone: ${d.phone || "-"}\n\nMessage:\n${d.message}`;
+export const buildMessage = (d: ContactForm) => {
+  const parts: string[] = ['Hi 11 PM Snacks! 👋🍿'];
+  if (d.type && d.type !== 'General') parts.push(`Inquiry: ${d.type}`);
+  if (d.name?.trim()) parts.push(`Name: ${d.name.trim()}`);
+  if (d.email?.trim()) parts.push(`Email: ${d.email.trim()}`);
+  if (d.phone?.trim()) parts.push(`Phone: ${d.phone.trim()}`);
+  if (d.message?.trim()) {
+    parts.push(`\nMessage:\n${d.message.trim()}`);
+  } else {
+    parts.push(`\nFor any type of craving, question, or inquiry — we're just a text away! I'd love to connect with your kitchen desk.`);
+  }
+  return parts.join('\n');
+};
 
 export const validate = (d: ContactForm) => {
   const errors: Partial<Record<keyof ContactForm, string>> = {};
-  if (!d.name.trim()) errors.name = "Please enter your name";
-  if (!/^\S+@\S+\.\S+$/.test(d.email)) errors.email = "Enter a valid email";
+  if (d.email && !/^\S+@\S+\.\S+$/.test(d.email)) errors.email = "Enter a valid email";
   if (d.phone && !/^(\+91)?[\s-]?[6-9]\d{9}$/.test(d.phone.replace(/\s/g, "")))
     errors.phone = "Enter a valid 10-digit Indian number";
-  if (!d.message.trim()) errors.message = "Please write your message";
   return errors;
 };
 
@@ -47,8 +56,12 @@ export const copyMessage = (d: ContactForm) =>
   navigator.clipboard.writeText(buildMessage(d));
 
 // Early Access Drop Alert Helpers
-export const buildDropAlertMessage = (contact: string, channel: 'WhatsApp' | 'Email' = 'WhatsApp') =>
-  `Hi 11 PM Snacks! 👋🍿\n\nPlease add me to the Batch 01 Early Access Drop List!\nPreferred Channel: ${channel}\nContact: ${contact}`;
+export const buildDropAlertMessage = (contact?: string, channel: 'WhatsApp' | 'Email' = 'WhatsApp') => {
+  if (contact?.trim()) {
+    return `Hi 11 PM Snacks! 👋🍿\n\nPlease add me to the Batch 01 Early Access Drop List!\nPreferred Channel: ${channel}\nContact: ${contact.trim()}`;
+  }
+  return `Hi 11 PM Snacks! 👋🍿\n\nPlease add me to the Batch 01 Early Access Drop List! For any type of query or drop alert, I'm just a text away via ${channel}!`;
+};
 
 export const openDropAlertWhatsApp = (contact: string) => {
   const message = buildDropAlertMessage(contact, 'WhatsApp');
