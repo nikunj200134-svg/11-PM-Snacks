@@ -31,7 +31,7 @@ export function WordsPreloader() {
     setIsDone(true);
     document.body.style.overflow = '';
     try {
-      sessionStorage.setItem('11pm_preloader_seen', 'true');
+      sessionStorage.setItem('11pm_preloader_v3', 'true');
     } catch {
       // Ignore in restricted environments
     }
@@ -45,7 +45,8 @@ export function WordsPreloader() {
   useEffect(() => {
     // 1. Check if already played in this browser session or user prefers reduced motion
     try {
-      const hasLoaded = sessionStorage.getItem('11pm_preloader_seen');
+      const isReplay = window.location.search.includes('replay');
+      const hasLoaded = !isReplay && sessionStorage.getItem('11pm_preloader_v3');
       if (hasLoaded || reducedMotion) {
         setIsDone(true);
         return;
