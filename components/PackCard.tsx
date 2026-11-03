@@ -83,17 +83,17 @@ export function PackCard({ pack, className = '' }: PackCardProps) {
         </ul>
       </div>
 
-      {/* Buy Button with Arcade Physics & Magnetic Pull */}
+      {/* Buy / Where to Buy Button */}
       <div className="mt-8 pt-6 border-t-2 border-[#14102B]/10">
         <Magnetic className="w-full">
           <BurstButtonWrapper className="w-full">
             <Button
-              href="/flavours"
+              href="/where-to-buy"
               variant={isJumbo ? 'gold' : 'midnight'}
               size="md"
               className="w-full text-center"
             >
-              Select Flavours →
+              Buy / Where to Buy →
             </Button>
           </BurstButtonWrapper>
         </Magnetic>
