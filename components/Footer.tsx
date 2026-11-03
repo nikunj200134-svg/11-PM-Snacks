@@ -72,7 +72,7 @@ export function Footer() {
             {/* Legal & Compliance */}
             <div className="flex flex-col gap-3 col-span-2 sm:col-span-1">
               <span className="text-xs font-mono font-bold tracking-widest text-[#FFC21A] uppercase">
-                Trust &amp; Legal
+                Trust &amp; Contact
               </span>
               <ul className="flex flex-col gap-2 list-none text-sm text-[#FFF4DC]/80 font-medium">
                 {footerNavigation.legal.map((item) => (
@@ -82,8 +82,37 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
-                <li className="pt-2 text-xs font-mono text-[#FFF4DC]/50">
-                  FSSAI: {brand.contact.fssaiPlaceholder}
+                <li>
+                  <a
+                    href="mailto:care@11pmsnacks.com"
+                    className="hover:text-[#FFC21A] transition-colors"
+                  >
+                    care@11pmsnacks.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://instagram.com/11pmsnacks"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FFC21A] transition-colors inline-flex items-center gap-1.5"
+                  >
+                    <span>Instagram</span>
+                    <span className="text-[#FFC21A]">@11pmsnacks</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://wa.me/918510801655"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FFC21A] transition-colors"
+                  >
+                    WhatsApp: +91 85108 01655
+                  </a>
+                </li>
+                <li className="pt-2 text-xs font-mono text-[#FFF4DC]/60 border-t border-[#FFF4DC]/15">
+                  FSSAI Lic. No: <span className="text-[#FFC21A] font-bold">[FSSAI LICENCE NUMBER: 14-DIGIT]</span>
                 </li>
               </ul>
             </div>
