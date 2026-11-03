@@ -209,14 +209,14 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
                 {flavour.nutritionTable.map((row, i) => (
                   <div key={i} className="grid grid-cols-12 py-1.5 border-b border-[#14102B]/5">
                     <span className="col-span-6 font-semibold text-[#14102B]">{row.nutrient}</span>
-                    <span className="col-span-3 text-right text-[#14102B]/80">{row.per30g}</span>
+                    <span className="col-span-3 text-right text-[#14102B]/80">{row.perServing}</span>
                     <span className="col-span-3 text-right font-bold text-[#14102B]">{row.per100g}</span>
                   </div>
                 ))}
               </div>
 
               <div className="mt-4 p-2.5 bg-[#FFF4DC] border border-dashed border-[#14102B] rounded-lg text-center text-xs font-mono text-[#14102B]">
-                {flavour.nutritionSnapshot.caloriesPer30g}
+                {flavour.nutritionSnapshot.caloriesPerServing}
               </div>
             </div>
           </div>

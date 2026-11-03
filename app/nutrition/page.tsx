@@ -95,7 +95,7 @@ export default function NutritionPage() {
               {activeFlavour.nutritionTable.map((row, i) => (
                 <div key={i} className="grid grid-cols-12 py-2 border-b border-[#14102B]/5 items-center">
                   <span className="col-span-6 font-semibold text-[#14102B]">{row.nutrient}</span>
-                  <span className="col-span-3 text-right text-[#14102B]/80">{row.per30g}</span>
+                  <span className="col-span-3 text-right text-[#14102B]/80">{row.perServing}</span>
                   <span className="col-span-3 text-right font-bold text-[#14102B]">{row.per100g}</span>
                 </div>
               ))}
@@ -127,7 +127,7 @@ export default function NutritionPage() {
                   </p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-[#14102B]/10 text-xs font-mono text-[#FF4B1F] font-semibold">
-                  Lab Status: {activeFlavour.nutritionSnapshot.caloriesPer30g}
+                  Lab Status: {activeFlavour.nutritionSnapshot.caloriesPerServing}
                 </div>
               </div>
             </div>

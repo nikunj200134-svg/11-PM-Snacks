@@ -11,7 +11,7 @@ This file tracks all unverified claims, pending laboratory nutritional assays, r
 | `fssai_license` | `[TODO: verified FSSAI registration number]` | Government FSSAI 14-digit license certificate | `/contact`, Footer | ⏳ Pending Document |
 | `launch_date` | `[TODO: launch date]` | Confirmed commercial batch 01 drop date | FAQ, `/where-to-buy`, Home | ⏳ In Production |
 | `brand_video` | `[TODO: brand video]` | Official kettle popping documentary / brand film | Siena Parallax | ⏳ In Post-Production |
-| `lab_caloric_breakdown` | `[TODO: lab-verified calories per 30g pack]` | NABL-accredited laboratory test report per flavor | `/nutrition`, Flavour pages | ⏳ Pending Lab Assay |
+| `lab_caloric_breakdown` | `[TODO: lab-verified calories per serving]` | NABL-accredited laboratory test report per flavor | `/nutrition`, Flavour pages | ⏳ Pending Lab Assay |
 | `fibre_assay` | `[TODO: lab-verified dietary fibre per pack]` | NABL-accredited laboratory test report per flavor | `/nutrition` | ⏳ Pending Lab Assay |
 | `protein_cert` | `[TODO: verified NABL lab report protein certificate]` | NABL-accredited laboratory protein certificate | `/nutrition` | ⏳ Pending Lab Certificate |
 | `fibre_testing` | `[TODO: verified AOAC dietary fibre testing per batch]` | AOAC dietary fibre lab assay | `/nutrition` | ⏳ Pending Lab Assay |
@@ -36,7 +36,7 @@ These facts are confirmed and must not be altered:
   2. Tangy Tomato (The Mood Lifter)
   3. Cheddar Cheese (The Comfort One)
 - **Packs & Pricing Policy:**
-  - Strictly no pack sizes, gram weights, or prices in public UI, copy, metadata, or schema.
+  - Strictly unreleased format: zero pack weights or figures in public UI, copy, metadata, or schema.
   - "Coming soon" badge + "Notify me" early-access sign-up across all channels.
 - **Manufacturing Origin:** Crafted in small batches in Gurugram, Haryana, India.
 - **Oil Policy:** 100% sunflower oil. 0% palm oil.

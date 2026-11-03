@@ -188,20 +188,20 @@ export const siteContent = {
         thirdIcon: '💥',
       },
       nutritionSnapshot: {
-        caloriesPer30g: '[TODO: lab-verified calories per 30g pack]',
+        caloriesPerServing: '[TODO: lab-verified calories per serving]',
         proteinPer100g: '12g plant protein / 100g',
         dietaryFibre: 'Naturally high in dietary fibre',
         transFat: '0g Trans Fat · 0mg Cholesterol',
       },
       nutritionTable: [
-        { nutrient: 'Energy', per30g: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
-        { nutrient: 'Plant Protein', per30g: '3.6g', per100g: '12.0g' },
-        { nutrient: 'Carbohydrates', per30g: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
-        { nutrient: 'Dietary Fibre', per30g: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
-        { nutrient: 'Total Fat', per30g: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
-        { nutrient: 'Trans Fat', per30g: '0.0g', per100g: '0.0g' },
-        { nutrient: 'Cholesterol', per30g: '0.0mg', per100g: '0.0mg' },
-        { nutrient: 'Sodium', per30g: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
+        { nutrient: 'Energy', perServing: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
+        { nutrient: 'Plant Protein', perServing: '3.6g', per100g: '12.0g' },
+        { nutrient: 'Carbohydrates', perServing: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
+        { nutrient: 'Dietary Fibre', perServing: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
+        { nutrient: 'Total Fat', perServing: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
+        { nutrient: 'Trans Fat', perServing: '0.0g', per100g: '0.0g' },
+        { nutrient: 'Cholesterol', perServing: '0.0mg', per100g: '0.0mg' },
+        { nutrient: 'Sodium', perServing: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
       ],
     },
     {
@@ -263,20 +263,20 @@ export const siteContent = {
         thirdIcon: '🍅',
       },
       nutritionSnapshot: {
-        caloriesPer30g: '[TODO: lab-verified calories per 30g pack]',
+        caloriesPerServing: '[TODO: lab-verified calories per serving]',
         proteinPer100g: '12g plant protein / 100g',
         dietaryFibre: 'Naturally high in dietary fibre',
         transFat: '0g Trans Fat · 0mg Cholesterol',
       },
       nutritionTable: [
-        { nutrient: 'Energy', per30g: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
-        { nutrient: 'Plant Protein', per30g: '3.6g', per100g: '12.0g' },
-        { nutrient: 'Carbohydrates', per30g: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
-        { nutrient: 'Dietary Fibre', per30g: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
-        { nutrient: 'Total Fat', per30g: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
-        { nutrient: 'Trans Fat', per30g: '0.0g', per100g: '0.0g' },
-        { nutrient: 'Cholesterol', per30g: '0.0mg', per100g: '0.0mg' },
-        { nutrient: 'Sodium', per30g: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
+        { nutrient: 'Energy', perServing: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
+        { nutrient: 'Plant Protein', perServing: '3.6g', per100g: '12.0g' },
+        { nutrient: 'Carbohydrates', perServing: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
+        { nutrient: 'Dietary Fibre', perServing: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
+        { nutrient: 'Total Fat', perServing: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
+        { nutrient: 'Trans Fat', perServing: '0.0g', per100g: '0.0g' },
+        { nutrient: 'Cholesterol', perServing: '0.0mg', per100g: '0.0mg' },
+        { nutrient: 'Sodium', perServing: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
       ],
     },
     {
@@ -337,20 +337,20 @@ export const siteContent = {
         thirdIcon: '🧀',
       },
       nutritionSnapshot: {
-        caloriesPer30g: '[TODO: lab-verified calories per 30g pack]',
+        caloriesPerServing: '[TODO: lab-verified calories per serving]',
         proteinPer100g: '12g plant protein / 100g',
         dietaryFibre: 'Naturally high in dietary fibre',
         transFat: '0g Trans Fat · 0mg Cholesterol',
       },
       nutritionTable: [
-        { nutrient: 'Energy', per30g: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
-        { nutrient: 'Plant Protein', per30g: '3.6g', per100g: '12.0g' },
-        { nutrient: 'Carbohydrates', per30g: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
-        { nutrient: 'Dietary Fibre', per30g: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
-        { nutrient: 'Total Fat', per30g: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
-        { nutrient: 'Trans Fat', per30g: '0.0g', per100g: '0.0g' },
-        { nutrient: 'Cholesterol', per30g: '0.0mg', per100g: '0.0mg' },
-        { nutrient: 'Sodium', per30g: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
+        { nutrient: 'Energy', perServing: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
+        { nutrient: 'Plant Protein', perServing: '3.6g', per100g: '12.0g' },
+        { nutrient: 'Carbohydrates', perServing: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
+        { nutrient: 'Dietary Fibre', perServing: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
+        { nutrient: 'Total Fat', perServing: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
+        { nutrient: 'Trans Fat', perServing: '0.0g', per100g: '0.0g' },
+        { nutrient: 'Cholesterol', perServing: '0.0mg', per100g: '0.0mg' },
+        { nutrient: 'Sodium', perServing: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
       ],
     },
   ] satisfies FlavourItem[],
@@ -358,7 +358,7 @@ export const siteContent = {
   packsStatus: {
     status: 'coming-soon',
     badge: 'Coming Soon',
-    notice: 'Batch 01 dropping soon. No pack sizes or prices before official launch.',
+    notice: 'Batch 01 dropping soon. Launch announcement coming soon.',
   },
 
   packs: [] as PackItem[],
@@ -371,7 +371,7 @@ export const siteContent = {
   },
 
   homepage: {
-    // 1. Announcement Bar (offers or delivery only)
+    // 1. Announcement Bar
     announcement: [
       'BATCH 01 DROPPING SOON FROM GURUGRAM',
       'ZERO PALM OIL · 100% SUNFLOWER OIL',
@@ -498,7 +498,7 @@ export const siteContent = {
       title: 'Nutrition Snapshot.',
       description:
         'Mindful snacking means real ingredients and full transparency. No mystery fillers or recycled oils.',
-      labelPlaceholder: '[TODO: lab-verified nutrition panel per 30g pack]',
+      labelPlaceholder: '[TODO: lab-verified nutrition panel]',
       ctaText: 'See Full Nutrition Details →',
       ctaHref: '/nutrition',
     },
@@ -535,7 +535,7 @@ export const siteContent = {
           title: 'Office 4 PM Slump',
           time: '4:00 PM',
           note: 'desk munchies',
-          body: 'When energy dips before evening meetings, Everyday Crunch 30g delivers genuine satisfaction without sugar crashes.',
+          body: 'When energy dips before evening meetings, Everyday Crunch delivers genuine satisfaction without sugar crashes.',
         },
         {
           id: 'midnight-craving',
@@ -563,7 +563,7 @@ export const siteContent = {
         },
         {
           author: 'Aman K., Delhi',
-          quote: 'Jumbo 90g pack is a lifesaver during weekend gaming sessions. Cheddar Cheese has an actual creamy crunch.',
+          quote: 'This signature pack is a lifesaver during weekend gaming sessions. Cheddar Cheese has an actual creamy crunch.',
           occasion: 'gaming night',
         },
         {
