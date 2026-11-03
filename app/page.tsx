@@ -23,7 +23,21 @@ const AppleFeatureBlock = dynamic(
   }
 );
 
+const WhyPopcornSection = dynamic(
+  () => import('@/components/home/WhyPopcornSection').then((mod) => mod.WhyPopcornSection),
+  {
+    loading: () => <div className="min-h-[600px] bg-[#FFF4DC]" />,
+  }
+);
+
 import { CanvasCrowdClient } from '@/components/storyboard/CanvasCrowdClient';
+
+const LifestyleStrip = dynamic(
+  () => import('@/components/home/LifestyleStrip').then((mod) => mod.LifestyleStrip),
+  {
+    loading: () => <div className="min-h-[400px] bg-white" />,
+  }
+);
 
 const NotifyMeSection = dynamic(
   () => import('@/components/storyboard/NotifyMeSection').then((mod) => mod.NotifyMeSection),
@@ -60,10 +74,16 @@ export default function HomePage() {
       {/* 4. Product Block (Apple Feature Block Pattern) */}
       <AppleFeatureBlock />
 
-      {/* 5. Crowd Story (HTML5 Canvas Crowd + GSAP walking sprites) */}
+      {/* 5. Why Popcorn? (6 Benefits + Studio Model + Skydiving + Nutrition Table) */}
+      <WhyPopcornSection />
+
+      {/* 6. Crowd Story (HTML5 Canvas Crowd + GSAP walking sprites) */}
       <CanvasCrowdClient />
 
-      {/* 6. Early Access Capture & FAQ */}
+      {/* 7. Lifestyle Strip (Carry Your Crunch + Share The Crunch) */}
+      <LifestyleStrip />
+
+      {/* 8. Early Access Capture & FAQ */}
       <NotifyMeSection />
       <FAQSection />
     </>

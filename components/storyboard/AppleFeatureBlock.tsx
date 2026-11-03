@@ -141,16 +141,16 @@ export function AppleFeatureBlock() {
                     aria-label={`${flavours[idx].name} (${swatch.label})`}
                     onClick={() => setSelectedIdx(idx)}
                     onKeyDown={(e) => handleKeyDown(e, idx)}
-                    className="relative p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-[#14102B] cursor-pointer transition-transform"
+                    className="relative w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-[#14102B] cursor-pointer transition-transform"
                   >
                     <span
                       style={{ backgroundColor: swatch.color }}
-                      className={`block w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#14102B] transition-transform ${
+                      className={`block w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-[#14102B] transition-transform ${
                         isChecked ? 'scale-110 shadow-[2px_2px_0px_#14102B]' : 'opacity-85 hover:opacity-100 hover:scale-105'
                       }`}
                     />
                     {isChecked && (
-                      <span className="absolute inset-0 rounded-full border-2 border-white pointer-events-none" />
+                      <span className="absolute inset-1 rounded-full border-2 border-white pointer-events-none" />
                     )}
                   </button>
                 );
@@ -296,7 +296,7 @@ export function AppleFeatureBlock() {
                       {card.title}
                     </h5>
 
-                    <p className="mt-2 text-xs sm:text-sm text-[#14102B]/80 font-medium leading-relaxed">
+                    <p className="mt-2 text-sm sm:text-base text-[#14102B]/85 font-medium leading-relaxed">
                       {card.shortDesc}
                     </p>
 
@@ -308,7 +308,7 @@ export function AppleFeatureBlock() {
                           animate={reducedMotion ? {} : { opacity: 1, height: 'auto' }}
                           exit={reducedMotion ? {} : { opacity: 0, height: 0 }}
                           transition={{ duration: 0.22 }}
-                          className="mt-3 pt-3 border-t border-[#14102B]/15 text-xs text-[#14102B]/90 font-sans leading-relaxed"
+                          className="mt-3 pt-3 border-t border-[#14102B]/15 text-xs sm:text-sm text-[#14102B]/90 font-sans leading-relaxed"
                         >
                           {card.expandedDesc}
                         </motion.div>
@@ -316,7 +316,7 @@ export function AppleFeatureBlock() {
                     </AnimatePresence>
                   </div>
 
-                  <span className="mt-3 text-[11px] font-mono font-bold text-[#FF4B1F] flex items-center gap-1">
+                  <span className="mt-4 text-xs font-mono font-bold text-[#FF4B1F] flex items-center gap-1">
                     {isExpanded ? '▲ Show less' : '▼ Read more'}
                   </span>
                 </article>

@@ -53,7 +53,7 @@ export const nutritionPillars = [
       'Provides a substantial 12g of natural plant-based protein per 100g serving [TODO: lab verification]. Powers active lifestyles, aids muscle repair, and keeps you feeling satisfied long after snack time.',
     highlight: '12g',
     unit: 'per 100g',
-    image: '/brand/clusters.png',
+    image: '/brand/skydiving-trio.png',
   },
   {
     id: 'fibre',
@@ -89,7 +89,7 @@ export const nutritionPillars = [
       'Popped exclusively using refined sunflower oil with zero cholesterol and 0g trans fats. Completely free from palm oil to deliver clean, light crunch without heavy grease.',
     highlight: '0g',
     unit: 'Trans Fat',
-    image: '/brand/burst-hero.png',
+    image: '/brand/studio-model.png',
   },
   {
     id: 'gluten-free',

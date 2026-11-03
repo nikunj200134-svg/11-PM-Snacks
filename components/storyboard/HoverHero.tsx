@@ -250,19 +250,23 @@ export function HoverHero() {
           })}
         </div>
 
-        {/* Mobile Progress Dots (Auto-cycle indicator) */}
+        {/* Mobile Progress Dots (Auto-cycle indicator, >= 44px tap target) */}
         {isMobile && !reducedMotion && (
-          <div className="flex items-center justify-center gap-2 mt-6 z-20">
+          <div className="flex items-center justify-center gap-1 mt-6 z-20">
             {flavours.map((f, i) => (
               <button
                 key={f.id}
                 type="button"
                 onClick={() => setMobileActiveIdx(i)}
                 aria-label={`Select ${f.name}`}
-                className={`transition-all duration-300 rounded-full h-2 ${
-                  mobileActiveIdx === i ? 'w-6 bg-[#FFC21A]' : 'w-2 bg-[#FFF4DC]/40'
-                }`}
-              />
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+              >
+                <span
+                  className={`block transition-all duration-300 rounded-full h-2.5 ${
+                    mobileActiveIdx === i ? 'w-7 bg-[#FFC21A]' : 'w-2.5 bg-[#FFF4DC]/40'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         )}
