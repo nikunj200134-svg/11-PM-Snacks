@@ -5,6 +5,40 @@ const nextConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/about',
+        destination: '/our-story',
+        permanent: true,
+      },
+      {
+        source: '/why-11pm',
+        destination: '/our-story',
+        permanent: true,
+      },
+      {
+        source: '/our-process',
+        destination: '/our-story',
+        permanent: true,
+      },
+      {
+        source: '/ingredients-nutrition',
+        destination: '/nutrition',
+        permanent: true,
+      },
+      {
+        source: '/healthy-snacking',
+        destination: '/nutrition',
+        permanent: true,
+      },
+      {
+        source: '/flavours/cheese',
+        destination: '/flavours/cheddar-cheese',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

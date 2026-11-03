@@ -1,30 +1,53 @@
 @import "tailwindcss";
 
 :root {
-  --cream: #f6ebd8;
-  --paper: #fff8ee;
-  --gold: #f0c43a;
-  --gold-deep: #d9a61d;
-  --ink: #1a0f10;
-  --maroon: #6b1c1c;
-  --night: #111111;
-  --muted: #6e5854;
-  --peri: #e23b2c;
-  --peri-deep: #b42318;
-  --tomato: #ef4e32;
-  --tomato-deep: #c43722;
-  --cheese: #f0c43a;
-  --cheese-deep: #c48914;
-  --stroke: rgba(26, 15, 16, 0.12);
-  --font-display: var(--font-bebas), "Bebas Neue", sans-serif;
-  --font-body: var(--font-outfit), Outfit, sans-serif;
+  /* Design System: Sticker Pop at Midnight */
+  --midnight-ink: #14102B;
+  --ink: #14102B;
+  --cream: #FFF4DC;
+  --paper: #FFFBF0;
+  --peri-fire: #FF4B1F;
+  --peri: #FF4B1F;
+  --tangy-tomato: #E5262F;
+  --tomato: #E5262F;
+  --leaf-green: #2EC27E;
+  --leaf: #2EC27E;
+  --cheddar-gold: #FFC21A;
+  --gold: #FFC21A;
+  --cheese: #FFC21A;
+  --pop-pink: #FF7AB8;
+  --pink: #FF7AB8;
+  --night: #14102B;
+  --muted: #4B4568;
+  --stroke: rgba(20, 16, 43, 0.16);
+
+  /* Fonts */
+  --font-display: var(--font-headline), "Bagel Fat One", cursive, sans-serif;
+  --font-headline: var(--font-headline), "Bagel Fat One", cursive, sans-serif;
+  --font-body: var(--font-body), "DM Sans", sans-serif;
+  --font-scribble: var(--font-scribble), "Caveat Brush", cursive, sans-serif;
+  --font-mono: var(--font-mono), "Space Mono", monospace;
+
+  /* Shapes & Shadows */
+  --hard-shadow: 6px 6px 0px var(--midnight-ink);
+  --hard-shadow-sm: 4px 4px 0px var(--midnight-ink);
+  --hard-shadow-lg: 8px 8px 0px var(--midnight-ink);
+  --ink-border: 2.5px solid var(--midnight-ink);
+  --radius-card: 28px;
 }
 
 @theme inline {
   --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+  --font-scribble: var(--font-scribble);
+  --font-mono: var(--font-mono);
+  --color-midnight: var(--midnight-ink);
   --color-cream: var(--cream);
-  --color-gold: var(--gold);
-  --color-maroon: var(--maroon);
+  --color-peri: var(--peri-fire);
+  --color-tomato: var(--tangy-tomato);
+  --color-leaf: var(--leaf-green);
+  --color-gold: var(--cheddar-gold);
+  --color-pink: var(--pop-pink);
 }
 
 * { box-sizing: border-box; }
@@ -35,7 +58,7 @@ html, body {
   margin: 0;
   min-height: 100%;
   background: var(--cream);
-  color: var(--ink);
+  color: var(--midnight-ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
@@ -48,8 +71,46 @@ button { font: inherit; color: inherit; }
 ul { margin: 0; padding: 0; }
 
 :focus-visible {
-  outline: 3px solid var(--gold);
+  outline: 3px solid var(--midnight-ink);
   outline-offset: 3px;
+}
+
+/* Sticker Pop Component System */
+.sticker-card {
+  background: #ffffff;
+  border: 2.5px solid var(--midnight-ink);
+  border-radius: 28px;
+  box-shadow: 6px 6px 0px var(--midnight-ink);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sticker-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 8px 8px 0px var(--midnight-ink);
+}
+
+.sticker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 2px solid var(--midnight-ink);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 3px 3px 0px var(--midnight-ink);
+  background: #ffffff;
+  color: var(--midnight-ink);
+}
+
+.tilt-n4 { transform: rotate(-4deg); }
+.tilt-n2 { transform: rotate(-2deg); }
+.tilt-p2 { transform: rotate(2deg); }
+.tilt-p4 { transform: rotate(4deg); }
+
+/* Contrast Guard: Text on gold/yellow or peri/orange is ALWAYS Midnight Ink */
+.bg-gold, .bg-peri, [data-tone="cheddar"], [data-tone="peri"] {
+  color: var(--midnight-ink) !important;
 }
 
 .skip-link {
