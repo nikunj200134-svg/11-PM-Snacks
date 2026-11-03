@@ -26,6 +26,10 @@ export interface FlavourItem {
   moodTag: string;
   tastingNotes: string[];
   description: string;
+  ingredients: string[];
+  allergens: string;
+  pairings: { title: string; desc: string; icon: string }[];
+  miniFaq: { question: string; answer: string }[];
   meters: {
     heat: 1 | 2 | 3 | 4 | 5;
     tang: 1 | 2 | 3 | 4 | 5;
@@ -39,6 +43,11 @@ export interface FlavourItem {
     dietaryFibre: string;
     transFat: string;
   };
+  nutritionTable: {
+    nutrient: string;
+    per30g: string;
+    per100g: string;
+  }[];
 }
 
 export interface PackItem {
