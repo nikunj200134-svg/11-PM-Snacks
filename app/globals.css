@@ -1377,6 +1377,11 @@ ul { margin: 0; padding: 0; }
   .blob-cursor, [data-custom-cursor] {
     display: none !important;
   }
+
+  /* Mobile minimum typography rule: prevent text under 12px on mobile viewports */
+  .text-\[10px\], .text-\[11px\] {
+    font-size: 12px !important;
+  }
 }
 
 /* Touch feedback (:active states) replacing hover-only effects strictly on touch devices */

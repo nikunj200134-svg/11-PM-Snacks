@@ -32,10 +32,10 @@ export function PacksSection() {
           </p>
 
           {/* Interactive Batch Toggle Filter */}
-          <div className="mt-6 inline-flex p-1.5 bg-white border-2 border-[#14102B] rounded-full shadow-[4px_4px_0px_#14102B]">
+          <div className="mt-6 inline-flex flex-wrap items-center justify-center p-1.5 bg-white border-2 border-[#14102B] rounded-full shadow-[4px_4px_0px_#14102B]">
             <button
               onClick={() => setSelectedPackId('all')}
-              className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase transition-all ${
+              className={`min-h-[44px] inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-mono font-bold uppercase transition-all ${
                 selectedPackId === 'all'
                   ? 'bg-[#14102B] text-[#FFF4DC]'
                   : 'text-[#14102B] hover:bg-[#14102B]/10'
@@ -45,7 +45,7 @@ export function PacksSection() {
             </button>
             <button
               onClick={() => setSelectedPackId('everyday')}
-              className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase transition-all ${
+              className={`min-h-[44px] inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-mono font-bold uppercase transition-all ${
                 selectedPackId === 'everyday'
                   ? 'bg-[#14102B] text-[#FFF4DC]'
                   : 'text-[#14102B] hover:bg-[#14102B]/10'
@@ -55,7 +55,7 @@ export function PacksSection() {
             </button>
             <button
               onClick={() => setSelectedPackId('jumbo')}
-              className={`px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase transition-all ${
+              className={`min-h-[44px] inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-mono font-bold uppercase transition-all ${
                 selectedPackId === 'jumbo'
                   ? 'bg-[#14102B] text-[#FFF4DC]'
                   : 'text-[#14102B] hover:bg-[#14102B]/10'

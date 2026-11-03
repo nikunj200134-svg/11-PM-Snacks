@@ -178,7 +178,7 @@ export function AppleFeatureBlock() {
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => setSelectedIdx(idx)}
-                    className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-4 rounded-xl text-[11px] sm:text-xs md:text-sm font-mono font-black uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-1.5 whitespace-nowrap ${
+                    className={`flex-1 min-h-[44px] py-2.5 sm:py-3 px-2 sm:px-4 rounded-xl text-[11px] sm:text-xs md:text-sm font-mono font-black uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-1.5 whitespace-nowrap ${
                       isSelected
                         ? `${activeStyle} scale-[1.02]`
                         : 'bg-white !text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] hover:bg-[#FFF4DC] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#14102B]'
