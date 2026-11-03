@@ -121,7 +121,7 @@ export default function ContactPage() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="e.g. Kunal Sharma"
+                    placeholder="Your Name"
                     className="w-full min-h-[48px] px-4 py-3 rounded-xl border-2 border-[#14102B] font-mono text-base focus:outline-none focus:ring-2 focus:ring-[#FFC21A] bg-[#FFFDF7]"
                   />
                 </div>
