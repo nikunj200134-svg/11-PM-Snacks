@@ -21,6 +21,10 @@ This file tracks all unverified claims, pending laboratory nutritional assays, r
 | `instamart_url` | `[TODO: Instamart store link pending]` | Swiggy Instamart brand partner link | `/where-to-buy` | ⏳ Listing in Review |
 | `amazon_url` | `[TODO: Amazon store link pending]` | Amazon Brand Registry seller store link | `/where-to-buy` | ⏳ Brand Registry Setup |
 | `retail_stockists` | `[TODO: official retail stockist list]` | Retail distribution contract agreements | `/where-to-buy` | ⏳ In Negotiation |
+| `variety_bundle_details` | `[TODO: variety bundle details]` | Confirmed trio bundle specifications & early-bird drop | Homepage Variety Card | ⏳ In Packaging Design |
+| `social_rating_summary` | `[TODO: 4.8★ Verified Early Snacker Rating]` | Aggregated post-launch verified reviews | Homepage Social Proof | ⏳ Post-Launch Survey |
+| `lab_nutrition_panel` | `[TODO: lab-verified nutrition panel]` | Full back-of-pack laboratory verified nutrition chart | Homepage Nutrition Snapshot | ⏳ Pending Lab Assay |
+| `lab_macronutrients` | `[TODO: lab kcal]`, `[TODO: lab carbs]`, etc. | Verified NABL laboratory assay values per nutrient | `/nutrition`, Flavour pages | ⏳ Pending Lab Assay |
 | `press_accolades` | *(Omitted to prevent inventing facts)* | Real media publications & feature articles | `/our-story`, Social Proof | ⏳ Pending Coverage |
 | `verified_ugc_quotes` | Curated early-tester prototype feedback | Customer permission & order IDs from Shopify/Razorpay | `/` Social Proof section | ⏳ Early Testers |
 
