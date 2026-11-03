@@ -135,9 +135,9 @@ export function CanvasCrowd() {
       className="relative h-[300vh] text-[#14102B]"
     >
       {/* Sticky Pinned Viewport Container */}
-      <div className="sticky top-0 h-[100dvh] min-h-[100dvh] w-full flex flex-col overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] min-h-[100dvh] w-full flex flex-col overflow-hidden pt-24 sm:pt-28">
         {/* Top Progress Strip */}
-        <div className="w-[min(1240px,94vw)] mx-auto pt-4 sm:pt-6 px-4 flex items-center justify-between z-20 shrink-0">
+        <div className="w-[min(1240px,94vw)] mx-auto px-4 flex items-center justify-between z-20 shrink-0">
           <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
             The 11 PM Story · Beat 0{currentBeat + 1} of 05
           </span>
@@ -154,7 +154,7 @@ export function CanvasCrowd() {
         </div>
 
         {/* Center Stage: Dynamic Copy Beat Placed High Above Walking Crowd */}
-        <div className="relative w-[min(960px,92vw)] mx-auto flex-1 flex flex-col justify-start items-center z-20 text-center px-4 pt-8 sm:pt-14 md:pt-18 pb-4">
+        <div className="relative w-[min(960px,92vw)] mx-auto flex-1 flex flex-col justify-start items-center z-20 text-center px-4 pt-6 sm:pt-10 md:pt-12 pb-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={beat.step}
