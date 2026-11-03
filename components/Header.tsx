@@ -138,10 +138,10 @@ export function Header() {
             })}
           </nav>
 
-          {/* Right Header Actions */}
+          {/* Right Header Actions: Minimal Notify Me CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button href="/flavours" variant="gold" size="sm">
-              Shop Flavours
+            <Button href="/where-to-buy" variant="gold" size="sm">
+              Notify Me →
             </Button>
           </div>
 
@@ -270,13 +270,13 @@ export function Header() {
           {/* Bottom Drawer Actions */}
           <div className="pt-6 border-t border-[#FFF4DC]/20 flex flex-col gap-3">
             <Button
-              href="/flavours"
+              href="/where-to-buy"
               variant="gold"
               size="lg"
               className="w-full text-center"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Explore All Flavours →
+              Notify Me For Launch →
             </Button>
             <p className="text-center text-xs font-mono text-[#FFF4DC]/60">
               Made with care in Gurugram, India · Zero Palm Oil
