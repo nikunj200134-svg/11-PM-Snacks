@@ -50,6 +50,85 @@ const PHOTO_CARDS = [
   },
 ];
 
+const SENSORY_PILLARS: Record<
+  string,
+  {
+    spice: { icon: string; title: string; subtitle: string; tag: string; tagColor: string };
+    flavour: { icon: string; title: string; subtitle: string; tag: string; tagColor: string };
+    texture: { icon: string; title: string; subtitle: string; tag: string; tagColor: string };
+  }
+> = {
+  'peri-peri': {
+    spice: {
+      icon: '🔥',
+      title: 'Spice Character',
+      subtitle: 'African bird’s eye chili warmth',
+      tag: 'Bold Fiery Kick',
+      tagColor: 'bg-[#FF4B1F] !text-white',
+    },
+    flavour: {
+      icon: '🍋',
+      title: 'Primary Flavour',
+      subtitle: 'Smoked garlic & zesty citrus edge',
+      tag: 'Zesty Tang',
+      tagColor: 'bg-[#FFC21A] !text-[#14102B]',
+    },
+    texture: {
+      icon: '🍿',
+      title: 'Snack Texture',
+      subtitle: 'Sunflower popped, non-greasy crunch',
+      tag: 'Crisp Blossom Pop',
+      tagColor: 'bg-[#14102B] !text-white',
+    },
+  },
+  'tangy-tomato': {
+    spice: {
+      icon: '🌶️',
+      title: 'Spice Character',
+      subtitle: 'Gentle Kashmiri masala blend',
+      tag: 'Mild Warmth',
+      tagColor: 'bg-[#E5262F] !text-white',
+    },
+    flavour: {
+      icon: '🍅',
+      title: 'Primary Flavour',
+      subtitle: 'Sun-ripened tomato & amchur balance',
+      tag: 'Chatpata Sweet & Sour',
+      tagColor: 'bg-[#FF7AB8] !text-[#14102B]',
+    },
+    texture: {
+      icon: '🍿',
+      title: 'Snack Texture',
+      subtitle: 'Thin-hulled airy movie-night pop',
+      tag: 'Airy Blossom Pop',
+      tagColor: 'bg-[#14102B] !text-white',
+    },
+  },
+  'cheddar-cheese': {
+    spice: {
+      icon: '🧀',
+      title: 'Spice Character',
+      subtitle: 'Non-spicy, kid & family safe',
+      tag: 'Zero Heat · Pure Comfort',
+      tagColor: 'bg-[#2EC27E] !text-white',
+    },
+    flavour: {
+      icon: '🧈',
+      title: 'Primary Flavour',
+      subtitle: 'Real dehydrated cheddar & whey melt',
+      tag: 'Savory Golden Cheddar',
+      tagColor: 'bg-[#FFC21A] !text-[#14102B]',
+    },
+    texture: {
+      icon: '🍿',
+      title: 'Snack Texture',
+      subtitle: 'Velvety savory melt in every kernel',
+      tag: 'Velvety Crunch',
+      tagColor: 'bg-[#14102B] !text-white',
+    },
+  },
+};
+
 export function AppleFeatureBlock() {
   const flavours = siteContent.flavours;
   const [selectedIdx, setSelectedIdx] = useState(0);
@@ -199,27 +278,71 @@ export function AppleFeatureBlock() {
               </div>
             </div>
 
-            {/* Sensory Flavour Intensity Profile (Clearly labeled so never misunderstood as ratings) */}
-            <div className="pt-6 mt-6 border-t-2 border-[#14102B]/10">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4B1F]">
-                  ✦ Sensory Flavour Intensity (Spice &amp; Tang Level)
-                </span>
-                <span className="text-[11px] font-mono text-[#14102B]/60">
-                  Flavour &amp; crunch intensity — not a product rating
-                </span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <Meter label="Heat" level={active.meters.heat} icon="🔥" tone={active.tone} />
-                <Meter label="Tang" level={active.meters.tang} icon="🍅" tone={active.tone} />
-                <Meter
-                  label={active.meters.thirdLabel}
-                  level={active.meters.crunchOrCheese}
-                  icon={active.meters.thirdIcon}
-                  tone={active.tone}
-                />
-              </div>
-            </div>
+            {/* Culinary Flavour Character Profile (Zero Rating Confusion) */}
+            {(() => {
+              const pillars = SENSORY_PILLARS[active.id] || SENSORY_PILLARS['peri-peri'];
+              return (
+                <div className="pt-6 mt-6 border-t-2 border-[#14102B]/10">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-4">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4B1F]">
+                      ✦ Culinary Taste &amp; Texture Profile
+                    </span>
+                    <span className="text-[11px] font-mono text-[#14102B]/60">
+                      Chef notes crafted for late-night snacking · zero artificial flavours
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                    {/* 1. Spice Character */}
+                    <div className="p-4 rounded-2xl bg-[#FFFDF7] border-2 border-[#14102B] shadow-[3px_3px_0px_#14102B] flex flex-col justify-between">
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#14102B]/60">
+                          {pillars.spice.title}
+                        </span>
+                        <span className="text-xl leading-none" aria-hidden="true">{pillars.spice.icon}</span>
+                      </div>
+                      <span className={`inline-block self-start px-2.5 py-1 rounded-lg text-xs font-mono font-black uppercase tracking-wider border border-[#14102B] shadow-[1px_1px_0px_#14102B] ${pillars.spice.tagColor}`}>
+                        {pillars.spice.tag}
+                      </span>
+                      <p className="mt-2 text-xs text-[#14102B]/80 font-medium leading-snug m-0">
+                        {pillars.spice.subtitle}
+                      </p>
+                    </div>
+
+                    {/* 2. Primary Flavour */}
+                    <div className="p-4 rounded-2xl bg-[#FFFDF7] border-2 border-[#14102B] shadow-[3px_3px_0px_#14102B] flex flex-col justify-between">
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#14102B]/60">
+                          {pillars.flavour.title}
+                        </span>
+                        <span className="text-xl leading-none" aria-hidden="true">{pillars.flavour.icon}</span>
+                      </div>
+                      <span className={`inline-block self-start px-2.5 py-1 rounded-lg text-xs font-mono font-black uppercase tracking-wider border border-[#14102B] shadow-[1px_1px_0px_#14102B] ${pillars.flavour.tagColor}`}>
+                        {pillars.flavour.tag}
+                      </span>
+                      <p className="mt-2 text-xs text-[#14102B]/80 font-medium leading-snug m-0">
+                        {pillars.flavour.subtitle}
+                      </p>
+                    </div>
+
+                    {/* 3. Snack Texture */}
+                    <div className="p-4 rounded-2xl bg-[#FFFDF7] border-2 border-[#14102B] shadow-[3px_3px_0px_#14102B] flex flex-col justify-between">
+                      <div className="flex items-center justify-between gap-2 mb-2">
+                        <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#14102B]/60">
+                          {pillars.texture.title}
+                        </span>
+                        <span className="text-xl leading-none" aria-hidden="true">{pillars.texture.icon}</span>
+                      </div>
+                      <span className={`inline-block self-start px-2.5 py-1 rounded-lg text-xs font-mono font-black uppercase tracking-wider border border-[#14102B] shadow-[1px_1px_0px_#14102B] ${pillars.texture.tagColor}`}>
+                        {pillars.texture.tag}
+                      </span>
+                      <p className="mt-2 text-xs text-[#14102B]/80 font-medium leading-snug m-0">
+                        {pillars.texture.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })()}
           </motion.div>
         </AnimatePresence>
 
