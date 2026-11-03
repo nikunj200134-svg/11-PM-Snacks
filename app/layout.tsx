@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Bagel_Fat_One, Caveat_Brush, DM_Sans, Space_Mono, Geist } from 'next/font/google';
+import { Bagel_Fat_One, Caveat_Brush, DM_Sans, Space_Mono, Baloo_2, Geist } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { BlobCursor } from '@/components/BlobCursor';
@@ -41,6 +41,13 @@ const spaceMono = Space_Mono({
   display: 'swap',
 });
 
+const baloo2 = Baloo_2({
+  weight: ['600', '700', '800'],
+  subsets: ['devanagari', 'latin'],
+  variable: '--font-devanagari',
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   ...pageMeta({
     title: 'Bold Masala-Flavoured Popcorn',
@@ -52,13 +59,40 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: '11 PM Snacks',
+    url: 'https://11pm-snacks.vercel.app',
+    logo: 'https://11pm-snacks.vercel.app/brand/logo-official.png',
+    description: 'Ready-to-eat small-batch masala popcorn handcrafted in Gurugram, India with zero palm oil.',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Gurugram',
+      addressRegion: 'Haryana',
+      postalCode: '122001',
+      addressCountry: 'IN',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+91-8510801655',
+      contactType: 'customer service',
+      areaServed: 'IN',
+      availableLanguage: ['en', 'hi'],
+    },
+  };
+
   return (
     <html
       lang="en"
-      className={cn(bagel.variable, dmSans.variable, caveat.variable, spaceMono.variable, "font-sans", geist.variable)}
+      className={cn(bagel.variable, dmSans.variable, caveat.variable, spaceMono.variable, baloo2.variable, "font-sans", geist.variable)}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <SmoothScroll />
         <BlobCursor />
         <a className="skip-link" href="#main">Skip to content</a>
