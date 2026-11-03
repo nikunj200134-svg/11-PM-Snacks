@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Bagel_Fat_One, Caveat_Brush, DM_Sans, Space_Mono } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
+import { BlobCursor } from '@/components/BlobCursor';
+import { ClockProgress } from '@/components/ClockProgress';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { SmoothScroll } from '@/components/SmoothScroll';
@@ -55,11 +57,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     >
       <body suppressHydrationWarning>
         <SmoothScroll />
+        <BlobCursor />
         <a className="skip-link" href="#main">Skip to content</a>
         <AnnouncementBar />
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <ClockProgress />
       </body>
     </html>
   );
