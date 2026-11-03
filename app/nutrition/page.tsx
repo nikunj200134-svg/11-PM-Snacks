@@ -89,7 +89,7 @@ export default function NutritionPage() {
             <div className="space-y-2 font-mono text-xs sm:text-sm border-b-2 border-[#14102B] pb-6">
               <div className="grid grid-cols-12 py-1 font-bold text-[#14102B]/60 uppercase border-b border-[#14102B]/10">
                 <span className="col-span-6">Nutritional Factor</span>
-                <span className="col-span-3 text-right">Per 30g Pack</span>
+                <span className="col-span-3 text-right">Per Serving</span>
                 <span className="col-span-3 text-right">Per 100g</span>
               </div>
               {activeFlavour.nutritionTable.map((row, i) => (
