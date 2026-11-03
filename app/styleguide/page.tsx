@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function StyleguidePage() {
   const flavours = siteContent.flavours;
   const packs = siteContent.packs;
-  const sampleReview = siteContent.homepage.socialProof.quoteCards[0];
+  const sampleReview = siteContent.homepage.socialProof.reviews[0];
   const faqItems = siteContent.faqItems.slice(0, 3);
 
   return (

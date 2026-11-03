@@ -27,7 +27,7 @@ export function Footer() {
                 ✓ Sunflower Oil
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#2EC27E] text-[#14102B] border border-[#14102B]">
-                ✓ Zero Palm Oil
+                ✓ Small Batch
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#FF7AB8] text-[#14102B] border border-[#14102B]">
                 ✓ 100% Whole Grain

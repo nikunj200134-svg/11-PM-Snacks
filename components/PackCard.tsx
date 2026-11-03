@@ -70,7 +70,7 @@ export function PackCard({ pack, className = '' }: PackCardProps) {
             <span className="w-4 h-4 rounded-full bg-[#2EC27E] text-[#14102B] flex items-center justify-center text-[10px] border border-[#14102B]">
               <Check className="w-2.5 h-2.5 stroke-[3]" />
             </span>
-            <span>Zero palm oil, zero trans fat</span>
+            <span>0g trans fat · 0mg cholesterol</span>
           </li>
           <li className="flex items-center gap-2">
             <span className="w-4 h-4 rounded-full bg-[#2EC27E] text-[#14102B] flex items-center justify-center text-[10px] border border-[#14102B]">
