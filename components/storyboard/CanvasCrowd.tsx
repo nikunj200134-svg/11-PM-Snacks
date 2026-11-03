@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import Link from 'next/link';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { CrowdCanvas } from '@/components/ui/skiper-ui/skiper39';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
@@ -196,42 +195,6 @@ export function CanvasCrowd() {
               <p className="mt-3 sm:mt-4 text-xs sm:text-base md:text-lg text-[#14102B]/85 font-medium max-w-xl mx-auto leading-relaxed">
                 {beat.subtext}
               </p>
-
-              {/* Beat 5 Climax: Proof Chips + Final Action CTA */}
-              {currentBeat === 4 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.45, delay: 0.1 }}
-                  className="mt-5 sm:mt-6 flex flex-col items-center gap-3 sm:gap-4"
-                >
-                  {/* Three Verified Proof Chips */}
-                  <div className="flex flex-wrap items-center justify-center gap-2">
-                    <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
-                      🌻 100% Sunflower Oil
-                    </span>
-                    <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
-                      🥣 Small Batch in Gurugram
-                    </span>
-                    <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
-                      🚫 Zero Palm Oil
-                    </span>
-                  </div>
-
-                  {/* Final Action CTA */}
-                  <div className="flex flex-wrap items-center justify-center gap-3 mt-1">
-                    <Link
-                      href="/flavours"
-                      className="px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[3px_3px_0px_#FF4B1F] hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#FF4B1F] transition-all"
-                    >
-                      Meet the Flavours →
-                    </Link>
-                    <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#14102B]/75">
-                      Batch 01 Coming Soon
-                    </span>
-                  </div>
-                </motion.div>
-              )}
             </motion.div>
           </AnimatePresence>
         </div>
