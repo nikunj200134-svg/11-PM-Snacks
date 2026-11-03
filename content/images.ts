@@ -59,7 +59,7 @@ export const imageCatalog: ImageAssetItem[] = [
       webp: 99,
     },
     altText:
-      '11 PM Peri Peri Masala Popcorn 30g pouch on deep red backdrop beside a bowl of seasoned popcorn clusters, whole red chillies, and crushed masala spices.',
+      '11 PM Peri Peri Masala Popcorn signature pouch on deep red backdrop beside a bowl of seasoned popcorn clusters, whole red chillies, and crushed masala spices.',
     suggestedUsage: 'Hero flavour switcher, /flavours/peri-peri hero, primary Peri Peri showcase card',
   },
   {
@@ -81,7 +81,7 @@ export const imageCatalog: ImageAssetItem[] = [
       webp: 108,
     },
     altText:
-      '11 PM Tangy Tomato Masala Popcorn 30g pouch standing next to a black ceramic bowl of golden popcorn, whole vine-ripened tomatoes, and juicy tomato slices.',
+      '11 PM Tangy Tomato Masala Popcorn signature pouch standing next to a black ceramic bowl of golden popcorn, whole vine-ripened tomatoes, and juicy tomato slices.',
     suggestedUsage: 'Hero flavour switcher, /flavours/tangy-tomato hero, primary Tangy Tomato showcase card',
   },
   {
@@ -103,7 +103,7 @@ export const imageCatalog: ImageAssetItem[] = [
       webp: 91,
     },
     altText:
-      '11 PM Cheddar Cheese Popcorn 30g pouch placed alongside a bowl of crispy cheese-seasoned popcorn, gourmet cheddar blocks, and shredded cheese.',
+      '11 PM Cheddar Cheese Popcorn signature pouch placed alongside a bowl of crispy cheese-seasoned popcorn, gourmet cheddar blocks, and shredded cheese.',
     suggestedUsage: 'Hero flavour switcher, /flavours/cheddar-cheese hero, primary Cheddar Cheese showcase card',
   },
   {
@@ -147,7 +147,7 @@ export const imageCatalog: ImageAssetItem[] = [
       webp: 146,
     },
     altText:
-      'Complete trio lineup of 11 PM Snacks featuring Peri Peri, Tangy Tomato, and Cheddar Cheese 30g pouches with individual bowls and spice garnishes.',
+      'Complete trio lineup of 11 PM Snacks featuring Peri Peri, Tangy Tomato, and Cheddar Cheese signature pouches with individual bowls and spice garnishes.',
     suggestedUsage: 'Packs section variety bundle card, /where-to-buy banner, launch announcement',
   },
   {
@@ -235,7 +235,7 @@ export const imageCatalog: ImageAssetItem[] = [
       webp: 120,
     },
     altText:
-      'Official 11 PM Snacks packaging proof sheet showing 30g front pouch art alongside back-of-pack nutrition information and ingredient declarations.',
+      'Official 11 PM Snacks packaging proof sheet showing front pouch art alongside back-of-pack nutrition information and ingredient declarations.',
     suggestedUsage: '/nutrition reference verification, back-of-pack transparency modal, press kit',
   },
   {
