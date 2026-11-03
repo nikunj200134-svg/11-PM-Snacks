@@ -80,10 +80,52 @@ export function SienaParallax() {
   }
 
   return (
-    <section
-      ref={containerRef}
-      className="relative h-[200vh] bg-[#FDA5CC] text-[#14102B] border-b-2 border-[#14102B]"
-    >
+    <>
+      {/* Mobile Flow (lg:hidden): Normal document flow so phone scrolling never gets trapped or skips content */}
+      <section className="lg:hidden relative bg-[#FDA5CC] text-[#14102B] py-14 px-4 border-b-2 border-[#14102B]">
+        <div className="w-[min(1240px,94vw)] mx-auto flex flex-col items-center text-center">
+          <div className="flex flex-col items-center mb-6">
+            <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFC21A] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] mb-2.5">
+              Late-Night Calling · Small-Batch Pop
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-display uppercase tracking-wide text-[#14102B] m-0">
+              <span className="text-[#FFC21A] drop-shadow-[0_2px_4px_rgba(20,16,43,0.3)]">CRAVE</span> <span className="text-[#14102B]/60">·</span> <span className="text-[#FF4B1F] drop-shadow-[0_2px_4px_rgba(20,16,43,0.3)]">CRUNCH</span>
+            </h2>
+            <p className="mt-2 text-xs sm:text-sm font-body text-[#14102B] font-bold max-w-md">
+              Popped exclusively in pure sunflower oil. No shortcuts, zero palm oil.
+            </p>
+          </div>
+
+          <div className="relative w-full max-w-2xl aspect-[16/10] rounded-2xl overflow-hidden border-2 border-[#14102B] shadow-[6px_6px_0px_#14102B]">
+            <Image
+              src="/images/movie-night.webp"
+              alt="11 PM Snacks movie night trio"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 700px"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#14102B]/95 via-[#14102B]/30 to-transparent" />
+            <div className="absolute bottom-4 left-4 right-4 text-left">
+              <span className="inline-block px-3 py-0.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] mb-2">
+                100% Sunflower Oil · Gurugram
+              </span>
+              <h3 className="text-xl sm:text-2xl font-display uppercase tracking-wider text-white m-0 leading-tight">
+                Big Flavour. Thoughtful Oil.
+              </h3>
+              <p className="mt-1 text-xs text-[#FFF4DC]/90 font-medium leading-relaxed">
+                Most people snack without checking what is inside. With 11 PM, you only have to crave; we take care of the rest with whole grain corn and clean sunflower popping.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Desktop Track (hidden lg:block): Pinned 200vh parallax section */}
+      <section
+        ref={containerRef}
+        className="hidden lg:block relative h-[200vh] bg-[#FDA5CC] text-[#14102B] border-b-2 border-[#14102B]"
+      >
       {/* Pinned Viewport Stage */}
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-between overflow-hidden pt-32 sm:pt-36 lg:pt-40 pb-6 sm:pb-8">
         {/* Background Atmospheric Glow */}
@@ -153,6 +195,7 @@ export function SienaParallax() {
         </motion.div>
       </div>
     </section>
-  );
+  </>
+);
 }
 
