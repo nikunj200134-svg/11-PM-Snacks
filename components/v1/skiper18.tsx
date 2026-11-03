@@ -32,7 +32,7 @@ export function ImageCursorTrail({
   maxNumberOfImages = 8,
   distance = 20,
   imgClass = 'w-28 h-28 sm:w-36 sm:h-36',
-  className = 'h-screen w-full',
+  className = 'h-screen h-[100dvh] w-full',
   fadeAnimation = true,
   children,
 }: ImageCursorTrailProps) {

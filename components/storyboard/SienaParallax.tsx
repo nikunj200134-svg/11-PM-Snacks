@@ -127,7 +127,7 @@ export function SienaParallax() {
         className="hidden lg:block relative h-[200vh] bg-[#FDA5CC] text-[#14102B] border-b-2 border-[#14102B]"
       >
       {/* Pinned Viewport Stage */}
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-between overflow-hidden pt-32 sm:pt-36 lg:pt-40 pb-6 sm:pb-8">
+      <div className="sticky top-0 h-screen h-[100dvh] w-full flex flex-col items-center justify-between overflow-hidden pt-32 sm:pt-36 lg:pt-40 pb-6 sm:pb-8">
         {/* Background Atmospheric Glow */}
         <div className="absolute inset-0 bg-radial from-[#FFB8D9] via-[#FDA5CC] to-[#F792BF] -z-10" />
 

@@ -92,7 +92,7 @@ export function HoverHero() {
         backgroundColor: bgColor,
         transition: 'background-color 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
       }}
-      className="relative min-h-[92vh] lg:min-h-screen flex flex-col justify-between pt-12 pb-16 overflow-hidden select-none border-b-2 border-[#14102B]"
+      className="relative min-h-[92vh] min-h-[92dvh] lg:min-h-screen flex flex-col justify-between pt-12 pb-16 overflow-hidden select-none border-b-2 border-[#14102B]"
     >
       {/* Dynamic Ambient Glow Behind Stage */}
       <div

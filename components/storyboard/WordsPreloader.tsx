@@ -159,7 +159,7 @@ export function WordsPreloader() {
             maxNumberOfImages={8}
             distance={20}
             imgClass="w-28 h-28 sm:w-36 sm:h-36"
-            className="h-screen w-full flex flex-col items-center justify-center cursor-default"
+            className="h-screen h-[100dvh] w-full flex flex-col items-center justify-center cursor-default"
           >
             {/* Central Word Display + Ticking Clock Indicator */}
             <div className="relative z-30 flex flex-col items-center justify-center gap-6 px-6 text-center pointer-events-none">
