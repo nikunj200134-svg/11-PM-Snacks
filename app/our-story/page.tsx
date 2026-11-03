@@ -62,7 +62,7 @@ export default function OurStoryPage() {
           <div className="lg:col-span-5 flex items-center justify-center">
             <div className="relative p-4 bg-white border-[3px] border-[#14102B] rounded-[32px] shadow-[8px_8px_0px_#14102B] rotate-1">
               <Image
-                src="/images/showcase.png"
+                src="/images/showcase.webp"
                 alt="11 PM Snacks three masala flavours lineup"
                 width={500}
                 height={500}
