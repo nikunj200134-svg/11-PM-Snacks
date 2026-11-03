@@ -302,7 +302,6 @@ const CrowdCanvas = ({
     <canvas ref={canvasRef} className={className} />
   );
 };
-};
 
 const Skiper39 = () => {
   return (
