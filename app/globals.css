@@ -1341,6 +1341,10 @@ ul { margin: 0; padding: 0; }
   }
   html {
     @apply font-sans;
+    scroll-padding-top: 80px;
+  }
+  body {
+    overscroll-behavior-x: none;
   }
 }
 
@@ -1357,6 +1361,21 @@ ul { margin: 0; padding: 0; }
   body {
     padding-left: env(safe-area-inset-left, 0px);
     padding-right: env(safe-area-inset-right, 0px);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Simplify heavy GPU filters on mobile to maintain 60fps scrolling */
+  .backdrop-blur-md, .backdrop-blur-sm, .backdrop-blur {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  .blur-3xl, .blur-2xl {
+    filter: none !important;
+  }
+
+  /* Hide any custom cursor overlays on touch */
+  .blob-cursor, [data-custom-cursor] {
+    display: none !important;
   }
 }
 
