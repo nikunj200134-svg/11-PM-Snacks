@@ -629,9 +629,9 @@ export const siteContent = {
         'We pop our corn exclusively in sunflower oil. We strictly use zero unrefined substitutes, hydrogenated fats, or recycled cooking oils across all recipes.',
     },
     {
-      question: 'What pack sizes are available and what do they cost?',
+      question: 'When can I buy 11 PM Snacks?',
       answer:
-        'We offer two practical sizes: Everyday Crunch (30 g) at ₹30 for quick personal snacking, and Jumbo Crunch (90 g) at ₹60 for sharing and long movies.',
+        'Coming soon! Batch 01 is currently in preparation in our Gurugram kitchen [TODO: launch date]. Join our Notify Me drop list on this page to get early access and exclusive launch crates.',
     },
     {
       question: 'Where are 11 PM Snacks produced?',

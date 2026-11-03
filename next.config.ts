@@ -37,6 +37,21 @@ const nextConfig: NextConfig = {
         destination: '/flavours/cheddar-cheese',
         permanent: true,
       },
+      {
+        source: '/shop',
+        destination: '/where-to-buy',
+        permanent: true,
+      },
+      {
+        source: '/buy',
+        destination: '/where-to-buy',
+        permanent: true,
+      },
+      {
+        source: '/order',
+        destination: '/where-to-buy',
+        permanent: true,
+      },
     ];
   },
 };
