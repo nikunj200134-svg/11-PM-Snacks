@@ -134,8 +134,8 @@ export default function FlavoursPage() {
                     <Button href={flavour.href} variant="midnight" size="md">
                       Explore {flavour.name} Details →
                     </Button>
-                    <span className="text-xs font-mono text-[#14102B]/60 font-bold">
-                      Available in 30g (₹30) &amp; 90g (₹60)
+                    <span className="text-xs font-mono text-[#FF4B1F] font-bold">
+                      Batch 01 Dropping Soon · Coming Soon
                     </span>
                   </div>
                 </div>

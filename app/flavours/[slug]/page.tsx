@@ -189,7 +189,7 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
                     Nutrition Values
                   </h3>
                   <p className="text-xs font-mono text-[#14102B]/60 mt-0.5">
-                    Standardised per 30g serving &amp; 100g
+                    Standardised per serving &amp; 100g [TODO: serving size]
                   </p>
                 </div>
                 <Link
@@ -203,7 +203,7 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
               <div className="space-y-1.5 font-mono text-xs sm:text-sm">
                 <div className="grid grid-cols-12 py-1 font-bold text-[#14102B]/60 border-b border-[#14102B]/10 uppercase">
                   <span className="col-span-6">Nutrient</span>
-                  <span className="col-span-3 text-right">Per 30g</span>
+                  <span className="col-span-3 text-right">Per Serving</span>
                   <span className="col-span-3 text-right">Per 100g</span>
                 </div>
                 {flavour.nutritionTable.map((row, i) => (
@@ -262,25 +262,22 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
         </div>
       </section>
 
-      {/* 5. Pack Options (Everyday Crunch & Jumbo Crunch) */}
+      {/* 5. Pack Availability */}
       <section id="packs" className="py-16 bg-[#FFF4DC] border-b-2 border-[#14102B]">
-        <div className="w-[min(1240px,94vw)] mx-auto flex flex-col gap-10">
-          <div className="text-center max-w-xl mx-auto">
-            <span className="inline-block px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border border-[#14102B] mb-2">
-              Choose Size
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-wider text-[#14102B] m-0">
-              {flavour.name} Pack Sizes
-            </h2>
-            <p className="mt-2 text-sm text-[#14102B]/80 font-medium">
-              Pick single 30g pouches for work sessions or 90g jumbo bags for group sharing.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto w-full">
-            {siteContent.packs.map((pack) => (
-              <PackCard key={pack.id} pack={pack} />
-            ))}
+        <div className="w-[min(1240px,94vw)] mx-auto flex flex-col items-center gap-6 text-center max-w-xl">
+          <span className="inline-block px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border border-[#14102B]">
+            Batch 01 Launch
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-display uppercase tracking-wider text-[#14102B] m-0">
+            {flavour.name} Availability
+          </h2>
+          <p className="text-sm text-[#14102B]/80 font-medium">
+            Handcrafted in small batches in Gurugram, India. All pricing and pack sizes will be officially announced with Batch 01 [TODO: launch date].
+          </p>
+          <div className="mt-2 flex items-center gap-4">
+            <Button href="/where-to-buy" variant="gold" size="lg">
+              Notify Me When Live →
+            </Button>
           </div>
         </div>
       </section>
