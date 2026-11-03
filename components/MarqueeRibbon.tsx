@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 export interface MarqueeRibbonProps {
@@ -20,6 +21,21 @@ export function MarqueeRibbon({
   className = '',
 }: MarqueeRibbonProps) {
   const reducedMotion = useReducedMotion();
+  const ribbonRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  // Pause marquee animation when off-screen to free CPU/GPU during mobile scrolling
+  useEffect(() => {
+    if (!ribbonRef.current || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { rootMargin: '100px' }
+    );
+    observer.observe(ribbonRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const variantStyles = {
     gold: 'bg-[#FFC21A] text-[#14102B] border-y-[2.5px] border-[#14102B]',
@@ -43,6 +59,7 @@ export function MarqueeRibbon({
 
   return (
     <div
+      ref={ribbonRef}
       role="region"
       aria-label="Scrolling Text Ribbon"
       className={`relative w-full overflow-hidden py-3.5 select-none ${tiltStyles} ${variantStyles} ${className}`}
@@ -60,7 +77,10 @@ export function MarqueeRibbon({
       ) : (
         <div className="group flex whitespace-nowrap overflow-hidden">
           <div
-            style={{ animationDuration: `${speedSeconds}s` }}
+            style={{
+              animationDuration: `${speedSeconds}s`,
+              animationPlayState: isVisible ? 'running' : 'paused',
+            }}
             className={`flex shrink-0 items-center gap-8 ${animationClass} group-hover:[animation-play-state:paused] pr-8`}
           >
             {items.map((item, idx) => (
@@ -76,7 +96,10 @@ export function MarqueeRibbon({
             ))}
           </div>
           <div
-            style={{ animationDuration: `${speedSeconds}s` }}
+            style={{
+              animationDuration: `${speedSeconds}s`,
+              animationPlayState: isVisible ? 'running' : 'paused',
+            }}
             className={`flex shrink-0 items-center gap-8 ${animationClass} group-hover:[animation-play-state:paused] pr-8`}
             aria-hidden="true"
           >
