@@ -12,6 +12,7 @@ export function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const scrollYRef = useRef(0);
 
   // Shrink header on scroll (Slot 8)
   useEffect(() => {
@@ -27,15 +28,29 @@ export function Header() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when mobile menu is active
+  // Lock body scroll when mobile menu is active, preserving exact scroll position without jumping
   useEffect(() => {
     if (mobileMenuOpen) {
+      scrollYRef.current = window.scrollY;
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollYRef.current}px`;
+      document.body.style.width = '100%';
     } else {
+      const top = document.body.style.top;
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      if (top) {
+        window.scrollTo(0, parseInt(top || '0', 10) * -1);
+      }
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
     };
   }, [mobileMenuOpen]);
 
