@@ -18,6 +18,11 @@ export function pageMeta({
     title: fullTitle,
     description,
     alternates: { canonical: url },
+    icons: {
+      icon: '/favicon.svg',
+      shortcut: '/favicon.ico',
+      apple: '/favicon.svg',
+    },
     openGraph: {
       type: 'website',
       url,

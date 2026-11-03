@@ -11,9 +11,9 @@ export function AnnouncementBar() {
     <aside
       role="region"
       aria-label="Launch Announcements"
-      className="relative z-50 overflow-hidden bg-[#14102B] text-[#FFF4DC] border-b-2 border-[#14102B] py-2 select-none"
+      className="relative z-50 w-full max-w-full overflow-hidden overflow-x-clip bg-[#14102B] text-[#FFF4DC] border-b-2 border-[#14102B] py-2 select-none"
     >
-      <div className="flex w-full items-center">
+      <div className="flex w-full max-w-full items-center overflow-hidden">
         {reducedMotion ? (
           // Accessible, static wrapped fallback for reduced motion
           <div className="flex w-full justify-center flex-wrap gap-4 px-4 text-xs font-mono font-bold tracking-widest uppercase">
@@ -25,9 +25,9 @@ export function AnnouncementBar() {
             ))}
           </div>
         ) : (
-          // Continuous marquee animation with hover deceleration
-          <div className="group flex whitespace-nowrap overflow-hidden">
-            <div className="flex shrink-0 items-center gap-8 animate-[marquee_24s_linear_infinite] group-hover:[animation-play-state:paused] pr-8">
+          // Continuous marquee animation with hover deceleration and slower 36s duration
+          <div className="group flex w-full max-w-full whitespace-nowrap overflow-hidden">
+            <div className="flex shrink-0 items-center gap-8 animate-[marquee_36s_linear_infinite] group-hover:[animation-play-state:paused] pr-8">
               {announcementItems.map((item, idx) => (
                 <span
                   key={`ann1-${idx}`}
@@ -41,7 +41,7 @@ export function AnnouncementBar() {
               ))}
             </div>
             <div
-              className="flex shrink-0 items-center gap-8 animate-[marquee_24s_linear_infinite] group-hover:[animation-play-state:paused] pr-8"
+              className="flex shrink-0 items-center gap-8 animate-[marquee_36s_linear_infinite] group-hover:[animation-play-state:paused] pr-8"
               aria-hidden="true"
             >
               {announcementItems.map((item, idx) => (
