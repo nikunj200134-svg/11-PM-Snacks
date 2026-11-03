@@ -209,7 +209,7 @@ export function CanvasCrowd() {
                 >
                   {/* Popcorn Pop Particle Burst */}
                   <div className="relative">
-                    <PopBurst density="heavy" />
+                    <PopBurst density="high" />
                     <div className="relative w-44 sm:w-56 aspect-[3/2] rounded-2xl overflow-hidden border-[2.5px] border-[#14102B] shadow-[6px_6px_0px_#14102B] bg-white">
                       <Image
                         src="/images/peri-peri.webp"
