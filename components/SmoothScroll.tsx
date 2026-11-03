@@ -7,6 +7,13 @@ export function SmoothScroll() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Disable smooth scrolling on touch devices (@media (hover: none), (pointer: coarse), or max-width: 1023px)
+    // so phones use native momentum scrolling without synthetic inertia or jumps.
+    const isTouchDevice =
+      window.matchMedia('(hover: none), (pointer: coarse)').matches ||
+      window.innerWidth < 1024;
+    if (isTouchDevice) return;
+
     // Turn off smooth scrolling under prefers-reduced-motion
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mediaQuery.matches) return;
