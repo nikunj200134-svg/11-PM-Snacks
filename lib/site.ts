@@ -2,7 +2,7 @@ export const site = {
   name: '11 PM Snacks',
   tagline: 'Your Cravings. Our Calling.',
   description:
-    '11 PM Snacks is an Indian masala-flavoured popcorn brand. Discover Peri Peri, Tangy Tomato, and Cheese in 30 g and 90 g packs — small-batch crafted, made without palm oil.',
+    '11 PM Snacks is an Indian masala-flavoured popcorn brand. Discover Peri Peri, Tangy Tomato, and Cheddar Cheese — small-batch crafted in Gurugram, popped in sunflower oil with zero palm oil.',
   url:
     process.env.NEXT_PUBLIC_SITE_URL ||
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -132,26 +132,22 @@ export const nutritionPillars = [
 export const packSizes = [
   {
     id: 'everyday',
-    label: 'Everyday Crunch',
-    weight: '30 g',
-    price: '₹30',
+    label: 'Single Munch',
     kicker: 'A quick handful',
     title: 'Your little break, packed with flavour.',
-    body: 'A convenient single-serving pack for work breaks, study sessions, travel, or whenever a craving strikes.',
-    image: '/brand/peri-peri-pouch.png',
-    alt: '11 PM Snacks 30 gram Everyday Crunch pack',
+    body: 'A convenient single-serving pouch for work breaks, study sessions, travel, or whenever a craving strikes.',
+    image: '/images/peri-peri.webp',
+    alt: '11 PM Snacks signature pouch',
     size: 'regular' as const,
   },
   {
     id: 'jumbo',
-    label: 'Jumbo Crunch',
-    weight: '90 g',
-    price: '₹60',
+    label: 'Share Crate',
     kicker: 'For longer moments',
     title: 'More popcorn for the moments that last longer.',
     body: 'Perfect for sharing, movie nights, get-togethers, or when you simply want more of your favourite crunch.',
-    image: '/brand/cheese-pouch.png',
-    alt: '11 PM Snacks 90 gram Jumbo Crunch pack',
+    image: '/images/cheddar-cheese.webp',
+    alt: '11 PM Snacks sharing pouch',
     size: 'jumbo' as const,
   },
 ] as const;
@@ -160,7 +156,7 @@ export const labelChecks = [
   { title: 'Read the ingredient list', body: 'Oils, seasonings, and allergens sit in the ingredients, not in the flavour name on the front.' },
   { title: 'Notice the oil', body: 'Different snacks use different oils. 11 PM Snacks pouches name sunflower oil and do not use palm oil. That is an ingredient choice, not a health ranking of every other oil.' },
   { title: 'Compare the panel', body: 'Saturated fat, sodium, fibre, energy, and serving size are how packs can be compared — once those numbers are on the label you are holding.' },
-  { title: 'Portion size matters', body: 'A 30 g pack and a 90 g pack are different amounts of the same snack. How much you eat changes the nutrition you actually consume.' },
+  { title: 'Portion matters', body: 'How much you eat changes the nutrition you actually consume.' },
   { title: 'Marketing is not the panel', body: 'Front-of-pack lines and icons are not a substitute for ingredients, allergens, and the nutrition information table.' },
 ] as const;
 
