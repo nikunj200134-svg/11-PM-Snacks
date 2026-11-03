@@ -118,7 +118,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar: Address & Copyright */}
-        <div className="pt-6 border-t border-[#FFF4DC]/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[#FFF4DC]/60">
+        <div className="pt-6 border-t border-[#FFF4DC]/15 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-[#FFF4DC]/80 font-medium">
           <p className="m-0 text-center md:text-left">
             Manufactured in {brand.origin} · Shivji Park Colony, Gurugram 122001
           </p>
