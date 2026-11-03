@@ -103,7 +103,7 @@ export function Footer() {
             Manufactured in {brand.origin} · Shivji Park Colony, Gurugram 122001
           </p>
           <p className="m-0 text-center text-[#FFC21A]/80">
-            Motion &amp; storyboard patterns inspired by <a href="https://skiper-ui.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">Skiper UI</a>
+            Motion patterns inspired by <a href="https://skiper-ui.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">Skiper UI</a> · Crowd illustrations by <a href="https://www.openpeeps.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">Open Peeps</a>
           </p>
           <p className="m-0 text-center md:text-right">
             &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
