@@ -25,11 +25,11 @@ export function Button({
 }: ButtonProps) {
   const reducedMotion = useReducedMotion();
 
-  // Size styles
+  // Size styles with minimum 44px tap target height on mobile (WCAG 2.5.5)
   const sizeStyles = {
-    sm: 'px-4 py-2 text-xs gap-1.5',
-    md: 'px-6 py-3 text-sm gap-2',
-    lg: 'px-8 py-4 text-base gap-2.5',
+    sm: 'min-h-[44px] px-4 py-2 text-xs gap-1.5',
+    md: 'min-h-[44px] px-6 py-3 text-sm gap-2',
+    lg: 'min-h-[48px] px-8 py-4 text-base gap-2.5',
   }[size];
 
   // Variant styles adhering to the contrast guard:
@@ -38,7 +38,7 @@ export function Button({
     gold: 'bg-[#FFC21A] text-[#14102B] hover:bg-[#ffd14d]',
     peri: 'bg-[#FF4B1F] text-[#14102B] hover:bg-[#ff6740]',
     tomato: 'bg-[#E5262F] text-white hover:bg-[#ef3b43]',
-    midnight: 'bg-[#14102B] text-[#FFF4DC] hover:bg-[#231b47]',
+    midnight: 'bg-[#14102B] !text-[#FFF4DC] text-[#FFF4DC] hover:bg-[#231b47]',
     cream: 'bg-[#FFF4DC] text-[#14102B] hover:bg-[#ffffff]',
     outline: 'bg-transparent text-[#14102B] border-2 border-[#14102B]',
   }[variant];

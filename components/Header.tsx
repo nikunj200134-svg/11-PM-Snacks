@@ -50,15 +50,23 @@ export function Header() {
 
   return (
     <>
+      {/* Accessible Skip to Content Link (WCAG 2.4.1) */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2.5 focus:bg-[#FFC21A] focus:text-[#14102B] focus:font-bold focus:rounded-xl focus:border-2 focus:border-[#14102B] focus:shadow-[4px_4px_0px_#14102B] focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           isScrolled
-            ? 'py-2.5 bg-[#FFF4DC]/95 backdrop-blur-md border-b-2 border-[#14102B] shadow-[0_4px_16px_rgba(20,16,43,0.08)]'
-            : 'py-4 bg-[#FFF4DC] border-b-2 border-[#14102B]/10'
+            ? 'py-2 sm:py-2.5 bg-[#96D0D2]/95 backdrop-blur-md border-b-2 border-[#14102B] shadow-[0_4px_20px_rgba(20,16,43,0.12)]'
+            : 'py-2.5 sm:py-3.5 bg-[#96D0D2] border-b-2 border-[#14102B]'
         }`}
       >
         <div className="w-[min(1240px,94vw)] mx-auto flex items-center justify-between gap-4">
-          {/* Left: Free-floating Logo (no box, unboxed, official image) */}
+          {/* Left: Enhanced, Prominent Logo on Mobile & Desktop */}
           <Link
             href="/"
             aria-label="11 PM Snacks Home"
@@ -67,11 +75,11 @@ export function Header() {
             <Image
               src="/brand/logo-official.png"
               alt="11 PM Snacks"
-              width={160}
-              height={70}
+              width={180}
+              height={75}
               priority
-              className={`w-auto object-contain transition-all duration-300 ${
-                isScrolled ? 'h-9 md:h-11' : 'h-11 md:h-14'
+              className={`w-auto object-contain transition-all duration-300 drop-shadow-[0_0_2px_rgba(255,255,255,0.7)] ${
+                isScrolled ? 'h-9 sm:h-11 md:h-13' : 'h-11 sm:h-13 md:h-15'
               }`}
             />
           </Link>
@@ -83,34 +91,34 @@ export function Header() {
                 return (
                   <div key={item.label} className="relative group">
                     <button
-                      className="inline-flex items-center gap-1 px-3.5 py-2 font-bold text-sm tracking-wide text-[#14102B] rounded-full hover:bg-[#14102B]/5 transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 font-black text-sm tracking-wide !text-[#14102B] hover:!text-[#FF4B1F] rounded-full hover:bg-black/5 transition-colors cursor-pointer"
                       aria-haspopup="true"
                     >
                       <span>{item.label}</span>
-                      <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-[#FFC21A] text-[#14102B] border border-[#14102B]">
+                      <span className="text-[10px] font-mono font-black px-1.5 py-0.5 rounded-full bg-[#FFC21A] !text-[#14102B] border border-[#14102B]/30 shadow-[1px_1px_0px_#14102B]">
                         3 Moods
                       </span>
-                      <ChevronDown className="w-3.5 h-3.5 text-[#14102B] group-hover:rotate-180 transition-transform duration-200" />
+                      <ChevronDown className="w-3.5 h-3.5 !text-[#14102B] group-hover:rotate-180 transition-transform duration-200" />
                     </button>
 
                     {/* Interactive Dropdown (Slot 8) */}
                     <div className="absolute top-full left-0 pt-2 hidden group-hover:block group-focus-within:block z-50">
-                      <div className="w-64 bg-[#FFF4DC] border-[2.5px] border-[#14102B] rounded-2xl shadow-[6px_6px_0px_#14102B] p-2 flex flex-col gap-1">
+                      <div className="w-64 bg-white border-2 border-[#14102B] rounded-2xl shadow-[6px_6px_0px_#14102B] p-2 flex flex-col gap-1">
                         <Link
                           href="/flavours"
-                          className="px-3 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider text-[#14102B] hover:bg-[#FFC21A] transition-colors"
+                          className="px-3 py-2 rounded-xl text-xs font-mono font-black uppercase tracking-wider text-[#FF4B1F] hover:bg-[#FFF4DC] transition-colors"
                         >
                           All Flavours Range →
                         </Link>
-                        <div className="h-[1.5px] bg-[#14102B]/15 my-0.5" />
+                        <div className="h-[2px] bg-[#14102B]/10 my-0.5" />
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-bold text-[#14102B] hover:bg-[#14102B]/10 transition-colors"
+                            className="flex items-center justify-between px-3 py-2 rounded-xl text-sm font-bold text-[#14102B] hover:bg-[#FFF4DC] hover:text-[#FF4B1F] transition-colors"
                           >
                             <span>{child.label}</span>
-                            <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-white border border-[#14102B] text-[#14102B]">
+                            <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full bg-[#14102B]/10 text-[#14102B]">
                               {child.badge}
                             </span>
                           </Link>
@@ -126,10 +134,10 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-3.5 py-2 font-bold text-sm tracking-wide rounded-full transition-colors ${
+                  className={`px-3.5 py-2 font-black text-sm tracking-wide rounded-full transition-all ${
                     isActive
-                      ? 'bg-[#14102B] text-[#FFF4DC]'
-                      : 'text-[#14102B] hover:bg-[#14102B]/5'
+                      ? 'bg-[#FFC21A] !text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]'
+                      : '!text-[#14102B] hover:!text-[#FF4B1F] hover:bg-black/5'
                   }`}
                 >
                   {item.label}
@@ -145,11 +153,11 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile Hamburger Toggle (44x44px minimum tap target) */}
           <button
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open Mobile Menu"
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-xl border-2 border-[#14102B] bg-[#FFC21A] text-[#14102B] shadow-[3px_3px_0px_#14102B] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+            className="md:hidden inline-flex items-center justify-center w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl border-2 border-[#14102B] bg-[#FFC21A] text-[#14102B] shadow-[3px_3px_0px_#14102B] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
           >
             <Menu className="w-5 h-5 stroke-[2.5]" />
           </button>
@@ -176,7 +184,7 @@ export function Header() {
             <button
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Close Mobile Menu"
-              className="p-2 rounded-full border-2 border-[#FFF4DC] bg-[#FFF4DC] text-[#14102B] shadow-[3px_3px_0px_#FFC21A] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
+              className="w-11 h-11 min-w-[44px] min-h-[44px] inline-flex items-center justify-center rounded-full border-2 border-[#FFF4DC] bg-[#FFF4DC] text-[#14102B] shadow-[3px_3px_0px_#FFC21A] active:translate-x-[1px] active:translate-y-[1px] cursor-pointer"
             >
               <X className="w-6 h-6 stroke-[2.5]" />
             </button>

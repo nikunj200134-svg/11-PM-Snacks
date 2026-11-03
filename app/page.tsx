@@ -23,6 +23,13 @@ const AppleFeatureBlock = dynamic(
   }
 );
 
+const WhyPopcornSection = dynamic(
+  () => import('@/components/home/WhyPopcornSection').then((mod) => mod.WhyPopcornSection),
+  {
+    loading: () => <div className="min-h-[600px] bg-[#0A0A0A]" />,
+  }
+);
+
 import { CanvasCrowdClient } from '@/components/storyboard/CanvasCrowdClient';
 
 const NotifyMeSection = dynamic(
@@ -60,7 +67,10 @@ export default function HomePage() {
       {/* 4. Product Block (Apple Feature Block Pattern) */}
       <AppleFeatureBlock />
 
-      {/* 5. Crowd Story (HTML5 Canvas Crowd + GSAP walking sprites) */}
+      {/* 5. Why Popcorn? Dedicated Section (Six cards + 4 Big Stat Tiles) */}
+      <WhyPopcornSection />
+
+      {/* 6. Crowd Story (HTML5 Canvas Crowd + GSAP walking sprites) */}
       <CanvasCrowdClient />
 
       {/* 6. Early Access Capture & FAQ */}

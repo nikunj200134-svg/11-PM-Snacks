@@ -5,7 +5,7 @@ import { nutritionPillars } from '@/lib/site';
 
 export function NutritionHighlights({
   title = 'Power-Packed Snacking. Real Nutrition.',
-  subtitle = 'High in dietary fibre, rich in antioxidants, heart-healthy, gluten-free, whole grain goodness, 100% plant-based, and packed with 12g protein per 100g.',
+  subtitle = 'High in dietary fibre, natural polyphenols, cholesterol-free, naturally gluten-free ingredients, 100% whole grain corn, and a good source of plant protein.',
   kicker = 'Clean Fuel · Serious Crunch',
   className = '',
   id = 'nutrition-highlights',
@@ -65,7 +65,7 @@ export function NutritionHighlights({
             <div className="nutrition-banner-text">
               <span className="kicker">Honest &amp; Wholesome</span>
               <p>
-                <strong>12g Protein / 100g</strong> · <strong>High in Dietary Fibre</strong> · <strong>Rich in Antioxidants</strong> · <strong>Supports Heart Health</strong> · <strong>100% Gluten Free</strong> · <strong>Whole Wheat &amp; Grain</strong> · <strong>Plant-Based Snacking</strong>
+                <strong>12g Protein / 100g</strong> · <strong>High in Dietary Fibre</strong> · <strong>Natural Polyphenols</strong> · <strong>Naturally Cholesterol-Free</strong> · <strong>Naturally Gluten-Free Ingredients</strong> · <strong>100% Whole Grain Corn</strong> · <strong>Vegetarian Snacking</strong>
               </p>
             </div>
             <Link className="btn btn-gold" href="/ingredients-nutrition">

@@ -201,9 +201,9 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
               </div>
 
               <div className="space-y-1.5 font-mono text-xs sm:text-sm">
-                <div className="grid grid-cols-12 py-1 font-bold text-[#14102B]/60 border-b border-[#14102B]/10 uppercase">
+                <div className="grid grid-cols-12 py-1.5 font-bold text-[#14102B]/60 border-b border-[#14102B]/10 uppercase tracking-wider">
                   <span className="col-span-6">Nutrient</span>
-                  <span className="col-span-3 text-right">Per Serving</span>
+                  <span className="col-span-3 text-right">Per 30g Pack</span>
                   <span className="col-span-3 text-right">Per 100g</span>
                 </div>
                 {flavour.nutritionTable.map((row, i) => (

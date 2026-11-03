@@ -188,9 +188,9 @@ export function CanvasCrowd() {
         </div>
 
         {/* Bottom Stage: Walking Crowd Canvas (Free Skiper #39 + Open Peeps Sprite Sheet) */}
-        <div className="absolute inset-x-0 bottom-0 w-full h-[24vh] sm:h-[28vh] max-h-[220px] pointer-events-none z-10 overflow-hidden">
+        <div className="absolute inset-x-0 bottom-0 w-full h-[26vh] sm:h-[30vh] md:h-[34vh] max-h-[250px] pointer-events-none z-10 overflow-hidden">
           <CrowdCanvas
-            src="/images/peeps/all-peeps.png"
+            src="/images/peeps/all-peeps - Copy.png"
             rows={15}
             cols={7}
             className="w-full h-full"

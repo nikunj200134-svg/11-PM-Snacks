@@ -54,10 +54,12 @@ export interface PackItem {
   id: string;
   name: string;
   weight?: string;
+  price?: string;
   badge?: string;
   highlight: string;
   servingDescription: string;
   isPopular?: boolean;
+  buyUrl?: string;
 }
 
 export interface NavLink {
@@ -83,9 +85,11 @@ export const siteContent = {
     contact: {
       phoneDisplay: '+91 85108 01655',
       phoneTel: '+918510801655',
-      city: 'Gurugram, Haryana, India',
+      email: '11pmsnacks@gmail.com',
+      instagramUrl: 'https://instagram.com/11pmsnacks',
+      city: 'Shivji Park Colony, Gurugram, Haryana',
       pinCode: '122001',
-      fssaiPlaceholder: '[TODO: verified FSSAI registration number]',
+      fssaiPlaceholder: '[FSSAI NO.]',
     },
   },
 
@@ -150,7 +154,7 @@ export const siteContent = {
         'Peri Peri Masala Seasoning (Dried Red Chili, Smoked Garlic, Black Pepper, Onion Powder, Rock Salt)',
         'Acidity Regulator (Citric Acid)',
       ],
-      allergens: 'Manufactured on equipment that processes dairy and soy products.',
+      allergens: '100% Plant-based / vegan ingredients. Manufactured on equipment that processes dairy and soy products.',
       pairings: [
         {
           title: 'Midnight Cold Brew',
@@ -177,7 +181,7 @@ export const siteContent = {
         {
           question: 'Is Peri Peri 100% vegetarian?',
           answer:
-            'Yes! Peri Peri is 100% vegetarian, formulated entirely with plant-based spices, corn, and sunflower oil.',
+            'Yes! Peri Peri is 100% vegetarian and plant-based, formulated entirely with plant-based spices, corn, and sunflower oil.',
         },
       ],
       meters: {
@@ -188,20 +192,21 @@ export const siteContent = {
         thirdIcon: '💥',
       },
       nutritionSnapshot: {
-        caloriesPerServing: '[TODO: lab-verified calories per serving]',
-        proteinPer100g: '12g plant protein / 100g',
-        dietaryFibre: 'Naturally high in dietary fibre',
+        caloriesPerServing: '[LAB VALUE kcal per 30g serving]',
+        proteinPer100g: '12g plant protein / 100g [LAB VALUE]',
+        dietaryFibre: 'Naturally high in dietary fibre [LAB VALUE]',
         transFat: '0g Trans Fat · 0mg Cholesterol',
       },
       nutritionTable: [
-        { nutrient: 'Energy', perServing: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
-        { nutrient: 'Plant Protein', perServing: '3.6g', per100g: '12.0g' },
-        { nutrient: 'Carbohydrates', perServing: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
-        { nutrient: 'Dietary Fibre', perServing: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
-        { nutrient: 'Total Fat', perServing: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
+        { nutrient: 'Energy', perServing: '[LAB VALUE kcal]', per100g: '[LAB VALUE kcal]' },
+        { nutrient: 'Plant Protein', perServing: '[LAB VALUE g]', per100g: '12.0g' },
+        { nutrient: 'Carbohydrates', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Dietary Fibre', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Total Fat', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Saturated Fat', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
         { nutrient: 'Trans Fat', perServing: '0.0g', per100g: '0.0g' },
         { nutrient: 'Cholesterol', perServing: '0.0mg', per100g: '0.0mg' },
-        { nutrient: 'Sodium', perServing: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
+        { nutrient: 'Sodium', perServing: '[LAB VALUE mg]', per100g: '[LAB VALUE mg]' },
       ],
     },
     {
@@ -225,7 +230,7 @@ export const siteContent = {
         'Tangy Tomato Masala Seasoning (Tomato Powder, Dry Mango Amchur, Cumin, Black Salt, Coriander, Kashmiri Chili)',
         'Acidity Regulator (Malic Acid)',
       ],
-      allergens: 'Manufactured on equipment that processes dairy and soy products.',
+      allergens: '100% Plant-based / vegan ingredients. Manufactured on equipment that processes dairy and soy products.',
       pairings: [
         {
           title: 'Adrak Masala Chai',
@@ -263,20 +268,21 @@ export const siteContent = {
         thirdIcon: '🍅',
       },
       nutritionSnapshot: {
-        caloriesPerServing: '[TODO: lab-verified calories per serving]',
-        proteinPer100g: '12g plant protein / 100g',
-        dietaryFibre: 'Naturally high in dietary fibre',
+        caloriesPerServing: '[LAB VALUE kcal per 30g serving]',
+        proteinPer100g: '12g plant protein / 100g [LAB VALUE]',
+        dietaryFibre: 'Naturally high in dietary fibre [LAB VALUE]',
         transFat: '0g Trans Fat · 0mg Cholesterol',
       },
       nutritionTable: [
-        { nutrient: 'Energy', perServing: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
-        { nutrient: 'Plant Protein', perServing: '3.6g', per100g: '12.0g' },
-        { nutrient: 'Carbohydrates', perServing: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
-        { nutrient: 'Dietary Fibre', perServing: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
-        { nutrient: 'Total Fat', perServing: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
+        { nutrient: 'Energy', perServing: '[LAB VALUE kcal]', per100g: '[LAB VALUE kcal]' },
+        { nutrient: 'Plant Protein', perServing: '[LAB VALUE g]', per100g: '12.0g' },
+        { nutrient: 'Carbohydrates', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Dietary Fibre', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Total Fat', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Saturated Fat', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
         { nutrient: 'Trans Fat', perServing: '0.0g', per100g: '0.0g' },
         { nutrient: 'Cholesterol', perServing: '0.0mg', per100g: '0.0mg' },
-        { nutrient: 'Sodium', perServing: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
+        { nutrient: 'Sodium', perServing: '[LAB VALUE mg]', per100g: '[LAB VALUE mg]' },
       ],
     },
     {
@@ -299,7 +305,7 @@ export const siteContent = {
         'Refined Sunflower Oil',
         'Cheddar Cheese Seasoning (Cheddar Cheese Powder, Whey Powder, Salt, Onion Powder, Paprika Extract)',
       ],
-      allergens: 'Contains Milk / Dairy derivatives. Made in a facility that also processes soy.',
+      allergens: 'Contains Milk / Dairy Derivatives (Whey). 100% Vegetarian (Not 100% vegan). Made in a facility that also processes soy.',
       pairings: [
         {
           title: 'Iced Peach Iced Tea',
@@ -326,7 +332,7 @@ export const siteContent = {
         {
           question: 'Is Cheddar Cheese vegetarian?',
           answer:
-            'Yes, 100% vegetarian. It contains dairy whey and microbial cheese cultures (no animal rennet).',
+            'Yes, 100% vegetarian. It contains dairy whey and microbial cheese cultures (no animal rennet). Not 100% vegan.',
         },
       ],
       meters: {
@@ -337,20 +343,21 @@ export const siteContent = {
         thirdIcon: '🧀',
       },
       nutritionSnapshot: {
-        caloriesPerServing: '[TODO: lab-verified calories per serving]',
-        proteinPer100g: '12g plant protein / 100g',
-        dietaryFibre: 'Naturally high in dietary fibre',
+        caloriesPerServing: '[LAB VALUE kcal per 30g serving]',
+        proteinPer100g: '12g protein / 100g [LAB VALUE]',
+        dietaryFibre: 'Naturally high in dietary fibre [LAB VALUE]',
         transFat: '0g Trans Fat · 0mg Cholesterol',
       },
       nutritionTable: [
-        { nutrient: 'Energy', perServing: '[TODO: lab kcal]', per100g: '[TODO: lab kcal]' },
-        { nutrient: 'Plant Protein', perServing: '3.6g', per100g: '12.0g' },
-        { nutrient: 'Carbohydrates', perServing: '[TODO: lab carbs]', per100g: '[TODO: lab carbs]' },
-        { nutrient: 'Dietary Fibre', perServing: '[TODO: lab fibre]', per100g: '[TODO: lab fibre]' },
-        { nutrient: 'Total Fat', perServing: '[TODO: lab fat]', per100g: '[TODO: lab fat]' },
+        { nutrient: 'Energy', perServing: '[LAB VALUE kcal]', per100g: '[LAB VALUE kcal]' },
+        { nutrient: 'Protein', perServing: '[LAB VALUE g]', per100g: '12.0g' },
+        { nutrient: 'Carbohydrates', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Dietary Fibre', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Total Fat', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
+        { nutrient: 'Saturated Fat', perServing: '[LAB VALUE g]', per100g: '[LAB VALUE g]' },
         { nutrient: 'Trans Fat', perServing: '0.0g', per100g: '0.0g' },
         { nutrient: 'Cholesterol', perServing: '0.0mg', per100g: '0.0mg' },
-        { nutrient: 'Sodium', perServing: '[TODO: lab sodium]', per100g: '[TODO: lab sodium]' },
+        { nutrient: 'Sodium', perServing: '[LAB VALUE mg]', per100g: '[LAB VALUE mg]' },
       ],
     },
   ] satisfies FlavourItem[],
@@ -361,7 +368,30 @@ export const siteContent = {
     notice: 'Batch 01 dropping soon. Launch announcement coming soon.',
   },
 
-  packs: [] as PackItem[],
+  packs: [
+    {
+      id: 'everyday-30g',
+      name: 'Everyday Pack (30g)',
+      weight: '30g',
+      price: '₹30',
+      badge: 'Single Munch',
+      highlight: 'Quick solo craving · Pocket-friendly',
+      servingDescription: 'A convenient 30g single-serve pouch for office desks, commute snacks, study breaks, or late-night cravings.',
+      isPopular: false,
+      buyUrl: '/where-to-buy',
+    },
+    {
+      id: 'jumbo-90g',
+      name: 'Share Pack (90g)',
+      weight: '90g',
+      price: '₹60',
+      badge: 'Best Value',
+      highlight: 'Movie nights & sharing',
+      servingDescription: 'A generous 90g pouch designed for sharing with friends, family movie marathons, or weekend binge sessions.',
+      isPopular: true,
+      buyUrl: '/where-to-buy',
+    },
+  ] as PackItem[],
 
   varietyBundle: {
     name: '3-Flavour Variety Crate',
@@ -684,16 +714,34 @@ export const siteContent = {
         body: 'Mass-market snacks rely heavily on industrial palm oil for one reason: it is dirt cheap and lasts for years on warehouse shelves. We reject palm oil because it coats your mouth in a heavy, greasy film and is laden with saturated fats. We pop in 100% sunflower oil: it brings a clean, neutral crunch that lets the spices shine, delivers 0g trans fats, and leaves zero oily residue on your fingers. We do not preach clean eating or health perfection; we just pop honest popcorn in Gurugram.',
         keyPointers: [
           {
-            title: 'Zero Palm Oil & Zero Hydrogenated Fats',
-            desc: 'Popped in sunflower oil with clean roasting temperatures. Never recycled or re-boiled.',
+            badge: 'Zero Palm Oil',
+            title: 'Zero Palm Oil & 100% Sunflower Oil',
+            desc: 'Popped exclusively in pure sunflower oil. Clean roasting temperatures with zero hydrogenated fats, never recycled or re-boiled.',
           },
           {
+            badge: '100% Whole Grain',
             title: '100% Whole Grain Corn',
-            desc: 'Natural bran, germ, and endosperm preserved for dietary fibre and steady complex carbs.',
+            desc: 'Natural bran, germ, and endosperm preserved for wholesome complex carbohydrates and authentic crunch.',
           },
           {
-            title: 'Naturally Gluten-Free & Vegetarian',
-            desc: 'Corn is inherently gluten-free. Peri Peri and Tomato are entirely plant-based; Cheese contains genuine dairy whey.',
+            badge: 'Gluten-Free',
+            title: 'Naturally Gluten-Free Ingredients',
+            desc: 'Corn is inherently gluten-free. Peri Peri and Tangy Tomato are entirely plant-based; Cheese contains authentic dairy whey.',
+          },
+          {
+            badge: 'Plant Protein',
+            title: 'Good Source of Plant Protein',
+            desc: 'Natural corn kernel protein to fuel your body and keep late-night cravings satisfied without heavy sluggishness.',
+          },
+          {
+            badge: 'Gut Friendly',
+            title: 'Fibre Rich · Good for Gut Health',
+            desc: 'High in natural dietary fibre from the whole corn hull to support healthy digestion, feed good gut bacteria, and keep you full.',
+          },
+          {
+            badge: 'Cholesterol-Free',
+            title: 'Naturally Cholesterol-Free',
+            desc: 'Prepared in heart-smart sunflower oil with 0g trans fats, zero cholesterol, and zero oily residue on your fingers.',
           },
         ],
       },

@@ -82,9 +82,29 @@ export function Footer() {
                     </Link>
                   </li>
                 ))}
-                <li className="pt-2 text-xs font-mono text-[#FFF4DC]/50">
-                  FSSAI: {brand.contact.fssaiPlaceholder}
+                <li>
+                  <a
+                    href="mailto:11pmsnacks@gmail.com"
+                    className="hover:text-[#FFC21A] transition-colors flex items-center gap-1.5"
+                  >
+                    <span>✉</span> 11pmsnacks@gmail.com
+                  </a>
                 </li>
+                <li>
+                  <a
+                    href="https://instagram.com/11pmsnacks"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FFC21A] transition-colors flex items-center gap-1.5"
+                  >
+                    <span>📸</span> @11pmsnacks
+                  </a>
+                </li>
+                {brand.contact.fssaiPlaceholder && !brand.contact.fssaiPlaceholder.includes('[FSSAI NO.]') && (
+                  <li className="pt-2 text-xs font-mono text-[#FFF4DC]/70 font-semibold">
+                    FSSAI Lic. No. {brand.contact.fssaiPlaceholder}
+                  </li>
+                )}
               </ul>
             </div>
           </div>

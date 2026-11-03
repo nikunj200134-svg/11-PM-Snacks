@@ -109,24 +109,21 @@ export function HoverHero() {
           Your Cravings. Our Calling.
         </p>
 
-        {/* Coming soon notice with Notify me link */}
-        <div className="inline-flex items-center gap-2 mt-2 px-3 py-1 rounded-full bg-[#14102B]/60 border border-[#FFF4DC]/20">
-          <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#FFC21A] text-[#14102B]">
-            Coming soon
+        {/* Coming soon notice badge */}
+        <div className="inline-flex items-center gap-2.5 mt-2 px-4 py-1.5 rounded-full bg-[#14102B] border-2 border-[#FFC21A]/60 shadow-[3px_3px_0px_#14102B]">
+          <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B]">
+            Batch 01
           </span>
-          <a
-            href="#notify"
-            className="text-[11px] font-mono font-bold text-[#FFC21A] hover:text-[#FFF4DC] underline underline-offset-4 transition-colors"
-          >
-            Notify me →
-          </a>
+          <span className="text-xs font-mono font-bold text-[#FFF4DC]">
+            Dropping Soon from Gurugram
+          </span>
         </div>
       </div>
 
       {/* 2. Center Stage: Giant Staggered Headline + Overlapping Pouches */}
-      <div className="relative w-full my-auto flex flex-col items-center justify-center py-4 sm:py-8">
-        {/* Giant Dynamic Headline (Bagel Fat One, ~12vw) */}
-        <div className="w-full text-center overflow-hidden px-4 pointer-events-none min-h-[5rem] sm:min-h-[9rem] lg:min-h-[12rem] flex items-center justify-center">
+      <div className="relative w-full my-auto flex flex-col items-center justify-center py-4 sm:py-6">
+        {/* Dynamic Headline (Bagel Fat One, fluidly scaled so even long names fit on single line without clipping) */}
+        <div className="w-full max-w-6xl mx-auto text-center overflow-hidden px-4 pointer-events-none min-h-[3.5rem] sm:min-h-[5rem] lg:min-h-[7rem] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.h1
               key={activeFlavour ? activeFlavour.name : 'DEFAULT'}
@@ -138,7 +135,7 @@ export function HoverHero() {
                 animate: { transition: { staggerChildren: 0.03 } },
                 exit: { transition: { staggerChildren: 0.02, staggerDirection: -1 } },
               }}
-              className="text-[clamp(2.6rem,11.5vw,10.5rem)] font-display uppercase tracking-widest text-[#FFF4DC] leading-none m-0 whitespace-nowrap drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)]"
+              className="text-[clamp(1.35rem,5.2vw,5.5rem)] font-display uppercase tracking-wide text-[#FFF4DC] leading-none m-0 whitespace-nowrap drop-shadow-[0_8px_24px_rgba(0,0,0,0.4)]"
             >
               {headlineLetters.map((char, i) => (
                 <motion.span
@@ -165,8 +162,8 @@ export function HoverHero() {
           </AnimatePresence>
         </div>
 
-        {/* Aligned, Square Pouch Row with Curves & Spacing */}
-        <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center gap-3 sm:gap-6 md:gap-8 lg:gap-10 -mt-4 sm:-mt-8 lg:-mt-12 z-20 px-2 sm:px-4">
+        {/* Aligned, Square Pouch Row with Curves, Clean Spacing & Zero Collision */}
+        <div className="relative w-full max-w-5xl mx-auto flex items-center justify-center gap-3 sm:gap-6 md:gap-8 lg:gap-10 mt-4 sm:mt-6 lg:mt-8 z-20 px-2 sm:px-4">
           {flavours.map((flavour, idx) => {
             const isHovered = hoveredIdx === idx;
             const isMobileActive = isMobile && mobileActiveIdx === idx;
@@ -244,19 +241,36 @@ export function HoverHero() {
           })}
         </div>
 
-        {/* Mobile Progress Dots (Auto-cycle indicator) */}
+        {/* 3 Key Proof Chips: Good Source of Plant Protein, Fibre Rich · Good for Gut, Naturally Gluten-Free */}
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 mt-5 sm:mt-7 z-20 px-3">
+          <span className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-[#14102B]/90 text-[#2EC27E] border border-[#2EC27E]/50 backdrop-blur-md shadow-sm">
+            <span aria-hidden="true">💪</span> Good Source of Plant Protein
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-[#14102B]/90 text-[#FFC21A] border border-[#FFC21A]/50 backdrop-blur-md shadow-sm">
+            <span aria-hidden="true">🌾</span> Fibre Rich · Good for Gut
+          </span>
+          <span className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-[#14102B]/90 text-[#FFF4DC] border border-[#FFF4DC]/40 backdrop-blur-md shadow-sm">
+            <span aria-hidden="true">🛡️</span> Naturally Gluten-Free
+          </span>
+        </div>
+
+        {/* Mobile Progress Dots (Auto-cycle indicator, >= 44px tap target) */}
         {isMobile && !reducedMotion && (
-          <div className="flex items-center justify-center gap-2 mt-6 z-20">
+          <div className="flex items-center justify-center gap-1 mt-6 z-20">
             {flavours.map((f, i) => (
               <button
                 key={f.id}
                 type="button"
                 onClick={() => setMobileActiveIdx(i)}
                 aria-label={`Select ${f.name}`}
-                className={`transition-all duration-300 rounded-full h-2 ${
-                  mobileActiveIdx === i ? 'w-6 bg-[#FFC21A]' : 'w-2 bg-[#FFF4DC]/40'
-                }`}
-              />
+                className="w-11 h-11 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+              >
+                <span
+                  className={`block transition-all duration-300 rounded-full h-2.5 ${
+                    mobileActiveIdx === i ? 'w-7 bg-[#FFC21A]' : 'w-2.5 bg-[#FFF4DC]/40'
+                  }`}
+                />
+              </button>
             ))}
           </div>
         )}

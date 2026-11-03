@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { Button } from '@/components/Button';
 import { Magnetic } from '@/components/Magnetic';
@@ -42,21 +43,28 @@ export function PackCard({ pack, className = '' }: PackCardProps) {
           </span>
         </div>
 
-        {/* Launch Status Badge */}
-        <div className="mt-4 flex items-baseline gap-2">
-          <span className="text-2xl sm:text-3xl font-display uppercase text-[#14102B] tracking-tight">
-            Coming Soon
-          </span>
-          <span className="text-xs font-mono font-bold text-[#FF4B1F] uppercase px-2 py-0.5 rounded bg-[#FF4B1F]/10">
-            Limited Drop
+        {/* Price & Launch Status */}
+        <div className="mt-4 flex items-baseline justify-between gap-2">
+          <div className="flex items-baseline gap-2">
+            <span className="text-3xl sm:text-4xl font-display uppercase text-[#FF4B1F] tracking-tight">
+              {pack.price || 'Batch 01'}
+            </span>
+            {pack.weight && (
+              <span className="text-xs font-mono font-bold text-[#14102B]/60 uppercase">
+                / {pack.weight} pack
+              </span>
+            )}
+          </div>
+          <span className="text-xs font-mono font-bold text-[#FF4B1F] uppercase px-2.5 py-1 rounded bg-[#FF4B1F]/10 border border-[#FF4B1F]/20">
+            Batch 01 Drop
           </span>
         </div>
 
-        <p className="mt-2 text-xs font-mono font-bold text-[#FF4B1F]">
+        <p className="mt-2 text-xs font-mono font-bold text-[#14102B]">
           {pack.highlight}
         </p>
 
-        <p className="mt-4 text-sm text-[#14102B]/80 leading-relaxed">
+        <p className="mt-3 text-sm text-[#14102B]/80 leading-relaxed">
           {pack.servingDescription}
         </p>
 
@@ -84,19 +92,25 @@ export function PackCard({ pack, className = '' }: PackCardProps) {
       </div>
 
       {/* Buy Button with Arcade Physics & Magnetic Pull */}
-      <div className="mt-8 pt-6 border-t-2 border-[#14102B]/10">
+      <div className="mt-8 pt-6 border-t-2 border-[#14102B]/10 flex flex-col gap-2.5">
         <Magnetic className="w-full">
           <BurstButtonWrapper className="w-full">
             <Button
-              href="/flavours"
+              href={pack.buyUrl || '/where-to-buy'}
               variant={isJumbo ? 'gold' : 'midnight'}
               size="md"
-              className="w-full text-center"
+              className={`w-full text-center ${isJumbo ? '!text-[#14102B]' : '!text-[#FFF4DC]'}`}
             >
-              Select Flavours →
+              Where to Buy · {pack.price || 'Batch 01'} →
             </Button>
           </BurstButtonWrapper>
         </Magnetic>
+        <Link
+          href="/flavours"
+          className="text-center text-xs font-mono font-bold text-[#14102B]/70 hover:text-[#14102B] hover:underline py-1"
+        >
+          View Flavour Lineup →
+        </Link>
       </div>
     </article>
   );

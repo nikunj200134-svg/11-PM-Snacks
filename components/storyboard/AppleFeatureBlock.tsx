@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/Button';
@@ -19,91 +19,45 @@ import { siteContent, type FlavourItem } from '@/content/site';
  * - Strictly unreleased format: "Coming soon" badge + "Notify me" CTA
  */
 
-interface FeatureCardData {
-  id: string;
-  icon: string;
-  title: string;
-  shortDesc: string;
-  expandedDesc: string;
-  proofBadge: string;
-}
-
-const FEATURE_CARDS: FeatureCardData[] = [
+const PHOTO_CARDS = [
   {
-    id: 'small-batch',
-    icon: '🥣',
-    title: 'Small Batch',
-    shortDesc: 'Popped in small kettle runs in Gurugram, India.',
-    expandedDesc:
-      'We deliberately craft our popcorn in controlled kettle batches so seasoning coats every blossom evenly, ensuring fresh, authentic crunch instead of mass-market stale stockpiles.',
-    proofBadge: 'Gurugram Kitchen Batch',
+    src: '/brand/three-pack-flatlay.png',
+    alt: '11 PM Snacks Signature Trio flatlay',
+    tag: 'Signature Trio',
+    title: 'Three Bold Moods',
+    sub: 'Peri Peri · Tangy Tomato · Cheddar Cheese',
   },
   {
-    id: 'no-palm-oil',
-    icon: '🌻',
-    title: 'No Palm Oil',
-    shortDesc: 'Popped strictly in clean, refined sunflower oil.',
-    expandedDesc:
-      'Never hydrogenated palm fat. Sunflower oil allows the natural corn flavour and authentic spices to shine through without grease on your fingers. 0g Trans Fat · 0mg Cholesterol [TODO: verified lab profile].',
-    proofBadge: '100% Sunflower Oil',
+    src: '/brand/studio-model.png',
+    alt: 'Studio model snacking with 11 PM popcorn pouch',
+    tag: 'Sunflower Popped',
+    title: 'Zero Palm Oil Crunch',
+    sub: 'Popped strictly in refined sunflower oil',
   },
   {
-    id: 'real-masala',
-    icon: '🌶️',
-    title: 'Real Masala Flavour',
-    shortDesc: 'Bold culinary spice blends with zero artificial colours.',
-    expandedDesc:
-      'From African bird’s eye chilli heat and sun-ripened dry mango amchur to rich cheddar warmth, our seasonings are developed for genuine taste cravings that hit day or night.',
-    proofBadge: 'Authentic Spices',
+    src: '/brand/tote-bag-model.png',
+    alt: 'Lifestyle model carrying 11 PM Snacks in tote bag',
+    tag: 'Everyday Crunch',
+    title: 'Carry Your Crunch',
+    sub: 'High volume, wholesome corn on the move',
   },
   {
-    id: 'ready-to-eat',
-    icon: '⚡',
-    title: 'Ready To Eat',
-    shortDesc: 'Multi-barrier nitrogen-flushed foil locking in freshness.',
-    expandedDesc:
-      'Pouched directly after seasoning so moisture stays out and crispness stays in. Tear open whenever cravings strike — study sessions, road trips, or 11 PM movie marathons.',
-    proofBadge: 'Nitrogen Flushed',
+    src: '/brand/siblings-sharing.png',
+    alt: 'Friends and family sharing 11 PM Snacks popcorn',
+    tag: 'Late-Night Calling',
+    title: 'Share The Crunch',
+    sub: 'Small-batch crafted in Gurugram',
   },
 ];
 
 export function AppleFeatureBlock() {
   const flavours = siteContent.flavours;
   const [selectedIdx, setSelectedIdx] = useState(0);
-  const [expandedCardId, setExpandedCardId] = useState<string | null>('small-batch');
   const active: FlavourItem = flavours[selectedIdx];
   const reducedMotion = useReducedMotion();
-  const swatchRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  // Swatch color tokens
-  const swatches = [
-    { label: 'Fire', color: '#FF4B1F', ringColor: '#FF4B1F', flavourIdx: 0 },
-    { label: 'Tomato', color: '#E5262F', ringColor: '#E5262F', flavourIdx: 1 },
-    { label: 'Gold', color: '#FFC21A', ringColor: '#FFC21A', flavourIdx: 2 },
-  ];
-
-  // Radio group keyboard accessibility (Left / Right Arrow navigation)
-  const handleKeyDown = (e: React.KeyboardEvent, currentIdx: number) => {
-    let nextIdx = currentIdx;
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      nextIdx = (currentIdx + 1) % flavours.length;
-      e.preventDefault();
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      nextIdx = (currentIdx - 1 + flavours.length) % flavours.length;
-      e.preventDefault();
-    }
-    if (nextIdx !== currentIdx) {
-      setSelectedIdx(nextIdx);
-      swatchRefs.current[nextIdx]?.focus();
-    }
-  };
-
-  const toggleCard = (id: string) => {
-    setExpandedCardId((prev) => (prev === id ? null : id));
-  };
 
   return (
-    <section id="features" className="relative bg-[#FFF4DC] py-20 border-b-2 border-[#14102B]">
+    <section id="features" className="relative bg-[#FFF4DC] py-20 border-b-2 border-[#14102B] scroll-mt-24">
       <div className="w-[min(1240px,94vw)] mx-auto flex flex-col gap-12">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto flex flex-col items-center">
@@ -117,45 +71,57 @@ export function AppleFeatureBlock() {
             Select a flavour to explore its sensory formula, clean oil profile, and small-batch craftsmanship.
           </p>
 
-          {/* iPhone-Style Colour Swatches Radio Group */}
-          <div className="mt-8 flex flex-col items-center gap-2">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#14102B]/60">
-              Colour Swatches: {swatches[selectedIdx].label}
+          {/* Interactive Flavour Switcher Tabs (Direct One-Click Selection) */}
+          <div className="mt-8 flex flex-col items-center gap-3 w-full">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#14102B]/70">
+              Select Flavour to Explore Sensory Profile:
             </span>
             <div
-              role="radiogroup"
-              aria-label="Flavour colour picker"
-              className="flex items-center gap-4 p-2 bg-white border-[2.5px] border-[#14102B] rounded-full shadow-[4px_4px_0px_#14102B]"
+              role="tablist"
+              aria-label="Select Flavour"
+              className="flex items-center gap-1.5 sm:gap-2.5 p-1.5 sm:p-2 bg-[#14102B]/5 border-2 border-[#14102B] rounded-2xl shadow-[4px_4px_0px_#14102B] max-w-2xl w-full justify-between"
             >
-              {swatches.map((swatch, idx) => {
-                const isChecked = selectedIdx === idx;
+              {flavours.map((flavour, idx) => {
+                const isSelected = selectedIdx === idx;
+                const activeStyle =
+                  flavour.id === 'peri-peri'
+                    ? 'bg-[#FF4B1F] !text-white border-2 border-[#14102B] shadow-[4px_4px_0px_#14102B] -translate-y-0.5'
+                    : flavour.id === 'tangy-tomato'
+                    ? 'bg-[#E5262F] !text-white border-2 border-[#14102B] shadow-[4px_4px_0px_#14102B] -translate-y-0.5'
+                    : 'bg-[#FFC21A] !text-[#14102B] border-2 border-[#14102B] shadow-[4px_4px_0px_#14102B] -translate-y-0.5';
+
+                const icon =
+                  flavour.id === 'peri-peri' ? '🌶️' : flavour.id === 'tangy-tomato' ? '🍅' : '🧀';
+
                 return (
                   <button
-                    key={swatch.label}
-                    ref={(el) => {
-                      swatchRefs.current[idx] = el;
-                    }}
-                    role="radio"
-                    aria-checked={isChecked}
-                    tabIndex={isChecked ? 0 : -1}
-                    aria-label={`${flavours[idx].name} (${swatch.label})`}
+                    key={flavour.id}
+                    role="tab"
+                    aria-selected={isSelected}
                     onClick={() => setSelectedIdx(idx)}
-                    onKeyDown={(e) => handleKeyDown(e, idx)}
-                    className="relative p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-[#14102B] cursor-pointer transition-transform"
+                    className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-4 rounded-xl text-[11px] sm:text-xs md:text-sm font-mono font-black uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-1.5 whitespace-nowrap ${
+                      isSelected
+                        ? `${activeStyle} scale-[1.02]`
+                        : 'bg-white !text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] hover:bg-[#FFF4DC] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#14102B]'
+                    }`}
                   >
-                    <span
-                      style={{ backgroundColor: swatch.color }}
-                      className={`block w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-[#14102B] transition-transform ${
-                        isChecked ? 'scale-110 shadow-[2px_2px_0px_#14102B]' : 'opacity-85 hover:opacity-100 hover:scale-105'
-                      }`}
-                    />
-                    {isChecked && (
-                      <span className="absolute inset-0 rounded-full border-2 border-white pointer-events-none" />
-                    )}
+                    <span className="text-xs sm:text-base leading-none">{icon}</span>
+                    <span className="leading-none hidden sm:inline">{flavour.name}</span>
+                    <span className="leading-none sm:hidden">
+                      {flavour.id === 'peri-peri'
+                        ? 'Peri-Peri'
+                        : flavour.id === 'tangy-tomato'
+                        ? 'Tomato'
+                        : 'Cheese'}
+                    </span>
                   </button>
                 );
               })}
             </div>
+            {/* Quick Mood Subtitle pill */}
+            <span className="text-xs font-mono font-bold text-[#FF4B1F] bg-white px-3 py-1 rounded-full border border-[#14102B]/30 shadow-[1px_1px_0px_#14102B]">
+              Active: {active.name} ({active.subtitle})
+            </span>
           </div>
         </div>
 
@@ -233,85 +199,70 @@ export function AppleFeatureBlock() {
               </div>
             </div>
 
-            {/* Sensory Taste Meters Strip */}
-            <div className="grid grid-cols-3 gap-3 pt-6 mt-6 border-t-2 border-[#14102B]/10">
-              <Meter label="Heat" level={active.meters.heat} icon="🔥" tone={active.tone} />
-              <Meter label="Tang" level={active.meters.tang} icon="🍅" tone={active.tone} />
-              <Meter
-                label={active.meters.thirdLabel}
-                level={active.meters.crunchOrCheese}
-                icon={active.meters.thirdIcon}
-                tone={active.tone}
-              />
+            {/* Sensory Flavour Intensity Profile (Clearly labeled so never misunderstood as ratings) */}
+            <div className="pt-6 mt-6 border-t-2 border-[#14102B]/10">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4B1F]">
+                  ✦ Sensory Flavour Intensity (Spice &amp; Tang Level)
+                </span>
+                <span className="text-[11px] font-mono text-[#14102B]/60">
+                  Flavour &amp; crunch intensity — not a product rating
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <Meter label="Heat" level={active.meters.heat} icon="🔥" tone={active.tone} />
+                <Meter label="Tang" level={active.meters.tang} icon="🍅" tone={active.tone} />
+                <Meter
+                  label={active.meters.thirdLabel}
+                  level={active.meters.crunchOrCheese}
+                  icon={active.meters.thirdIcon}
+                  tone={active.tone}
+                />
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
 
-        {/* 2. Four Feature Cards (Expand on click, lift on hover, swipeable carousel on mobile) */}
+        {/* 2. Brand & Lifestyle Photo Cards (Square Photos with Curved Corners) */}
         <div>
-          <div className="flex items-center justify-between mb-4 px-1">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-5 px-1">
             <h4 className="text-xl sm:text-2xl font-display uppercase tracking-wider text-[#14102B] m-0">
-              Craftsmanship & Ingredients
+              Craftsmanship &amp; Lifestyle
             </h4>
-            <span className="text-xs font-mono text-[#14102B]/60 hidden sm:inline">
-              Click any card to expand proof details
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4B1F]">
+              Gurugram Small-Batch · Clean Sunflower Popping
             </span>
           </div>
 
-          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:pb-0 scrollbar-none">
-            {FEATURE_CARDS.map((card) => {
-              const isExpanded = expandedCardId === card.id;
-
-              return (
-                <article
-                  key={card.id}
-                  onClick={() => toggleCard(card.id)}
-                  aria-expanded={isExpanded}
-                  className={`snap-center shrink-0 w-[280px] sm:w-auto p-5 sm:p-6 bg-white border-[2.5px] border-[#14102B] rounded-2xl shadow-[4px_4px_0px_#14102B] hover:-translate-y-1 hover:shadow-[6px_6px_0px_#14102B] transition-all duration-200 cursor-pointer flex flex-col justify-between ${
-                    isExpanded ? 'bg-[#FFF9EE]' : ''
-                  }`}
-                >
-                  <div>
-                    {/* Icon + Proof Badge */}
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <span className="text-2xl" aria-hidden="true">
-                        {card.icon}
-                      </span>
-                      <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#14102B] text-[#FFF4DC]">
-                        {card.proofBadge}
-                      </span>
-                    </div>
-
-                    <h5 className="text-lg sm:text-xl font-display uppercase tracking-wide text-[#14102B] m-0">
-                      {card.title}
-                    </h5>
-
-                    <p className="mt-2 text-xs sm:text-sm text-[#14102B]/80 font-medium leading-relaxed">
-                      {card.shortDesc}
-                    </p>
-
-                    {/* Animated Expanded Description */}
-                    <AnimatePresence>
-                      {isExpanded && (
-                        <motion.div
-                          initial={reducedMotion ? {} : { opacity: 0, height: 0 }}
-                          animate={reducedMotion ? {} : { opacity: 1, height: 'auto' }}
-                          exit={reducedMotion ? {} : { opacity: 0, height: 0 }}
-                          transition={{ duration: 0.22 }}
-                          className="mt-3 pt-3 border-t border-[#14102B]/15 text-xs text-[#14102B]/90 font-sans leading-relaxed"
-                        >
-                          {card.expandedDesc}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  <span className="mt-3 text-[11px] font-mono font-bold text-[#FF4B1F] flex items-center gap-1">
-                    {isExpanded ? '▲ Show less' : '▼ Read more'}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {PHOTO_CARDS.map((photo, i) => (
+              <div
+                key={i}
+                className="group relative aspect-square rounded-2xl sm:rounded-3xl overflow-hidden border-[2.5px] border-[#14102B] shadow-[5px_5px_0px_#14102B] bg-[#14102B] hover:-translate-y-1 hover:shadow-[7px_7px_0px_#14102B] transition-all duration-300"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#14102B]/90 via-[#14102B]/25 to-transparent" />
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-[#FFC21A] text-[#14102B] border border-[#14102B] shadow-[1.5px_1.5px_0px_#14102B]">
+                    {photo.tag}
                   </span>
-                </article>
-              );
-            })}
+                </div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <h5 className="text-base sm:text-lg font-display uppercase tracking-wide text-white m-0 drop-shadow-sm">
+                    {photo.title}
+                  </h5>
+                  <p className="mt-1 text-xs text-[#FFF4DC]/85 font-medium leading-snug drop-shadow-sm">
+                    {photo.sub}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

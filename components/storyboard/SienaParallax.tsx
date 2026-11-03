@@ -82,12 +82,12 @@ export function SienaParallax() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[200vh] bg-[#14102B] text-[#FFF4DC]"
+      className="relative h-[200vh] bg-[#FDA5CC] text-[#14102B] border-b-2 border-[#14102B]"
     >
       {/* Pinned Viewport Stage */}
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-between overflow-hidden pt-32 sm:pt-36 lg:pt-40 pb-6 sm:pb-8">
         {/* Background Atmospheric Glow */}
-        <div className="absolute inset-0 bg-radial from-[#1A1435] via-[#120E26] to-[#0A0717] -z-10" />
+        <div className="absolute inset-0 bg-radial from-[#FFB8D9] via-[#FDA5CC] to-[#F792BF] -z-10" />
 
         {/* Crisp Editorial Headline Layer (Positioned cleanly below the fixed header) */}
         <motion.div
@@ -95,16 +95,16 @@ export function SienaParallax() {
           className="relative z-30 flex flex-col items-center text-center px-4 shrink-0 pointer-events-none"
         >
           {/* Refined Pill Tag */}
-          <span className="inline-block px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest bg-[#14102B]/90 text-[#FFC21A] border border-[#FFC21A]/50 backdrop-blur-md shadow-md mb-2">
+          <span className="inline-block px-3 sm:px-3.5 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest bg-[#14102B] text-[#FFC21A] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B] mb-2">
             Late-Night Calling · Small-Batch Pop
           </span>
 
           {/* Premium Headline */}
-          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display uppercase tracking-wider text-[#FFF4DC] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)] m-0 leading-none">
-            <span className="text-[#FFC21A]">CRAVE</span> <span className="text-[#FFF4DC]/40">·</span> <span className="text-[#FF4B1F]">CRUNCH</span>
+          <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-display uppercase tracking-wider drop-shadow-[0_4px_16px_rgba(20,16,43,0.25)] m-0 leading-none">
+            <span className="text-[#FFC21A] drop-shadow-[0_2px_4px_rgba(20,16,43,0.4)]">CRAVE</span> <span className="text-[#14102B]/60">·</span> <span className="text-[#FF4B1F] drop-shadow-[0_2px_4px_rgba(20,16,43,0.3)]">CRUNCH</span>
           </h2>
 
-          <p className="mt-2 text-[11px] sm:text-xs md:text-sm font-body text-[#FFF4DC]/80 font-medium max-w-md tracking-wide">
+          <p className="mt-2 text-[11px] sm:text-xs md:text-sm font-body text-[#14102B] font-bold max-w-md tracking-wide">
             Popped exclusively in pure sunflower oil. No shortcuts, zero palm oil.
           </p>
         </motion.div>
@@ -115,7 +115,7 @@ export function SienaParallax() {
             scale: containerScale,
             borderRadius,
           }}
-          className="relative w-[min(94vw,1200px)] flex-1 min-h-[44vh] sm:min-h-[52vh] lg:min-h-[58vh] max-h-[62vh] flex items-center justify-center overflow-hidden z-10 rounded-2xl sm:rounded-3xl border-2 border-[#FFF4DC]/25 shadow-[0_24px_70px_rgba(0,0,0,0.7)] mt-3 sm:mt-4"
+          className="relative w-[min(94vw,1200px)] flex-1 min-h-[44vh] sm:min-h-[52vh] lg:min-h-[58vh] max-h-[62vh] flex items-center justify-center overflow-hidden z-10 rounded-2xl sm:rounded-3xl border-2 border-[#14102B] shadow-[6px_6px_0px_#14102B] mt-3 sm:mt-4"
         >
           {/* Inner Counter-Scaling Brand Photo (Movie Night Trio with Warm Ambiance) */}
           <motion.div

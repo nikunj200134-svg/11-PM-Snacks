@@ -23,6 +23,7 @@ export function BlobCursor() {
     if (!isFinePointer || reducedMotion) return;
 
     const moveCursor = (e: MouseEvent) => {
+      if (e.clientX <= 5 && e.clientY <= 5) return;
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
       if (!isVisible) setIsVisible(true);
@@ -65,16 +66,18 @@ export function BlobCursor() {
   return (
     <motion.div
       aria-hidden="true"
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: isVisible ? 1 : 0,
+        scale: isHovered ? 1.75 : 1,
+        backgroundColor: isHovered ? 'rgba(255, 194, 26, 0.45)' : 'rgba(20, 16, 43, 0.15)',
+        borderColor: isHovered ? '#14102B' : 'rgba(20, 16, 43, 0.35)',
+      }}
       style={{
         x: cursorX,
         y: cursorY,
         translateX: '-50%',
         translateY: '-50%',
-      }}
-      animate={{
-        scale: isHovered ? 1.75 : 1,
-        backgroundColor: isHovered ? 'rgba(255, 194, 26, 0.45)' : 'rgba(20, 16, 43, 0.15)',
-        borderColor: isHovered ? '#14102B' : 'rgba(20, 16, 43, 0.35)',
       }}
       transition={{ duration: 0.15 }}
       className="fixed top-0 left-0 w-7 h-7 rounded-full border-2 pointer-events-none z-[9999] backdrop-blur-[0.5px]"

@@ -87,9 +87,9 @@ export default function NutritionPage() {
 
             {/* Table */}
             <div className="space-y-2 font-mono text-xs sm:text-sm border-b-2 border-[#14102B] pb-6">
-              <div className="grid grid-cols-12 py-1 font-bold text-[#14102B]/60 uppercase border-b border-[#14102B]/10">
+              <div className="grid grid-cols-12 py-1.5 font-bold text-[#14102B]/60 uppercase border-b border-[#14102B]/10 tracking-wider">
                 <span className="col-span-6">Nutritional Factor</span>
-                <span className="col-span-3 text-right">Per Serving</span>
+                <span className="col-span-3 text-right">Per 30g Pack</span>
                 <span className="col-span-3 text-right">Per 100g</span>
               </div>
               {activeFlavour.nutritionTable.map((row, i) => (
@@ -150,19 +150,29 @@ export default function NutritionPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-4">
             {oilPhilosophy.keyPointers.map((ptr, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-[24px] bg-[#1F193E] border border-[#FFF4DC]/20 shadow-[4px_4px_0px_#2EC27E]"
+                className="aspect-square min-h-[280px] sm:min-h-[300px] p-7 sm:p-8 rounded-[28px] bg-[#1F193E] border-2 border-[#2EC27E]/40 shadow-[6px_6px_0px_#2EC27E] flex flex-col justify-between hover:-translate-y-1.5 transition-all duration-200"
               >
-                <span className="w-8 h-8 rounded-full bg-[#2EC27E] text-[#14102B] text-xs font-mono font-bold flex items-center justify-center mb-3">
-                  0{idx + 1}
-                </span>
-                <h3 className="text-lg font-display uppercase tracking-wide text-[#FFF4DC] m-0">
-                  {ptr.title}
-                </h3>
-                <p className="mt-2 text-xs sm:text-sm text-[#FFF4DC]/75 leading-relaxed">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="w-9 h-9 rounded-full bg-[#2EC27E] text-[#14102B] text-xs font-mono font-bold flex items-center justify-center border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                      0{idx + 1}
+                    </span>
+                    {ptr.badge && (
+                      <span className="px-3 py-1 rounded-full text-[11px] font-mono font-bold uppercase tracking-wider bg-[#FFF4DC]/10 text-[#2EC27E] border border-[#2EC27E]/40">
+                        {ptr.badge}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-display uppercase tracking-wide text-[#FFF4DC] m-0 leading-tight">
+                    {ptr.title}
+                  </h3>
+                </div>
+
+                <p className="mt-3 text-xs sm:text-sm text-[#FFF4DC]/80 font-medium leading-relaxed m-0">
                   {ptr.desc}
                 </p>
               </div>
