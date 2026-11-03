@@ -172,7 +172,7 @@ export const siteContent = {
         {
           question: 'How spicy is Peri Peri on a real scale?',
           answer:
-            'It rates 5/5 on our heat meter. It delivers a lively bird’s eye chili kick with lemon zest, warm and tongue-tingling rather than throat-burning.',
+            'It sits at our highest Fiery Kick spice profile. It delivers a lively bird’s eye chili kick with lemon zest, warm and tongue-tingling rather than throat-burning.',
         },
         {
           question: 'Is Peri Peri 100% vegetarian?',
@@ -247,7 +247,7 @@ export const siteContent = {
         {
           question: 'Is Tangy Tomato sweet or chatpata sour?',
           answer:
-            'It is distinctly chatpata with a 5/5 tang rating! The sweetness comes naturally from ripe tomato powder, balanced with dry mango amchur and black salt.',
+            'It is distinctly chatpata with a vibrant Chatpata Burst tang profile! The sweetness comes naturally from ripe tomato powder, balanced with dry mango amchur and black salt.',
         },
         {
           question: 'Does it contain artificial food colors?',
