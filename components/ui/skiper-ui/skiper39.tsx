@@ -7,9 +7,15 @@ interface CrowdCanvasProps {
   src: string;
   rows?: number;
   cols?: number;
+  className?: string;
 }
 
-const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
+const CrowdCanvas = ({
+  src,
+  rows = 15,
+  cols = 7,
+  className = "w-full h-full",
+}: CrowdCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -25,6 +31,14 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       cols,
     };
 
+    // Responsive scaling and crowd density caps
+    const stage = {
+      width: 0,
+      height: 0,
+    };
+    let peepScale = 0.65;
+    const dpr = Math.min(typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1, 2);
+
     // UTILS
     const randomRange = (min: number, max: number) =>
       min + Math.random() * (max - min);
@@ -39,18 +53,23 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
     // TWEEN FACTORIES
     const resetPeep = ({ stage, peep }: { stage: any; peep: any }) => {
       const direction = Math.random() > 0.5 ? 1 : -1;
-      const offsetY = 100 - 250 * gsap.parseEase("power2.in")(Math.random());
-      const startY = stage.height - peep.height + offsetY;
+      const renderedWidth = peep.width * peepScale;
+      const renderedHeight = peep.height * peepScale;
+      
+      // Ground baseline with gentle perspective stagger
+      const variance = Math.max(12, stage.height * 0.1);
+      const offsetY = (Math.random() * variance) - (variance * 0.5);
+      const startY = Math.max(0, stage.height - renderedHeight - 4 + offsetY);
       let startX: number;
       let endX: number;
 
       if (direction === 1) {
-        startX = -peep.width;
-        endX = stage.width;
+        startX = -renderedWidth - 15;
+        endX = stage.width + 15;
         peep.scaleX = 1;
       } else {
-        startX = stage.width + peep.width;
-        endX = 0;
+        startX = stage.width + 15;
+        endX = -renderedWidth - 15;
         peep.scaleX = -1;
       }
 
@@ -67,11 +86,11 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
 
     const normalWalk = ({ peep, props }: { peep: any; props: any }) => {
       const { startX, startY, endX } = props;
-      const xDuration = 10;
+      const xDuration = randomRange(8, 14);
       const yDuration = 0.25;
 
       const tl = gsap.timeline();
-      tl.timeScale(randomRange(0.5, 1.5));
+      tl.timeScale(randomRange(0.6, 1.4));
       tl.to(
         peep,
         {
@@ -85,9 +104,9 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
         peep,
         {
           duration: yDuration,
-          repeat: xDuration / yDuration,
+          repeat: Math.floor(xDuration / yDuration),
           yoyo: true,
-          y: startY - 10,
+          y: startY - 8,
         },
         0,
       );
@@ -141,7 +160,7 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
         render: (ctx: CanvasRenderingContext2D) => {
           ctx.save();
           ctx.translate(peep.x, peep.y);
-          ctx.scale(peep.scaleX, 1);
+          ctx.scale(peep.scaleX * peepScale, peepScale);
           ctx.drawImage(
             peep.image,
             peep.rect[0],
@@ -163,11 +182,6 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
 
     // MAIN
     const img = document.createElement("img");
-    const stage = {
-      width: 0,
-      height: 0,
-    };
-
     const allPeeps: Peep[] = [];
     const availablePeeps: Peep[] = [];
     const crowd: Peep[] = [];
@@ -194,13 +208,17 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       }
     };
 
+    const maxCrowd = () => (stage.width < 768 ? 8 : 16);
+
     const initCrowd = () => {
-      while (availablePeeps.length) {
-        addPeepToCrowd().walk.progress(Math.random());
+      const limit = maxCrowd();
+      while (crowd.length < limit && availablePeeps.length) {
+        addPeepToCrowd()?.walk?.progress(Math.random());
       }
     };
 
     const addPeepToCrowd = () => {
+      if (!availablePeeps.length) return null;
       const peep = removeRandomFromArray(availablePeeps);
       const walk = getRandomFromArray(walks)({
         peep,
@@ -230,7 +248,7 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       if (!canvas) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.save();
-      ctx.scale(devicePixelRatio, devicePixelRatio);
+      ctx.scale(dpr, dpr);
 
       crowd.forEach((peep) => {
         peep.render(ctx);
@@ -243,11 +261,13 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       if (!canvas) return;
       stage.width = canvas.clientWidth;
       stage.height = canvas.clientHeight;
-      canvas.width = stage.width * devicePixelRatio;
-      canvas.height = stage.height * devicePixelRatio;
+      peepScale = stage.width < 768 ? 0.45 : 0.65;
+      
+      canvas.width = stage.width * dpr;
+      canvas.height = stage.height * dpr;
 
       crowd.forEach((peep) => {
-        peep.walk.kill();
+        if (peep.walk) peep.walk.kill();
       });
 
       crowd.length = 0;
@@ -277,9 +297,11 @@ const CrowdCanvas = ({ src, rows = 15, cols = 7 }: CrowdCanvasProps) => {
       });
     };
   }, []);
+
   return (
-    <canvas ref={canvasRef} className="absolute bottom-0 h-[90vh] w-full" />
+    <canvas ref={canvasRef} className={className} />
   );
+};
 };
 
 const Skiper39 = () => {

@@ -148,9 +148,9 @@ export function CanvasCrowd() {
       className="relative h-[300vh] text-[#14102B]"
     >
       {/* Sticky Pinned Viewport Container */}
-      <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
+      <div className="sticky top-0 h-[100dvh] min-h-[100dvh] w-full flex flex-col overflow-hidden">
         {/* Top Progress Strip */}
-        <div className="w-[min(1240px,94vw)] mx-auto pt-6 px-4 flex items-center justify-between z-20 shrink-0">
+        <div className="w-[min(1240px,94vw)] mx-auto pt-4 sm:pt-6 px-4 flex items-center justify-between z-20 shrink-0">
           <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
             The 11 PM Story · Beat 0{currentBeat + 1} of 05
           </span>
@@ -167,7 +167,7 @@ export function CanvasCrowd() {
         </div>
 
         {/* Center Stage: Dynamic Copy Beat Over Walking Crowd */}
-        <div className="relative w-[min(960px,92vw)] mx-auto flex-1 flex flex-col justify-center items-center z-20 text-center px-4 pb-24 sm:pb-32">
+        <div className="relative w-[min(960px,92vw)] mx-auto flex-1 flex flex-col justify-center items-center z-20 text-center px-4 pb-20 sm:pb-32">
           <AnimatePresence mode="wait">
             <motion.div
               key={beat.step}
@@ -177,7 +177,7 @@ export function CanvasCrowd() {
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center max-w-3xl"
             >
-              <h3 className="text-2xl sm:text-4xl md:text-5xl font-display uppercase tracking-wide text-[#14102B] leading-tight m-0 drop-shadow-[0_2px_12px_rgba(255,255,255,0.4)]">
+              <h3 className="text-xl sm:text-3xl md:text-5xl font-display uppercase tracking-wide text-[#14102B] leading-tight m-0 drop-shadow-[0_2px_12px_rgba(255,255,255,0.4)]">
                 {beat.headline}
               </h3>
 
@@ -187,13 +187,13 @@ export function CanvasCrowd() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.15 }}
-                  className="mt-3 px-4 py-1.5 rounded-full text-sm sm:text-base font-hindi font-bold bg-[#14102B] text-[#FFF4DC] shadow-[3px_3px_0px_#FF4B1F]"
+                  className="mt-2.5 sm:mt-3 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-base font-hindi font-bold bg-[#14102B] text-[#FFF4DC] shadow-[3px_3px_0px_#FF4B1F]"
                 >
                   “{beat.hinglish}”
                 </motion.p>
               )}
 
-              <p className="mt-4 text-sm sm:text-base md:text-lg text-[#14102B]/85 font-medium max-w-xl mx-auto leading-relaxed">
+              <p className="mt-3 sm:mt-4 text-xs sm:text-base md:text-lg text-[#14102B]/85 font-medium max-w-xl mx-auto leading-relaxed">
                 {beat.subtext}
               </p>
 
@@ -203,17 +203,17 @@ export function CanvasCrowd() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: 0.1 }}
-                  className="mt-6 flex flex-col items-center gap-4"
+                  className="mt-5 sm:mt-6 flex flex-col items-center gap-3 sm:gap-4"
                 >
                   {/* Three Verified Proof Chips */}
                   <div className="flex flex-wrap items-center justify-center gap-2">
-                    <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                    <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
                       🌻 100% Sunflower Oil
                     </span>
-                    <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                    <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
                       🥣 Small Batch in Gurugram
                     </span>
-                    <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                    <span className="px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
                       🚫 Zero Palm Oil
                     </span>
                   </div>
@@ -222,11 +222,11 @@ export function CanvasCrowd() {
                   <div className="flex flex-wrap items-center justify-center gap-3 mt-1">
                     <Link
                       href="/flavours"
-                      className="px-6 py-2.5 rounded-full text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[3px_3px_0px_#FF4B1F] hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#FF4B1F] transition-all"
+                      className="px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[3px_3px_0px_#FF4B1F] hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#FF4B1F] transition-all"
                     >
                       Meet the Flavours →
                     </Link>
-                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#14102B]/75">
+                    <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider text-[#14102B]/75">
                       Batch 01 Coming Soon
                     </span>
                   </div>
@@ -237,11 +237,12 @@ export function CanvasCrowd() {
         </div>
 
         {/* Bottom Stage: Walking Crowd Canvas (Free Skiper #39 + Open Peeps Sprite Sheet) */}
-        <div className="absolute bottom-0 left-0 right-0 w-full h-[26vh] sm:h-[32vh] pointer-events-none z-10">
+        <div className="absolute inset-x-0 bottom-0 w-full h-[32vh] sm:h-[38vh] pointer-events-none z-10 overflow-hidden">
           <CrowdCanvas
             src="/images/peeps/all-peeps.png"
             rows={15}
             cols={7}
+            className="w-full h-full"
           />
         </div>
       </div>
