@@ -23,13 +23,7 @@ const AppleFeatureBlock = dynamic(
   }
 );
 
-const CanvasCrowd = dynamic(
-  () => import('@/components/storyboard/CanvasCrowd').then((mod) => mod.CanvasCrowd),
-  {
-    ssr: false,
-    loading: () => <div className="min-h-screen bg-[#E5E1D8]" />,
-  }
-);
+import { CanvasCrowdClient } from '@/components/storyboard/CanvasCrowdClient';
 
 const NotifyMeSection = dynamic(
   () => import('@/components/storyboard/NotifyMeSection').then((mod) => mod.NotifyMeSection),
@@ -67,7 +61,7 @@ export default function HomePage() {
       <AppleFeatureBlock />
 
       {/* 5. Crowd Story (HTML5 Canvas Crowd + GSAP walking sprites) */}
-      <CanvasCrowd />
+      <CanvasCrowdClient />
 
       {/* 6. Early Access Capture & FAQ */}
       <NotifyMeSection />
