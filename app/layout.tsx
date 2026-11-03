@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Bagel_Fat_One, Caveat_Brush, DM_Sans, Space_Mono } from 'next/font/google';
+import { Bagel_Fat_One, Caveat_Brush, DM_Sans, Space_Mono, Geist } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { AnnouncementBar } from '@/components/AnnouncementBar';
 import { BlobCursor } from '@/components/BlobCursor';
@@ -10,6 +10,9 @@ import { SmoothScroll } from '@/components/SmoothScroll';
 import { pageMeta } from '@/lib/metadata';
 import { site } from '@/lib/site';
 import './globals.css';
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const bagel = Bagel_Fat_One({
   weight: '400',
@@ -52,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${bagel.variable} ${dmSans.variable} ${caveat.variable} ${spaceMono.variable}`}
+      className={cn(bagel.variable, dmSans.variable, caveat.variable, spaceMono.variable, "font-sans", geist.variable)}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
