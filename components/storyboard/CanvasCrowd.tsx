@@ -1,11 +1,9 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { CrowdCanvas } from '@/components/ui/skiper-ui/skiper39';
-import { PopBurst } from '@/components/PopBurst';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 /**
@@ -150,9 +148,9 @@ export function CanvasCrowd() {
       className="relative h-[300vh] text-[#14102B]"
     >
       {/* Sticky Pinned Viewport Container */}
-      <div className="sticky top-0 h-screen w-full flex flex-col justify-between overflow-hidden">
+      <div className="sticky top-0 h-screen w-full flex flex-col overflow-hidden">
         {/* Top Progress Strip */}
-        <div className="w-[min(1240px,94vw)] mx-auto pt-6 flex items-center justify-between z-20">
+        <div className="w-[min(1240px,94vw)] mx-auto pt-6 px-4 flex items-center justify-between z-20 shrink-0">
           <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
             The 11 PM Story · Beat 0{currentBeat + 1} of 05
           </span>
@@ -169,17 +167,17 @@ export function CanvasCrowd() {
         </div>
 
         {/* Center Stage: Dynamic Copy Beat Over Walking Crowd */}
-        <div className="relative w-[min(960px,92vw)] mx-auto my-auto z-20 text-center py-6">
+        <div className="relative w-[min(960px,92vw)] mx-auto flex-1 flex flex-col justify-center items-center z-20 text-center px-4 pb-24 sm:pb-32">
           <AnimatePresence mode="wait">
             <motion.div
               key={beat.step}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -25 }}
+              exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center max-w-3xl"
             >
-              <h3 className="text-3xl sm:text-5xl md:text-6xl font-display uppercase tracking-wide text-[#14102B] leading-tight m-0 max-w-4xl drop-shadow-[0_2px_12px_rgba(255,255,255,0.4)]">
+              <h3 className="text-2xl sm:text-4xl md:text-5xl font-display uppercase tracking-wide text-[#14102B] leading-tight m-0 drop-shadow-[0_2px_12px_rgba(255,255,255,0.4)]">
                 {beat.headline}
               </h3>
 
@@ -195,49 +193,36 @@ export function CanvasCrowd() {
                 </motion.p>
               )}
 
-              <p className="mt-4 text-base sm:text-lg text-[#14102B]/85 font-medium max-w-xl mx-auto leading-relaxed">
+              <p className="mt-4 text-sm sm:text-base md:text-lg text-[#14102B]/85 font-medium max-w-xl mx-auto leading-relaxed">
                 {beat.subtext}
               </p>
 
-              {/* Beat 5 Climax: Pouch Rises + Popcorn Burst + Proof Chips */}
+              {/* Beat 5 Climax: Proof Chips + Final Action CTA */}
               {currentBeat === 4 && (
                 <motion.div
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.45, delay: 0.1 }}
                   className="mt-6 flex flex-col items-center gap-4"
                 >
-                  {/* Popcorn Pop Particle Burst */}
-                  <div className="relative">
-                    <PopBurst density="high" />
-                    <div className="relative w-44 sm:w-56 aspect-[3/2] rounded-2xl overflow-hidden border-[2.5px] border-[#14102B] shadow-[6px_6px_0px_#14102B] bg-white">
-                      <Image
-                        src="/images/peri-peri.webp"
-                        alt="11 PM Snacks signature masala popcorn pouch"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-
                   {/* Three Verified Proof Chips */}
-                  <div className="flex flex-wrap items-center justify-center gap-2 mt-2">
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                  <div className="flex flex-wrap items-center justify-center gap-2">
+                    <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
                       🌻 100% Sunflower Oil
                     </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                    <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
                       🥣 Small Batch in Gurugram
                     </span>
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                    <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
                       🚫 Zero Palm Oil
                     </span>
                   </div>
 
                   {/* Final Action CTA */}
-                  <div className="flex items-center gap-4 mt-2">
+                  <div className="flex flex-wrap items-center justify-center gap-3 mt-1">
                     <Link
                       href="/flavours"
-                      className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[3px_3px_0px_#FF4B1F] hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#FF4B1F] transition-all"
+                      className="px-6 py-2.5 rounded-full text-xs sm:text-sm font-mono font-bold uppercase tracking-wider bg-[#14102B] text-[#FFF4DC] border-2 border-[#14102B] shadow-[3px_3px_0px_#FF4B1F] hover:-translate-y-0.5 hover:shadow-[5px_5px_0px_#FF4B1F] transition-all"
                     >
                       Meet the Flavours →
                     </Link>
@@ -252,7 +237,7 @@ export function CanvasCrowd() {
         </div>
 
         {/* Bottom Stage: Walking Crowd Canvas (Free Skiper #39 + Open Peeps Sprite Sheet) */}
-        <div className="relative w-full h-[35vh] sm:h-[40vh] pointer-events-none z-10">
+        <div className="absolute bottom-0 left-0 right-0 w-full h-[26vh] sm:h-[32vh] pointer-events-none z-10">
           <CrowdCanvas
             src="/images/peeps/all-peeps.png"
             rows={15}
