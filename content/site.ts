@@ -151,8 +151,10 @@ export const siteContent = {
       ingredients: [
         'Whole Grain Corn',
         'Refined Sunflower Oil',
-        'Peri Peri Masala Seasoning (Dried Red Chili, Smoked Garlic, Black Pepper, Onion Powder, Rock Salt)',
-        'Acidity Regulator (Citric Acid)',
+        'Peri Peri Seasoning (Onion, Garlic, Dry Mango, Ginger Powder, Oregano Powder, Salt, Sugar, Chilli, Spices & Condiments)',
+        'Flavour Enhancer (E-621)',
+        'Contains Natural Colour',
+        'Acidity Regulator (E-330)',
       ],
       allergens: '100% Plant-based / vegan ingredients. Manufactured on equipment that processes dairy and soy products.',
       pairings: [
@@ -227,8 +229,9 @@ export const siteContent = {
       ingredients: [
         'Whole Grain Corn',
         'Refined Sunflower Oil',
-        'Tangy Tomato Masala Seasoning (Tomato Powder, Dry Mango Amchur, Cumin, Black Salt, Coriander, Kashmiri Chili)',
-        'Acidity Regulator (Malic Acid)',
+        'Tomato Masala Seasoning (Tomato Powder, Salt, Chilli, Dry Mango Powder, Spices and Condiments)',
+        'Contains Natural Colour and Flavour',
+        'Acidity Regulator (E-330)',
       ],
       allergens: '100% Plant-based / vegan ingredients. Manufactured on equipment that processes dairy and soy products.',
       pairings: [
@@ -303,9 +306,11 @@ export const siteContent = {
       ingredients: [
         'Whole Grain Corn',
         'Refined Sunflower Oil',
-        'Cheddar Cheese Seasoning (Cheddar Cheese Powder, Whey Powder, Salt, Onion Powder, Paprika Extract)',
+        'Cheddar Cheese Seasoning (Cheddar Cheese, Salt, Sugar, Red Chili, Spices & Condiments)',
+        'Acidity Regulator (E-330)',
+        'Contains Natural Colour & Flavour',
       ],
-      allergens: 'Contains Milk / Dairy Derivatives (Whey). 100% Vegetarian (Not 100% vegan). Made in a facility that also processes soy.',
+      allergens: 'Contains Milk / Dairy Derivatives (Cheddar Cheese). 100% Vegetarian (Not vegan). Made in a facility that also processes soy.',
       pairings: [
         {
           title: 'Iced Peach Iced Tea',
