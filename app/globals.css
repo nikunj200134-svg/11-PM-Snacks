@@ -850,7 +850,7 @@ ul { margin: 0; padding: 0; }
   padding: 96px 8%;
   background:
     linear-gradient(180deg, rgba(17,17,17,0.35), rgba(17,17,17,0.72)),
-    url("/brand/lifestyle-joy.png") center/cover no-repeat;
+    url("/brand/lifestyle-joy.webp") center/cover no-repeat;
   color: #fff;
 }
 .closing .lede { color: #f3e6d6; }

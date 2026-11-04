@@ -16,10 +16,10 @@ export function KernelToCrunchSection() {
   const reducedMotion = useReducedMotion();
 
   const stepImages = [
-    '/brand/kernels-close.png',
-    '/brand/pop-explosion.png',
-    '/brand/clusters.png',
-    '/brand/burst-hero.png',
+    '/brand/kernels-close.webp',
+    '/brand/pop-explosion.webp',
+    '/brand/clusters.webp',
+    '/brand/burst-hero.webp',
   ];
 
   // GSAP ScrollTrigger Lazy Loading & Pinned Scrubbing (Recipe 6)
@@ -127,7 +127,7 @@ export function KernelToCrunchSection() {
                   }}
                 >
                   <Image
-                    src={stepImages[activeStep] || '/brand/burst-hero.png'}
+                    src={stepImages[activeStep] || '/brand/burst-hero.webp'}
                     alt={steps[activeStep].title}
                     width={340}
                     height={340}

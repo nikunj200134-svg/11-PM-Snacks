@@ -159,7 +159,7 @@ export function HomeHero() {
             className="relative z-10"
           >
             <Image
-              src="/brand/burst-hero.png"
+              src="/brand/burst-hero.webp"
               alt="11 PM Snacks Masala Popcorn Pouch Bursting with Crunch"
               width={460}
               height={580}

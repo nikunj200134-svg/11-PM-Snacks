@@ -79,6 +79,20 @@ const BEAT_THEMES = [
   },
 ];
 
+// Mobile chapter card children, staggered by the parent card's `show` transition
+const MOBILE_ITEM = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] as const } },
+};
+const MOBILE_POP = {
+  hidden: { opacity: 0, scale: 0.6, rotate: -6 },
+  show: { opacity: 1, scale: 1, rotate: 0, transition: { type: 'spring' as const, stiffness: 320, damping: 14 } },
+};
+const MOBILE_DOT = {
+  hidden: { scaleX: 0.3 },
+  show: { scaleX: 1, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const } },
+};
+
 export function CanvasCrowd() {
   const containerRef = useRef<HTMLDivElement>(null);
   const reducedMotion = useReducedMotion();
@@ -91,6 +105,9 @@ export function CanvasCrowd() {
 
   // Track active beat based on scroll percentage (0 to 1 across 300vh)
   const [currentBeat, setCurrentBeat] = useState(0);
+  // Client-only component (ssr: false), so matchMedia is safe here. Rendering just one branch
+  // keeps the hidden desktop canvas from drawing every frame on phones.
+  const [isDesktop] = useState(() => window.matchMedia('(min-width: 1024px)').matches);
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -153,8 +170,10 @@ export function CanvasCrowd() {
 
   return (
     <>
-      {/* Mobile Flow (lg:hidden): Normal document flow so scrolling never skips chapters on phones */}
-      <div className="lg:hidden flex flex-col w-full text-[#14102B]">
+      {/* Mobile Flow: Normal document flow so scrolling never skips chapters on phones;
+          each chapter card animates in as it enters the viewport */}
+      {!isDesktop && (
+      <div className="flex flex-col w-full text-[#14102B]">
         {STORY_BEATS.map((item, idx) => {
           const theme = BEAT_THEMES[idx];
           return (
@@ -163,46 +182,59 @@ export function CanvasCrowd() {
               style={{ backgroundColor: theme.bg }}
               className="w-full py-12 px-4 border-b-2 border-[#14102B] flex flex-col items-center justify-center text-center transition-colors duration-300"
             >
-              <div className="w-[min(920px,94vw)] mx-auto bg-white/95 border-[3px] border-[#14102B] rounded-[24px] p-6 shadow-[6px_6px_0px_#14102B] flex flex-col items-center max-w-xl">
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: 48, rotate: idx % 2 ? 2.5 : -2.5, scale: 0.94 },
+                  show: {
+                    opacity: 1, y: 0, rotate: 0, scale: 1,
+                    transition: { type: 'spring', stiffness: 170, damping: 20, staggerChildren: 0.08, delayChildren: 0.12 },
+                  },
+                }}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.35 }}
+                className="w-[min(920px,94vw)] mx-auto bg-white/95 border-[3px] border-[#14102B] rounded-[24px] p-6 shadow-[6px_6px_0px_#14102B] flex flex-col items-center max-w-xl"
+              >
                 {/* Badge */}
-                <div className="flex items-center gap-2 mb-3">
+                <motion.div variants={MOBILE_ITEM} className="flex items-center gap-2 mb-3">
                   <span className={`px-3 py-1 rounded-full text-xs font-mono font-black uppercase tracking-wider ${theme.pill} shadow-[2px_2px_0px_#14102B]`}>
                     {theme.tag}
                   </span>
-                </div>
+                </motion.div>
 
                 {/* Headline */}
-                <h3 className="text-2xl sm:text-3xl font-display uppercase tracking-wide text-[#14102B] leading-tight m-0">
+                <motion.h3 variants={MOBILE_ITEM} className="text-2xl sm:text-3xl font-display uppercase tracking-wide text-[#14102B] leading-tight m-0">
                   {item.headline}
-                </h3>
+                </motion.h3>
 
                 {/* Hinglish Tagline */}
                 {item.hinglish && (
-                  <div className="mt-3 px-3.5 py-1 rounded-full text-xs font-hindi font-bold bg-[#FF4B1F] text-white border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
+                  <motion.div variants={MOBILE_POP} className="mt-3 px-3.5 py-1 rounded-full text-xs font-hindi font-bold bg-[#FF4B1F] text-white border-2 border-[#14102B] shadow-[2px_2px_0px_#14102B]">
                     “{item.hinglish}”
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Subtext */}
-                <p className="mt-3 text-sm sm:text-base text-[#14102B]/85 font-medium max-w-md mx-auto leading-relaxed">
+                <motion.p variants={MOBILE_ITEM} className="mt-3 text-sm sm:text-base text-[#14102B]/85 font-medium max-w-md mx-auto leading-relaxed">
                   {item.subtext}
-                </p>
+                </motion.p>
 
                 {/* Progress Indicators */}
-                <div className="mt-5 flex items-center justify-center gap-2 pt-3 border-t-2 border-[#14102B]/10 w-full">
+                <motion.div variants={MOBILE_ITEM} className="mt-5 flex items-center justify-center gap-2 pt-3 border-t-2 border-[#14102B]/10 w-full">
                   <span className="text-xs font-mono font-bold text-[#14102B]/60 mr-1 uppercase">
                     Chapter {item.step} of 5
                   </span>
                   {STORY_BEATS.map((_, dotIdx) => (
-                    <span
+                    <motion.span
                       key={dotIdx}
+                      variants={dotIdx === idx ? MOBILE_DOT : undefined}
                       className={`h-2.5 rounded-full border border-[#14102B] ${
-                        dotIdx === idx ? 'w-6 bg-[#14102B]' : 'w-2 bg-[#14102B]/20'
+                        dotIdx === idx ? 'w-6 bg-[#14102B] origin-left' : 'w-2 bg-[#14102B]/20'
                       }`}
                     />
                   ))}
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           );
         })}
@@ -217,15 +249,17 @@ export function CanvasCrowd() {
           />
         </div>
       </div>
+      )}
 
-      {/* Desktop Track (hidden lg:block): Pinned 300vh scroll with crossfading background */}
+      {/* Desktop Track: Pinned 300vh scroll with crossfading background */}
+      {isDesktop && (
       <section
         ref={containerRef}
         style={{
           backgroundColor: bgStyle,
           transition: 'background-color 0.65s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
-        className="hidden lg:block relative h-[300vh] text-[#14102B]"
+        className="relative h-[300vh] text-[#14102B]"
       >
       {/* Sticky Pinned Viewport Container */}
       <div className="sticky top-0 h-[100dvh] min-h-[100dvh] w-full flex flex-col justify-between overflow-hidden pt-20 sm:pt-24 pb-2">
@@ -333,6 +367,7 @@ export function CanvasCrowd() {
         </div>
       </div>
     </section>
+      )}
   </>
 );
 }

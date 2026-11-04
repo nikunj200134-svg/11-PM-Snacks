@@ -62,7 +62,6 @@ export function SienaParallax() {
               fill
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 1100px"
-              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#14102B]/90 via-[#14102B]/30 to-transparent" />
             <div className="absolute bottom-6 left-6 text-left max-w-lg">
@@ -168,7 +167,6 @@ export function SienaParallax() {
               src="/images/movie-night.webp"
               alt="11 PM Snacks trio on late-night table - Peri Peri, Tangy Tomato, and Cheese"
               fill
-              priority
               className="object-cover filter contrast-[1.05] brightness-[0.94]"
               sizes="(max-width: 768px) 100vw, 1200px"
             />

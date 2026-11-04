@@ -21,28 +21,28 @@ import { siteContent, type FlavourItem } from '@/content/site';
 
 const PHOTO_CARDS = [
   {
-    src: '/brand/three-pack-flatlay.png',
+    src: '/brand/three-pack-flatlay.webp',
     alt: '11 PM Snacks Signature Trio flatlay',
     tag: 'Signature Trio',
     title: 'Three Bold Moods',
     sub: 'Peri Peri · Tangy Tomato · Cheddar Cheese',
   },
   {
-    src: '/brand/studio-model.png',
+    src: '/brand/studio-model.webp',
     alt: 'Studio model snacking with 11 PM popcorn pouch',
     tag: 'Sunflower Popped',
     title: 'Zero Palm Oil Crunch',
     sub: 'Popped strictly in refined sunflower oil',
   },
   {
-    src: '/brand/tote-bag-model.png',
+    src: '/brand/tote-bag-model.webp',
     alt: 'Lifestyle model carrying 11 PM Snacks in tote bag',
     tag: 'Everyday Crunch',
     title: 'Carry Your Crunch',
     sub: 'High volume, wholesome corn on the move',
   },
   {
-    src: '/brand/siblings-sharing.png',
+    src: '/brand/siblings-sharing.webp',
     alt: 'Friends and family sharing 11 PM Snacks popcorn',
     tag: 'Late-Night Calling',
     title: 'Share The Crunch',
@@ -271,7 +271,6 @@ export function AppleFeatureBlock() {
                     alt={`${active.name} Masala Popcorn Pouch`}
                     fill
                     sizes="(max-width: 640px) 100vw, 340px"
-                    priority
                     className="object-cover"
                   />
                 </motion.div>

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 export function ProductVisual({
-  src = '/brand/peri-peri-pouch.png',
+  src = '/brand/peri-peri-pouch.webp',
   alt = '11 PM Snacks popcorn pouch',
   caption = 'Pop the crunch',
   className = '',
@@ -18,7 +18,7 @@ export function ProductVisual({
       <span className="orbit" aria-hidden="true" />
       <Image
         className="burst burst-a"
-        src="/brand/clusters.png"
+        src="/brand/clusters.webp"
         alt=""
         width={900}
         height={800}
@@ -34,7 +34,7 @@ export function ProductVisual({
       />
       <Image
         className="burst burst-b"
-        src="/brand/clusters-red.png"
+        src="/brand/clusters-red.webp"
         alt=""
         width={800}
         height={700}

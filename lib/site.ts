@@ -53,7 +53,7 @@ export const nutritionPillars = [
       'Provides a substantial 12g of natural plant-based protein per 100g serving [TODO: lab verified]. Fuels active focus, helps keep hunger steady, and satisfies after-hours cravings.',
     highlight: '12g',
     unit: 'per 100g',
-    image: '/brand/clusters.png',
+    image: '/brand/clusters.webp',
   },
   {
     id: 'fibre',
@@ -65,7 +65,7 @@ export const nutritionPillars = [
       'Popped whole corn kernels are naturally high in dietary fibre to support healthy digestion, feed beneficial gut bacteria, and keep you full longer without sluggishness.',
     highlight: 'High',
     unit: 'Fibre',
-    image: '/brand/pop-explosion.png',
+    image: '/brand/pop-explosion.webp',
   },
   {
     id: 'antioxidants',
@@ -77,7 +77,7 @@ export const nutritionPillars = [
       'The outer bran and hull of popped whole grain corn concentrates naturally occurring polyphenol plant compounds and wholesome corn nutrients.',
     highlight: 'Rich',
     unit: 'Polyphenols',
-    image: '/brand/celebration.png',
+    image: '/brand/celebration.webp',
   },
   {
     id: 'heart',
@@ -89,7 +89,7 @@ export const nutritionPillars = [
       'Cholesterol-free, made with sunflower oil, no palm oil. Popped exclusively in pure sunflower oil with 0g trans fats and zero hydrogenated fats.',
     highlight: 'Clean',
     unit: 'Sunflower Oil',
-    image: '/brand/burst-hero.png',
+    image: '/brand/burst-hero.webp',
   },
   {
     id: 'gluten-free',
@@ -101,7 +101,7 @@ export const nutritionPillars = [
       'Corn is an inherently gluten-free whole grain. Enjoy bold, fiery masala indulgence with complete peace of mind, free from wheat, barley, rye, or hidden gluten binders.',
     highlight: '100%',
     unit: 'Gluten Free',
-    image: '/brand/peri-burst.png',
+    image: '/brand/peri-burst.webp',
   },
   {
     id: 'whole-grain',
@@ -113,7 +113,7 @@ export const nutritionPillars = [
       'Crafted from 100% unrefined whole grain corn containing all three parts: the bran, germ, and endosperm. Gives you steady crunch and wholesome plant fibre.',
     highlight: 'Whole',
     unit: 'Grain Goodness',
-    image: '/brand/kernels-play.png',
+    image: '/brand/kernels-play.webp',
   },
   {
     id: 'plant-based',
@@ -125,7 +125,7 @@ export const nutritionPillars = [
       'Rooted in clean, non-animal agricultural ingredients with no animal fats or chemical shortenings. Peri Peri and Tomato are entirely plant-based; Cheese contains authentic dairy whey.',
     highlight: 'Pure',
     unit: 'Vegetarian',
-    image: '/brand/lifestyle-joy.png',
+    image: '/brand/lifestyle-joy.webp',
   },
 ] as const;
 
@@ -172,8 +172,8 @@ export const flavours = [
     cta: 'Discover Peri Peri',
     theme: 'peri' as const,
     mood: ['Bold', 'Punchy', 'Spicy'],
-    pouch: '/brand/peri-peri-pouch.png',
-    burst: '/brand/peri-burst.png',
+    pouch: '/brand/peri-peri-pouch.webp',
+    burst: '/brand/peri-burst.webp',
     personality:
       'Peri Peri is the flavour that walks in loud. It is built for people who want masala with heat, crunch with attitude, and a snack that does not fade into the background.',
     taste: [
@@ -193,8 +193,8 @@ export const flavours = [
     cta: 'Discover Tangy Tomato',
     theme: 'tomato' as const,
     mood: ['Zesty', 'Bright', 'Lively'],
-    pouch: '/brand/tangy-tomato-pouch.png',
-    burst: '/brand/kernels-play.png',
+    pouch: '/brand/tangy-tomato-pouch.webp',
+    burst: '/brand/kernels-play.webp',
     personality:
       'Tangy Tomato is the flavour that brightens the room. It is tomato-led, lively, and made for snack breaks that need a little spark rather than a slow burn.',
     taste: [
@@ -214,8 +214,8 @@ export const flavours = [
     cta: 'Discover Cheese',
     theme: 'cheese' as const,
     mood: ['Savoury', 'Comforting', 'Golden'],
-    pouch: '/brand/cheese-pouch.png',
-    burst: '/brand/kernels-burst.png',
+    pouch: '/brand/cheese-pouch.webp',
+    burst: '/brand/kernels-burst.webp',
     personality:
       'Cheese is the flavour people reach for when they want something familiar and still a little special. Savoury, comforting, and built around a golden popcorn crunch.',
     taste: [
