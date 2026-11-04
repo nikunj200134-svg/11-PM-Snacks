@@ -189,7 +189,7 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
                     Nutrition Values
                   </h3>
                   <p className="text-xs font-mono text-[#14102B]/60 mt-0.5">
-                    Standardised per serving &amp; 100g [TODO: serving size]
+                    Standardised per serving &amp; 100g
                   </p>
                 </div>
                 <Link
@@ -272,7 +272,7 @@ export default async function FlavourDetailPage({ params }: FlavourPageProps) {
             {flavour.name} Availability
           </h2>
           <p className="text-sm text-[#14102B]/80 font-medium">
-            Handcrafted in small batches in Gurugram, India. All pricing and pack sizes will be officially announced with Batch 01 [TODO: launch date].
+            Handcrafted in small batches in Gurugram, India. All pricing and pack sizes will be officially announced with Batch 01.
           </p>
           <div className="mt-2 flex items-center gap-4">
             <Button href="/where-to-buy" variant="gold" size="lg">

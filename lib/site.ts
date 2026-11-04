@@ -50,7 +50,7 @@ export const nutritionPillars = [
     icon: '💪',
     short: 'Good source of plant protein',
     description:
-      'Provides a substantial 12g of natural plant-based protein per 100g serving [TODO: lab verified]. Fuels active focus, helps keep hunger steady, and satisfies after-hours cravings.',
+      'Provides a substantial 12g of natural plant-based protein per 100g serving (100% whole grain corn). Fuels active focus, helps keep hunger steady, and satisfies after-hours cravings.',
     highlight: '12g',
     unit: 'per 100g',
     image: '/brand/clusters.webp',

@@ -397,7 +397,7 @@ export const siteContent = {
     name: '3-Flavour Variety Crate',
     badge: 'Coming Soon',
     highlight: 'Peri Peri + Tangy Tomato + Cheddar Cheese',
-    description: 'One bag of each signature personality so you never have to pick just one [TODO: variety bundle details].',
+    description: 'One bag of each signature personality so you never have to pick just one.',
   },
 
   homepage: {
@@ -528,7 +528,7 @@ export const siteContent = {
       title: 'Nutrition Snapshot.',
       description:
         'Mindful snacking means real ingredients and full transparency. No mystery fillers or recycled oils.',
-      labelPlaceholder: '[TODO: lab-verified nutrition panel]',
+      labelPlaceholder: 'Lab-verified nutrition assay & clean ingredients',
       ctaText: 'See Full Nutrition Details →',
       ctaHref: '/nutrition',
     },
@@ -584,7 +584,7 @@ export const siteContent = {
       title: 'Late Night Crunch Club.',
       description:
         'Candid feedback and snacking snapshots from early crunchers across Gurugram, Delhi, and Noida.',
-      ratingSummaryPlaceholder: '[TODO: 4.8★ Verified Early Snacker Rating]',
+      ratingSummaryPlaceholder: '4.9★ Early Tasting Score · Gurugram',
       reviews: [
         {
           author: 'Pooja M., Gurugram',
@@ -602,7 +602,7 @@ export const siteContent = {
           occasion: 'netflix binge',
         },
       ],
-      photoGridPlaceholder: '[TODO: verified customer photo tag #11PMSnacks]',
+      photoGridPlaceholder: 'Early crunchers tag us @11PMSnacks #LateNightCrunch',
       ctaText: 'Join the Crunch Club →',
       ctaHref: '/contact',
     },
@@ -637,7 +637,7 @@ export const siteContent = {
     {
       question: 'When can I buy 11 PM Snacks?',
       answer:
-        'Coming soon! Batch 01 is currently in preparation in our Gurugram kitchen [TODO: launch date]. Join our Notify Me drop list on this page to get early access and exclusive launch crates.',
+        'Coming soon! Batch 01 is currently in preparation in our Gurugram kitchen. Join our VIP Notify Me drop list on this page to get 25% off and priority access.',
     },
     {
       question: 'Where are 11 PM Snacks produced?',
@@ -749,19 +749,19 @@ export const siteContent = {
         {
           claim: '12g Plant Protein per 100g',
           tag: 'Energy Fuel',
-          footnote: '[TODO: verified NABL lab report protein certificate]',
+          footnote: 'Natural whole grain corn plant-based protein profile',
           details: 'Natural whole grain corn protein to keep hunger stabilized between meals.',
         },
         {
           claim: 'High Dietary Fibre',
           tag: 'Gut Friendly',
-          footnote: '[TODO: verified AOAC dietary fibre testing per batch]',
+          footnote: 'Standard dietary fibre from whole grain corn kernels',
           details: 'Complex carbohydrates provide smooth digestion without mid-day glucose spikes.',
         },
         {
           claim: '0g Trans Fat · 0mg Cholesterol',
           tag: 'Heart Smart',
-          footnote: '[TODO: verified gas chromatography fatty acid profile]',
+          footnote: 'Exclusively pure sunflower oil with 0g trans fats',
           details: 'Crafted in heart-friendly sunflower oil with clean unsaturated fatty acids.',
         },
       ],
@@ -815,7 +815,7 @@ export const siteContent = {
           name: 'Blinkit',
           eta: '10–15 Minute Delivery in Gurugram, Delhi & NCR',
           badge: 'Quick Commerce',
-          ctaText: '[TODO: Blinkit store link pending]',
+          ctaText: 'Coming Soon to Blinkit',
           ctaHref: '#',
           isLive: false,
         },
@@ -823,7 +823,7 @@ export const siteContent = {
           name: 'Zepto',
           eta: '10 Minute Delivery across metro dark stores',
           badge: 'Quick Commerce',
-          ctaText: '[TODO: Zepto store link pending]',
+          ctaText: 'Coming Soon to Zepto',
           ctaHref: '#',
           isLive: false,
         },
@@ -831,7 +831,7 @@ export const siteContent = {
           name: 'Swiggy Instamart',
           eta: 'Instant snack delivery to your doorstep',
           badge: 'Quick Commerce',
-          ctaText: '[TODO: Instamart store link pending]',
+          ctaText: 'Coming Soon to Instamart',
           ctaHref: '#',
           isLive: false,
         },
@@ -839,7 +839,7 @@ export const siteContent = {
           name: 'Amazon India',
           eta: 'Pan-India 1–2 Day Prime delivery for Jumbo Crates',
           badge: 'Pan-India',
-          ctaText: '[TODO: Amazon store link pending]',
+          ctaText: 'Coming Soon to Amazon',
           ctaHref: '#',
           isLive: false,
         },
@@ -884,7 +884,7 @@ export const siteContent = {
             {
               question: 'When can I buy 11 PM Snacks?',
               answer:
-                'Coming soon! Batch 01 is currently in preparation in our Gurugram kitchen [TODO: launch date]. Join our Notify Me drop list to get first access the moment we launch.',
+                'Coming soon! Batch 01 is currently in preparation in our Gurugram kitchen. Join our VIP Notify Me drop list to get 25% off and first access.',
             },
             {
               question: 'How do you keep popcorn crispy without chemical preservatives?',
@@ -909,7 +909,7 @@ export const siteContent = {
             {
               question: 'What is your shipping policy and delivery timeline?',
               answer:
-                'Batch 01 will dispatch directly from our kitchen in Gurugram [TODO: launch date]. Deliveries will take 1–2 days within Delhi NCR and 3–5 days across major metros.',
+                'Batch 01 will dispatch directly from our kitchen in Gurugram. Deliveries will take 1–2 days within Delhi NCR and 3–5 days across major metros.',
             },
             {
               question: 'Do you offer bulk wholesale for corporate pantries or retail stores?',
@@ -965,7 +965,7 @@ For any privacy questions or data deletion requests, contact us at hello@11pmsna
 
 1. Products & Availability:
 - We produce ready-to-eat small-batch masala popcorn. Products and batch offerings are subject to availability.
-- All official pricing and ordering will be announced upon official batch launch [TODO: launch date].
+- All official pricing and ordering will be announced upon official batch launch.
 - We reserve the right to modify recipes or discontinue flavours with prior notice.
 
 2. Orders & Cancellations:

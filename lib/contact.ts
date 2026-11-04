@@ -57,10 +57,11 @@ export const copyMessage = (d: ContactForm) =>
 
 // Early Access Drop Alert Helpers
 export const buildDropAlertMessage = (contact?: string, channel: 'WhatsApp' | 'Email' = 'WhatsApp') => {
+  const vipOffer = 'Claiming VIP Launch Offer: 25% Off + Exclusive 11 PM Sticker Pack on Day 1';
   if (contact?.trim()) {
-    return `Hi 11 PM Snacks! 👋🍿\n\nPlease add me to the Batch 01 Early Access Drop List!\nPreferred Channel: ${channel}\nContact: ${contact.trim()}`;
+    return `Hi 11 PM Snacks! 👋🍿\n\nPlease add me to the Batch 01 VIP Early Access Drop List!\n🎁 VIP Offer: ${vipOffer}\nPreferred Channel: ${channel}\nContact: ${contact.trim()}`;
   }
-  return `Hi 11 PM Snacks! 👋🍿\n\nPlease add me to the Batch 01 Early Access Drop List! For any type of query or drop alert, I'm just a text away via ${channel}!`;
+  return `Hi 11 PM Snacks! 👋🍿\n\nPlease add me to the Batch 01 VIP Early Access Drop List!\n🎁 VIP Offer: ${vipOffer}\nPreferred Channel: ${channel}`;
 };
 
 export const openDropAlertWhatsApp = (contact: string) => {

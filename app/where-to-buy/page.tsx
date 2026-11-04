@@ -32,10 +32,10 @@ export default function WhereToBuyPage() {
               🍿 Coming Soon
             </span>
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border border-[#14102B]">
-              📦 Direct Pan-India Shipping [TODO: launch date]
+              📦 Direct Pan-India Shipping · Launching Soon
             </span>
             <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-white text-[#14102B] border border-[#14102B]">
-              ⚡ Blinkit &amp; Zepto [TODO: partner links]
+              ⚡ Blinkit, Zepto &amp; Instamart Dark Stores
             </span>
           </div>
         </div>
