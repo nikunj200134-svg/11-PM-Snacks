@@ -107,7 +107,20 @@ export function CanvasCrowd() {
   const [currentBeat, setCurrentBeat] = useState(0);
   // Client-only component (ssr: false), so matchMedia is safe here. Rendering just one branch
   // keeps the hidden desktop canvas from drawing every frame on phones.
-  const [isDesktop] = useState(() => window.matchMedia('(min-width: 1024px)').matches);
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window !== 'undefined' && window.matchMedia) {
+      return window.matchMedia('(min-width: 1024px)').matches;
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.matchMedia) return;
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
 
   useEffect(() => {
     if (reducedMotion) return;
